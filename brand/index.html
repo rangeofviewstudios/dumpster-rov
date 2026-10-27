@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dumpster Brand Guidelines</title>
+<meta name="description" content="Dumpster brand guidelines v2: logo, color, type, light, UI, motion and voice. Quiet, dark, precise.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/tokens.css">
+<style>
+  /* Guidelines page layout only. Brand tokens and components live in assets/tokens.css */
+  html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+  body { overflow-x: hidden; }
+  section { padding: 96px 0; border-top: 1px solid var(--line); position: relative; z-index: 2; }
+  .head { display: grid; grid-template-columns: 200px 1fr; gap: 24px; margin-bottom: 56px; }
+  .head h2 { font-size: clamp(30px, 4.2vw, 52px); line-height: 1.05; font-weight: 400; }
+  .head p { margin-top: 16px; max-width: 620px; color: var(--dim); }
+  .sub { margin: 72px 0 24px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px; }
+  .sub h3 { font-size: 22px; font-weight: 400; }
+  p.lead { color: var(--dim); max-width: 620px; }
+  p.note { color: var(--dim); font-size: 14px; line-height: 1.55; max-width: 560px; }
+  @media (max-width: 720px) { .head { grid-template-columns: 1fr; gap: 12px; margin-bottom: 40px; } section { padding: 72px 0; } }
+
+  /* Nav */
+  .nav { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--void) 78%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+  .nav-in { display: flex; align-items: center; gap: 20px; min-height: 56px; }
+  .nav-brand { display: inline-flex; align-items: center; gap: 10px; color: var(--bone); text-decoration: none; flex: none; }
+  .nav-brand svg.wm { height: 11px; width: auto; }
+  .nav-links { display: flex; gap: 16px; flex: 1; overflow-x: auto; scrollbar-width: none; white-space: nowrap; margin: 0; padding: 0; list-style: none; }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a { color: var(--dim); text-decoration: none; font-family: var(--font-display); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; display: inline-flex; align-items: center; min-height: 44px; transition: color var(--dur-fade); }
+  .nav-links a:hover { color: var(--bone); }
+  .toggle { flex: none; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 4px; background: none; border: 0; color: var(--dim); font-family: var(--font-display); font-size: 10.5px; letter-spacing: .26em; text-transform: uppercase; cursor: pointer; }
+  .toggle:hover { color: var(--bone); }
+  .toggle i { width: 28px; height: 16px; border: 1px solid var(--line-strong); border-radius: 99px; position: relative; display: block; }
+  .toggle i::after { content: ""; position: absolute; top: 3px; left: 3px; width: 8px; height: 8px; border-radius: 50%; background: var(--bone); transition: transform var(--dur-fade) var(--ease-out); }
+  [data-theme="paper"] .toggle i::after { transform: translateX(12px); }
+  @media (max-width: 720px) { .nav-in { flex-wrap: wrap; gap: 0 16px; } .nav-links { order: 3; flex-basis: 100%; gap: 20px; margin-top: -6px; } .nav-brand { min-height: 48px; } .toggle { margin-left: auto; } }
+
+  /* Cover */
+  .cover { min-height: min(94vh, 920px); display: grid; place-items: center; text-align: center; padding: 72px 0; border: 0; }
+  .cover .lockup { width: min(420px, 82vw); margin: 0 auto; color: var(--bone); }
+  .cover .lockup svg { width: 100%; height: auto; display: block; }
+  .cover h1 { font-family: var(--font-display); font-weight: 300; font-size: clamp(40px, 7vw, 96px); line-height: .98; letter-spacing: -.03em; margin: 64px 0 24px; }
+  .cover h1 em { font-style: normal; color: var(--ash); }
+  .cover .label { display: block; margin-top: 56px; }
+
+  /* Rows */
+  .rows { border-top: 1px solid var(--line); }
+  .rowx { display: grid; grid-template-columns: 240px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .rowx b { font-family: var(--font-display); font-weight: 500; color: var(--bone); }
+  .rowx p, .rowx div { color: var(--dim); }
+  .rowx code, .code { font-family: var(--font-mono); font-size: 12.5px; color: var(--bone); }
+  @media (max-width: 720px) { .rowx { grid-template-columns: 1fr; gap: 6px; } }
+
+  /* Tiles */
+  .tile { position: relative; border: 1px solid var(--line); border-radius: var(--r-xs); background: var(--ink); overflow: hidden; display: grid; place-items: center; min-height: 220px; }
+  .tile > .label { position: absolute; left: 14px; bottom: 12px; font-size: 10px; letter-spacing: .24em; }
+  .tile.paper { background: var(--paper); color: #0E0E0F; border-color: rgba(14,14,15,.12); }
+  .tile.paper > .label { color: rgba(14,14,15,.56); }
+  .tile.smoke { background: radial-gradient(ellipse at 30% 40%, rgba(235,239,242,.14), transparent 55%), radial-gradient(ellipse at 70% 70%, rgba(150,158,165,.09), transparent 50%), #070707; color: #EEEEEC; }
+  .tile.smoke::before { content: ""; position: absolute; inset: 0; background-image: var(--grain); opacity: .2; mix-blend-mode: overlay; }
+  .tile .pad { padding: 28px; }
+  .tile.dark { background: #070707; color: #EEEEEC; border-color: rgba(238,238,236,.12); }
+  .tile.dark > .label { color: rgba(238,238,236,.52); }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 900px) { .grid-4 { grid-template-columns: 1fr 1fr; } .grid-3 { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+  .mk, .big-mk { overflow: visible; }
+
+  /* Logo */
+  .construct { display: grid; grid-template-columns: 1.15fr 1fr; gap: 12px; }
+  @media (max-width: 820px) { .construct { grid-template-columns: 1fr; } }
+  .construct svg { width: 100%; height: auto; max-width: 560px; display: block; }
+  .spec-list { padding: 28px; border: 1px solid var(--line); border-radius: var(--r-xs); background: color-mix(in srgb, var(--ink) 60%, transparent); }
+  .spec-list ul { list-style: none; margin: 18px 0 0; padding: 0; }
+  .spec-list li { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--dim); }
+  .spec-list li:last-child { border-bottom: 0; }
+  .spec-list li b { font-family: var(--font-mono); font-weight: 400; font-size: 12.5px; color: var(--bone); text-align: right; flex: none; }
+  .hero-mark { min-height: 440px; }
+  .hero-mark .mk { width: min(300px, 70%); height: auto; aspect-ratio: 1; }
+  @media (max-width: 640px) { .hero-mark { min-height: 320px; } }
+
+  .sizes { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .sizes .tile { min-height: 0; padding: 28px 8px 56px; align-content: center; }
+  .sizes .tile .meta { position: absolute; left: 14px; right: 14px; bottom: 12px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .02em; opacity: .6; line-height: 1.5; }
+  .sizes .tile .mk-wrap { min-height: 200px; display: grid; place-items: center; }
+  .sizes .tile .mk-wrap.s { min-height: 64px; }
+  @media (max-width: 900px) { .sizes { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 560px) { .sizes { grid-template-columns: 1fr 1fr; } }
+
+  .clear { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 720px) { .clear { grid-template-columns: 1fr; } }
+  .clear svg { width: 100%; max-width: 360px; height: auto; }
+  .lock-tile { min-height: 200px; padding: 28px; }
+  .lock-tile svg { max-width: 100%; height: auto; }
+  .lock-tile.h svg { width: min(360px, 100%); }
+  .lock-tile.s svg { width: min(220px, 100%); }
+  .lock-tile.m svg { width: 96px; }
+  .icons-row { display: flex; gap: 28px; flex-wrap: wrap; align-items: flex-end; justify-content: center; padding: 32px 24px 56px; }
+  .icons-row figure { margin: 0; text-align: center; }
+  .icons-row img { display: block; border-radius: 22.5%; }
+  .icons-row figcaption { font-family: var(--font-mono); font-size: 10.5px; opacity: .6; margin-top: 8px; }
+  .dont { position: relative; min-height: 190px; padding: 24px 20px 54px; }
+  .dont .x { position: absolute; top: 12px; right: 14px; font-family: var(--font-display); font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: var(--danger); }
+  .dont p { position: absolute; left: 14px; right: 14px; bottom: 12px; font-size: 12.5px; color: var(--dim); line-height: 1.4; }
+  .dont .mk { width: 92px; height: 92px; --sw: 1.9; }
+
+  /* Explorations */
+  .exp { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  @media (max-width: 1000px) { .exp { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .exp { grid-template-columns: 1fr; } }
+  .exp article { border: 1px solid var(--line); border-radius: var(--r-xs); background: color-mix(in srgb, var(--ink) 60%, transparent); display: flex; flex-direction: column; }
+  .exp article.pick { border-color: var(--line-strong); }
+  .exp .art { display: grid; place-items: center; padding: 28px; aspect-ratio: 1; background: #070707; border-bottom: 1px solid var(--line); }
+  .exp .art img { width: 100%; max-width: 160px; }
+  .exp .txt { padding: 18px; }
+  .exp h4 { font-size: 16px; font-weight: 500; letter-spacing: 0; margin: 8px 0 8px; }
+  .exp p { font-size: 13.5px; line-height: 1.5; color: var(--dim); }
+  .exp .tag { color: var(--bone); }
+  .sheets img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: var(--r-xs); }
+
+  /* Send demo */
+  .send-demo { border: 1px solid var(--line); border-radius: var(--r-xs); padding: 24px; background: radial-gradient(circle at 50% 100%, rgba(232,228,218,.07), transparent 55%), color-mix(in srgb, var(--ink) 60%, transparent); }
+  .stage { position: relative; height: 400px; display: grid; justify-items: center; align-content: end; padding-bottom: 44px; color: var(--bone); }
+  .bubble { position: absolute; top: 16px; left: 50%; transform: translateX(-50%); opacity: 0; white-space: nowrap; max-width: 92%; overflow: hidden; text-overflow: ellipsis; margin: 0; width: auto; }
+  .big-mk { width: 240px; height: 240px; stroke-width: .62; margin-bottom: 8px; }
+  #lid { transform-box: fill-box; transform-origin: 0% 100%; }
+  #glint { fill: currentColor; stroke: none; opacity: 0; transform-box: fill-box; transform-origin: center; }
+  .stage-filed { position: absolute; bottom: 6px; left: 0; right: 0; text-align: center; font-family: var(--font-display); font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: var(--dim); opacity: 0; }
+  .stage-filed b { font-weight: 400; color: var(--bone); }
+  .demo-bar { display: flex; gap: 10px; max-width: 460px; margin: 8px auto 0; align-items: center; }
+  .demo-bar .field { flex: 1; min-width: 0; }
+  .demo-bar .field span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .demo-note { text-align: center; margin-top: 16px; font-size: 14px; color: var(--dim); }
+  .seq { counter-reset: s; }
+  .seq .rowx { grid-template-columns: 64px 1fr 170px; }
+  .seq .rowx::before { counter-increment: s; content: "0" counter(s); font-family: var(--font-mono); color: var(--dim); font-size: 13px; padding-top: 2px; }
+  .seq .rowx span { font-family: var(--font-mono); font-size: 12.5px; color: var(--dim); text-align: right; }
+  @media (max-width: 720px) { .seq .rowx { grid-template-columns: 40px 1fr; } .seq .rowx span { grid-column: 2; text-align: left; } .stage { height: 360px; } .big-mk { width: 200px; height: 200px; } }
+
+  /* Color */
+  .swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .swatches.six { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 640px) { .swatches, .swatches.six { grid-template-columns: 1fr 1fr; } }
+  .sw { margin: 0; border: 1px solid var(--line); border-radius: var(--r-xs); overflow: hidden; }
+  .sw > div { height: 120px; }
+  .sw figcaption { padding: 12px 14px; font-family: var(--font-mono); font-size: 12px; color: var(--dim); line-height: 1.5; }
+  .sw figcaption b { display: block; font-family: var(--font-display); font-weight: 500; font-size: 14px; color: var(--bone); margin-bottom: 2px; }
+  .rule { border: 1px solid var(--line-strong); border-radius: var(--r-xs); padding: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; }
+  .rule .bubble-sent { margin-left: 0; }
+  .rule h3 { font-size: 24px; font-weight: 300; line-height: 1.2; }
+  @media (max-width: 720px) { .rule { grid-template-columns: 1fr; } }
+  .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 720px) { .twocol { grid-template-columns: 1fr; } }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; font-family: var(--font-display); font-weight: 400; font-size: 10.5px; letter-spacing: .24em; text-transform: uppercase; color: var(--dim); padding: 12px 12px 12px 0; border-bottom: 1px solid var(--line-strong); }
+  td { padding: 12px 12px 12px 0; border-bottom: 1px solid var(--line); color: var(--dim); vertical-align: top; }
+  td:first-child { color: var(--bone); }
+  td.m { font-family: var(--font-mono); font-size: 12.5px; color: var(--bone); white-space: nowrap; }
+  .tbl-wrap { overflow-x: auto; }
+  .tbl-wrap table { min-width: 520px; }
+  .yes { color: var(--bone); } .no { color: var(--danger); }
+
+  /* Type */
+  .type { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .spec-card { border: 1px solid var(--line); border-radius: var(--r-xs); padding: 28px; background: color-mix(in srgb, var(--ink) 60%, transparent); }
+  .spec-card .big { font-family: var(--font-display); font-weight: 300; font-size: clamp(40px, 6vw, 80px); line-height: 1; letter-spacing: -.03em; margin: 20px 0; overflow-wrap: anywhere; }
+  .spec-card.b .big { font-family: var(--font-body); }
+  .spec-card.m .big { font-family: var(--font-mono); font-size: clamp(32px, 5vw, 56px); letter-spacing: -.02em; }
+  .spec-card p { color: var(--dim); font-size: 14px; }
+  @media (max-width: 720px) { .type { grid-template-columns: 1fr; } }
+  .scale .rowx { grid-template-columns: 160px 1fr 190px; align-items: baseline; }
+  .scale .rowx > span { font-family: var(--font-mono); font-size: 12px; color: var(--dim); }
+  @media (max-width: 820px) { .scale .rowx { grid-template-columns: 1fr; } }
+  .wm-spec { padding: 56px 28px; }
+  .wm-spec svg { width: min(520px, 100%); height: auto; }
+
+  /* Light */
+  .light-demo { min-height: 360px; border-radius: var(--r-xs); border: 1px solid var(--line); overflow: hidden; position: relative; }
+  .light-demo .bg { position: absolute; inset: 0; }
+  .light-demo .layers { position: absolute; left: 20px; bottom: 16px; right: 20px; display: flex; gap: 20px; flex-wrap: wrap; }
+  pre { margin: 0; padding: 24px; border: 1px solid var(--line); border-radius: var(--r-xs); background: color-mix(in srgb, var(--ink) 80%, transparent); overflow-x: auto; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.65; color: var(--bone); tab-size: 2; }
+  pre .c { color: var(--dim); }
+
+  /* Components */
+  .panel { border: 1px solid var(--line-strong); border-radius: var(--r-xs); background: var(--void); color: var(--bone); position: relative; overflow: hidden; isolation: isolate; padding: 28px 24px; }
+  .panel::after { content: ""; position: absolute; inset: 0; background-image: var(--grain); opacity: var(--grain-opacity); mix-blend-mode: overlay; pointer-events: none; }
+  .panel::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 54% 0%, var(--light-a), transparent 52%); pointer-events: none; }
+  .panel > * { position: relative; z-index: 2; }
+  .panel .label { display: block; margin-bottom: 18px; }
+  .panel .blk { margin-bottom: 36px; }
+  .panel .blk:last-child { margin-bottom: 0; }
+  .panel .stack > * + * { margin-top: 12px; }
+  .panel .btns { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .panel .card { max-width: 100%; margin-left: 0; }
+  .panel .bubble-sent { max-width: 90%; }
+  .thumb { width: 44px; height: 44px; border-radius: 6px; background: linear-gradient(135deg, #6b7a8f, #c9a77c); flex: none; }
+  .card-link { display: flex; gap: 12px; align-items: center; }
+  .composer { display: flex; gap: 10px; align-items: center; }
+  .ic { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  .answer { font-family: var(--font-display); font-weight: 300; font-size: 22px; line-height: 1.25; letter-spacing: -.01em; margin: 18px 0 14px; }
+  .answer em { font-style: normal; color: var(--dim); }
+  .hairline-list .row .row-name { display: inline-flex; align-items: center; gap: 12px; }
+  .hairline-list .row .ic { color: var(--ash); width: 18px; height: 18px; }
+  .panel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 900px) { .panel-grid { grid-template-columns: 1fr; } }
+
+  /* Icons */
+  .icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(112px, 1fr)); gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .icon-cell { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); aspect-ratio: 1; display: grid; place-items: center; position: relative; color: var(--bone); }
+  .icon-cell .ic { width: 28px; height: 28px; }
+  .icon-cell span { position: absolute; bottom: 9px; left: 0; right: 0; text-align: center; font-family: var(--font-mono); font-size: 10.5px; color: var(--dim); }
+  .icon-cell.a { text-decoration: none; transition: background var(--dur-fade); }
+  .icon-cell.a:hover { background: var(--smoke); }
+
+  /* Voice */
+  .vt td:nth-child(2) { color: var(--bone); }
+  .vt td:nth-child(3) { color: var(--dim); text-decoration: line-through; text-decoration-color: var(--line-strong); }
+
+  /* Scraps */
+  .scraps { display: grid; grid-template-columns: 1fr 1.2fr; gap: 12px; }
+  @media (max-width: 820px) { .scraps { grid-template-columns: 1fr; } }
+  .scraps .tile svg { width: min(260px, 70%); height: auto; }
+
+  /* Downloads */
+  .dl { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 48px; }
+  @media (max-width: 720px) { .dl { grid-template-columns: 1fr; } }
+  .dl a { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; min-height: 44px; border-bottom: 1px solid var(--line); color: var(--bone); text-decoration: none; font-family: var(--font-display); font-size: 15px; transition: background var(--dur-fade); }
+  .dl a:hover { background: var(--smoke); }
+  .dl a span { font-family: var(--font-mono); font-size: 12px; color: var(--dim); align-self: center; }
+  .dl-groups h4 { font-family: var(--font-display); font-weight: 400; font-size: 10.5px; letter-spacing: .26em; text-transform: uppercase; color: var(--dim); margin: 40px 0 8px; }
+  footer { padding: 64px 0 80px; border-top: 1px solid var(--line); text-align: center; position: relative; z-index: 2; }
+  footer .wm { height: 12px; width: auto; color: var(--bone); }
+
+  @keyframes twinkle { 0%,100% { opacity: .8; transform: rotate(0); } 50% { opacity: 1; transform: rotate(8deg); } }
+  .twinkle { animation: twinkle 6s ease-in-out infinite; transform-origin: center; }
+  @media (prefers-reduced-motion: reduce) { .twinkle { animation: none; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body class="bg-void">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="dk-mark" viewBox="0 0 64 64"><rect x="5.5" y="11" width="53" height="6" rx="1.8"/><path d="M9.5 17V45.5H51L54.5 17Z"/><path d="M9.5 26H53.3"/><rect x="16" y="32" width="22" height="5" rx="1.4"/><path d="M15 45.5v2M45 45.5v2"/><circle cx="15" cy="50" r="2.6"/><circle cx="45" cy="50" r="2.6"/></symbol>
+<symbol id="dk-mark-small" viewBox="0 0 64 64"><rect x="5.5" y="11" width="53" height="6" rx="1.8"/><path d="M9.5 17V45.5H51L54.5 17Z"/><circle cx="15" cy="49.6" r="2.4"/><circle cx="45" cy="49.6" r="2.4"/></symbol>
+<symbol id="dk-glint" viewBox="0 0 48 48"><path fill="currentColor" stroke="none" d="M24 2C25 15 29 19 46 24C29 29 25 33 24 46C23 33 19 29 2 24C19 19 23 15 24 2Z"/></symbol>
+<symbol id="i-dump" viewBox="0 0 24 24"><rect x="2" y="3.5" width="20" height="3.5" rx="1.2"/><path d="M4 7v10h10.5L19.5 7"/><circle cx="7.5" cy="19.6" r="1.4"/><circle cx="13.5" cy="19.6" r="1.4"/></symbol>
+<symbol id="i-piles" viewBox="0 0 24 24"><rect x="6" y="3.5" width="12" height="4" rx="1.2"/><rect x="3.5" y="10" width="17" height="4" rx="1.2"/><rect x="5" y="16.5" width="14" height="4" rx="1.2"/></symbol>
+<symbol id="i-dig" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.4 15.4L20.5 20.5"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3"/></symbol>
+<symbol id="i-image" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M3.5 16.5l5-5 4 4 3-3 5 5"/></symbol>
+<symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24"><path d="M12 15V4M8 8l4-4 4 4M5 12v6.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V12"/></symbol>
+<symbol id="i-places" viewBox="0 0 24 24"><path d="M12 21s6.5-5.6 6.5-11a6.5 6.5 0 1 0-13 0c0 5.4 6.5 11 6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+<symbol id="i-watch" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M10.2 8.8l5 3.2-5 3.2z"/></symbol>
+<symbol id="i-reads" viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 3.5 5v13c3.5-.5 6.5 0 8.5 1.5 2-1.5 5-2 8.5-1.5V5C17 4.5 14 5 12 6.5zM12 6.5v13"/></symbol>
+<symbol id="i-shopping" viewBox="0 0 24 24"><path d="M5.5 8h13l-1 12h-11z"/><path d="M9 8V7a3 3 0 0 1 6 0v1"/></symbol>
+<symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3"/><path d="M3.5 19.5c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5"/><circle cx="17" cy="9.5" r="2.4"/><path d="M16.5 14.2c2.4.2 4 2 4 4.8"/></symbol>
+<symbol id="i-todos" viewBox="0 0 24 24"><path d="M4.5 7l1.5 1.5L8.5 5.5M4.5 16l1.5 1.5L8.5 14.5M12 7h8M12 16h8"/></symbol>
+<symbol id="i-ideas" viewBox="0 0 24 24"><path d="M12 3.5a6 6 0 0 0-3.5 10.9c.7.6 1 1.3 1 2.1h5c0-.8.3-1.5 1-2.1A6 6 0 0 0 12 3.5zM10 20h4"/></symbol>
+<symbol id="i-unsorted" viewBox="0 0 24 24"><path d="M3.5 13l2.5-8h12l2.5 8v5.5a1.5 1.5 0 0 1-1.5 1.5h-14a1.5 1.5 0 0 1-1.5-1.5zM3.5 13h5l1 2.5h5l1-2.5h5"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="i-more" viewBox="0 0 24 24"><circle cx="5.5" cy="12" r=".9"/><circle cx="12" cy="12" r=".9"/><circle cx="18.5" cy="12" r=".9"/></symbol>
+</defs></svg>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap nav-in">
+    <a class="nav-brand" href="#cover" aria-label="Dumpster guidelines, top"><svg class="mk" width="22" height="22" viewBox="0 0 64 64" style="--sw:4.2"><use href="#dk-mark-small"/></svg><svg class="wm" viewBox="-1 -1 558.8 72.0" fill="currentColor" aria-hidden="true"><path d="M0 70V60.4H9.4V9.6H0V0H28Q42 0 49.45 7.1Q56.9 14.2 56.9 28.5V41.6Q56.9 55.9 49.45 62.95Q42 70 28 70ZM20.3 60.2H28.1Q37.2 60.2 41.6 55.6Q46 51 46 41.9V28.1Q46 18.9 41.6 14.4Q37.2 9.9 28.1 9.9H20.3ZM101.7 71.4Q93.4 71.4 87.45 68.4Q81.5 65.4 78.25 59.75Q75 54.1 75 46V0H85.9V46.3Q85.9 53.7 90 57.7Q94.1 61.7 101.7 61.7Q109.3 61.7 113.4 57.7Q117.5 53.7 117.5 46.3V0H128.3V46Q128.3 54.1 125.1 59.75Q121.9 65.4 115.9 68.4Q109.9 71.4 101.7 71.4ZM148 70V0H168.3L183.6 62.8H185.2L200.5 0H220.8V70H210.3V7.6H208.7L193.5 70H175.3L160.1 7.6H158.5V70ZM240.8 70V0H268.6Q275 0 280.05 2.55Q285.1 5.1 287.95 9.75Q290.8 14.4 290.8 20.9V22.2Q290.8 28.7 287.85 33.4Q284.9 38.1 279.9 40.6Q274.9 43.1 268.6 43.1H251.6V70ZM251.6 33.3H267.5Q273.2 33.3 276.6 30.3Q280 27.3 280 22.1V21.1Q280 15.8 276.6 12.8Q273.2 9.8 267.5 9.8H251.6ZM332.7 71.4Q324.8 71.4 318.7 68.6Q312.6 65.8 309.15 60.35Q305.7 54.9 305.7 47.1V44.6H316.4V47.1Q316.4 54.5 320.85 58.2Q325.3 61.9 332.7 61.9Q340.2 61.9 344 58.75Q347.8 55.6 347.8 50.6Q347.8 47.3 346 45.2Q344.2 43.1 340.9 41.85Q337.6 40.6 333 39.5L329.3 38.6Q322.6 37 317.65 34.65Q312.7 32.3 310 28.4Q307.3 24.5 307.3 18.4Q307.3 12.2 310.35 7.8Q313.4 3.4 318.8 1Q324.2 -1.4 331.5 -1.4Q338.8 -1.4 344.55 1.1Q350.3 3.6 353.6 8.5Q356.9 13.4 356.9 20.8V24.4H346.2V20.8Q346.2 16.3 344.35 13.5Q342.5 10.7 339.2 9.4Q335.9 8.1 331.5 8.1Q325.1 8.1 321.55 10.75Q318 13.4 318 18.1Q318 21.3 319.55 23.35Q321.1 25.4 324.1 26.7Q327.1 28 331.6 29L335.3 29.9Q342.1 31.4 347.3 33.75Q352.5 36.1 355.5 40.1Q358.5 44.1 358.5 50.4Q358.5 56.7 355.35 61.4Q352.2 66.1 346.4 68.75Q340.6 71.4 332.7 71.4ZM393.9 70V9.8H372.4V0H426.2V9.8H404.7V70ZM441.6 70V0H485.7V9.8H452.4V29.9H482.9V39.7H452.4V60.2H486.2V70ZM505.5 70V0H534.9Q541.4 0 546.35 2.25Q551.3 4.5 554.05 8.7Q556.8 12.9 556.8 18.7V19.8Q556.8 26.4 553.65 30.35Q550.5 34.3 546 35.9V37.5Q549.8 37.7 552.1 40.05Q554.4 42.4 554.4 46.8V70H543.5V48.3Q543.5 45.6 542.1 44Q540.7 42.4 537.6 42.4H516.3V70ZM516.3 32.6H533.7Q539.5 32.6 542.7 29.65Q545.9 26.7 545.9 21.6V20.8Q545.9 15.7 542.75 12.75Q539.6 9.8 533.7 9.8H516.3Z"/></svg></a>
+    <ul class="nav-links">
+      <li><a href="#idea">Idea</a></li><li><a href="#logo">Logo</a></li><li><a href="#explorations">Explorations</a></li><li><a href="#send">The send</a></li><li><a href="#color">Color</a></li><li><a href="#type">Type</a></li><li><a href="#light">Light</a></li><li><a href="#ui">UI</a></li><li><a href="#icons">Icons</a></li><li><a href="#motion">Motion</a></li><li><a href="#voice">Voice</a></li><li><a href="#scraps">Scraps</a></li><li><a href="#downloads">Downloads</a></li>
+    </ul>
+    <button class="toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Toggle paper mode"><span id="themeLabel">Paper</span><i></i></button>
+  </div>
+</nav>
+
+<header class="cover wrap" id="cover">
+  <div>
+    <div class="lockup" role="img" aria-label="Dumpster"><svg viewBox="-2 -6.05 691.14 78.05"><g transform="translate(-9.79 -23.63) scale(1.78)" fill="none" stroke="currentColor" stroke-width="1.95" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="11" width="53" height="6" rx="1.8"/><path d="M9.5 17V45.5H51L54.5 17Z"/><path d="M9.5 26H53.3"/><rect x="16" y="32" width="22" height="5" rx="1.4"/><path d="M15 45.5v2M45 45.5v2"/><circle cx="15" cy="50" r="2.6"/><circle cx="45" cy="50" r="2.6"/></g><path transform="translate(130.34 0)" fill="currentColor" d="M0 70V60.4H9.4V9.6H0V0H28Q42 0 49.45 7.1Q56.9 14.2 56.9 28.5V41.6Q56.9 55.9 49.45 62.95Q42 70 28 70ZM20.3 60.2H28.1Q37.2 60.2 41.6 55.6Q46 51 46 41.9V28.1Q46 18.9 41.6 14.4Q37.2 9.9 28.1 9.9H20.3ZM101.7 71.4Q93.4 71.4 87.45 68.4Q81.5 65.4 78.25 59.75Q75 54.1 75 46V0H85.9V46.3Q85.9 53.7 90 57.7Q94.1 61.7 101.7 61.7Q109.3 61.7 113.4 57.7Q117.5 53.7 117.5 46.3V0H128.3V46Q128.3 54.1 125.1 59.75Q121.9 65.4 115.9 68.4Q109.9 71.4 101.7 71.4ZM148 70V0H168.3L183.6 62.8H185.2L200.5 0H220.8V70H210.3V7.6H208.7L193.5 70H175.3L160.1 7.6H158.5V70ZM240.8 70V0H268.6Q275 0 280.05 2.55Q285.1 5.1 287.95 9.75Q290.8 14.4 290.8 20.9V22.2Q290.8 28.7 287.85 33.4Q284.9 38.1 279.9 40.6Q274.9 43.1 268.6 43.1H251.6V70ZM251.6 33.3H267.5Q273.2 33.3 276.6 30.3Q280 27.3 280 22.1V21.1Q280 15.8 276.6 12.8Q273.2 9.8 267.5 9.8H251.6ZM332.7 71.4Q324.8 71.4 318.7 68.6Q312.6 65.8 309.15 60.35Q305.7 54.9 305.7 47.1V44.6H316.4V47.1Q316.4 54.5 320.85 58.2Q325.3 61.9 332.7 61.9Q340.2 61.9 344 58.75Q347.8 55.6 347.8 50.6Q347.8 47.3 346 45.2Q344.2 43.1 340.9 41.85Q337.6 40.6 333 39.5L329.3 38.6Q322.6 37 317.65 34.65Q312.7 32.3 310 28.4Q307.3 24.5 307.3 18.4Q307.3 12.2 310.35 7.8Q313.4 3.4 318.8 1Q324.2 -1.4 331.5 -1.4Q338.8 -1.4 344.55 1.1Q350.3 3.6 353.6 8.5Q356.9 13.4 356.9 20.8V24.4H346.2V20.8Q346.2 16.3 344.35 13.5Q342.5 10.7 339.2 9.4Q335.9 8.1 331.5 8.1Q325.1 8.1 321.55 10.75Q318 13.4 318 18.1Q318 21.3 319.55 23.35Q321.1 25.4 324.1 26.7Q327.1 28 331.6 29L335.3 29.9Q342.1 31.4 347.3 33.75Q352.5 36.1 355.5 40.1Q358.5 44.1 358.5 50.4Q358.5 56.7 355.35 61.4Q352.2 66.1 346.4 68.75Q340.6 71.4 332.7 71.4ZM393.9 70V9.8H372.4V0H426.2V9.8H404.7V70ZM441.6 70V0H485.7V9.8H452.4V29.9H482.9V39.7H452.4V60.2H486.2V70ZM505.5 70V0H534.9Q541.4 0 546.35 2.25Q551.3 4.5 554.05 8.7Q556.8 12.9 556.8 18.7V19.8Q556.8 26.4 553.65 30.35Q550.5 34.3 546 35.9V37.5Q549.8 37.7 552.1 40.05Q554.4 42.4 554.4 46.8V70H543.5V48.3Q543.5 45.6 542.1 44Q540.7 42.4 537.6 42.4H516.3V70ZM516.3 32.6H533.7Q539.5 32.6 542.7 29.65Q545.9 26.7 545.9 21.6V20.8Q545.9 15.7 542.75 12.75Q539.6 9.8 533.7 9.8H516.3Z"/></svg></div>
+    <h1>Dump it.<br><em>Find it.</em></h1>
+    <p class="lead" style="margin:0 auto;text-align:center">Brand guidelines for a chat-first app that replaces texting yourself. Quiet, dark, precise. The restraint is the brand.</p>
+    <span class="label">Brand guidelines / v2.0 · Range Of View Studios · October 2026</span>
+  </div>
+</header>
+
+<main>
+
+<section class="wrap" id="idea">
+  <div class="head"><span class="label">01 / The idea</span><div><h2>A luxury object with a joke for a name</h2><p>Dumpster is where everything you send yourself ends up, sorted, and findable in plain language. The name is the joke. The design never repeats it.</p></div></div>
+  <div class="rows">
+    <div class="rowx"><b>Dump</b><p>One thread. Links, addresses, screenshots, voice notes, half-thoughts. Zero effort in.</p></div>
+    <div class="rowx"><b>Piles</b><p>Dumpster sorts what you sent into Piles. Names, not colors. A plain list, divided by hairlines.</p></div>
+    <div class="rowx"><b>Dig</b><p>Ask for it the way you remember it. "That address Mom sent." A quiet answer line, then the cards.</p></div>
+    <div class="rowx"><b>Posture</b><p>Quiet. Nocturnal. Precise. Archival. Unbothered. If in doubt, remove something.</p></div>
+    <div class="rowx"><b>Reference</b><p>Blackstar's discipline: a tiny glyph beside a wide uppercase wordmark, near-black lit by soft silver light, one list, lots of dark. The only color we add is one blue, reserved for what you send.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="logo">
+  <div class="head"><span class="label">02 / Logo</span><div><h2>A fine-line dumpster,<br>and a wide wordmark</h2><p>The mark is a side view of a front-load dumpster: flat lid, boxy body, one rib, one fork pocket, two casters. One stroke weight, round joins. The lid is its own element, because it opens.</p></div></div>
+
+  <div class="sub" style="margin-top:0"><h3>Construction</h3><span class="label">64px grid</span></div>
+  <div class="construct">
+    <div class="tile dark" style="padding:24px 24px 56px">
+      <svg viewBox="0 0 64 64" role="img" aria-label="Mark construction on a 64 pixel grid">
+        <g stroke="rgba(238,238,236,.09)" stroke-width=".12"><path d="M4 0V64"/><path d="M0 4H64"/><path d="M8 0V64"/><path d="M0 8H64"/><path d="M12 0V64"/><path d="M0 12H64"/><path d="M16 0V64"/><path d="M0 16H64"/><path d="M20 0V64"/><path d="M0 20H64"/><path d="M24 0V64"/><path d="M0 24H64"/><path d="M28 0V64"/><path d="M0 28H64"/><path d="M32 0V64"/><path d="M0 32H64"/><path d="M36 0V64"/><path d="M0 36H64"/><path d="M40 0V64"/><path d="M0 40H64"/><path d="M44 0V64"/><path d="M0 44H64"/><path d="M48 0V64"/><path d="M0 48H64"/><path d="M52 0V64"/><path d="M0 52H64"/><path d="M56 0V64"/><path d="M0 56H64"/><path d="M60 0V64"/><path d="M0 60H64"/></g>
+        <g stroke="rgba(238,238,236,.2)" stroke-width=".14" fill="none"><rect x="0" y="0" width="64" height="64"/><path d="M32 0V64M0 32H64"/></g>
+        <g stroke="#EEEEEC" stroke-width=".4" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="5.5" y="11" width="53" height="6" rx="1.8"/><path d="M9.5 17V45.5H51L54.5 17Z"/><path d="M9.5 26H53.3"/><rect x="16" y="32" width="22" height="5" rx="1.4"/><path d="M15 45.5v2M45 45.5v2"/><circle cx="15" cy="50" r="2.6"/><circle cx="45" cy="50" r="2.6"/></g>
+        <g stroke="#7E9BFF" stroke-width=".18" stroke-dasharray=".8 .8" fill="none"><rect x="5.5" y="11" width="53" height="41.6"/><path d="M5.5 17H58.5M9.5 17V50M54.5 17V50"/><circle cx="15" cy="50" r="2.6"/><circle cx="45" cy="50" r="2.6"/></g>
+        <g font-family="Geist Mono, monospace" font-size="1.5" fill="#8B8F94"><text x="5.5" y="9.6">53</text><text x="59.6" y="14.5">6</text><text x="55.8" y="33">28.5</text><text x="1" y="62">64 × 64 · 1u = 1px at 64</text></g>
+      </svg>
+      <span class="label">Mark on the 64 grid, drawn at 0.4u so the construction shows</span>
+    </div>
+    <div class="spec-list">
+      <span class="label">Optical corrections</span>
+      <ul>
+        <li>Lid overhang <b>4u each side</b></li>
+        <li>Lid height / radius <b>6u / 1.8u</b></li>
+        <li>Body lean (front wall) <b>3.5u over 28.5u</b></li>
+        <li>Rib sits at <b>⅓ body height</b></li>
+        <li>Fork pocket <b>22 × 5u, r 1.4</b></li>
+        <li>Casters <b>r 2.6u at x 15 / 45</b></li>
+        <li>Caster stems <b>2u, round caps</b></li>
+        <li>Visual centre <b>32, 31.8</b></li>
+        <li>Min gap between strokes <b>2.5u</b></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub"><h3>The mark</h3><span class="label">Chosen: A, side view, closed</span></div>
+  <div class="grid-2">
+    <div class="tile smoke hero-mark"><svg class="mk" viewBox="0 0 64 64" style="--sw:.55;color:#EEEEEC"><use href="#dk-mark"/></svg><span class="label">The mark</span></div>
+    <div class="spec-list">
+      <span class="label">Why this one</span>
+      <ul>
+        <li>Reads as a dumpster, never a cart <b>vertical back, boxy</b></li>
+        <li>Silhouette holds at 16px <b>lid + tub + casters</b></li>
+        <li>Quiet at rest, expressive in use <b>closed = filed</b></li>
+        <li>Lid is a separate element <b>&lt;g id="lid"&gt;</b></li>
+        <li>Pairs with a wide wordmark <b>like a Blackstar star</b></li>
+      </ul>
+      <p class="note" style="margin-top:20px">The lid open a crack is the same mark in a different state: <code class="code">mark-ajar.svg</code>. Use it for empty and ready states, not as the logo.</p>
+    </div>
+  </div>
+
+  <div class="sub"><h3>Sizes and stroke weight</h3><span class="label">200 · 64 · 32 · 24 · 16</span></div>
+  <p class="note" style="margin-bottom:20px">Draw the stroke in pixels, not units. Stroke weight is set per size so the line stays fine as the mark grows and never clots as it shrinks. At 24px and below, drop the rib and the fork pocket (<code class="code">mark-small.svg</code>).</p>
+  <div class="sizes">
+    <div class="tile dark"><div class="mk-wrap"><svg class="mk" width="200" height="200" viewBox="0 0 64 64" style="--sw:.64" role="img" aria-label="Dumpster mark, 200px"><use href="#dk-mark"/></svg></div><span class="meta">200px · 2px · 0.64u<br>mark</span></div>
+    <div class="tile dark"><div class="mk-wrap"><svg class="mk" width="64" height="64" viewBox="0 0 64 64" style="--sw:1.8" role="img" aria-label="Dumpster mark, 64px"><use href="#dk-mark"/></svg></div><span class="meta">64px · 1.8px · 1.8u<br>mark</span></div>
+    <div class="tile dark"><div class="mk-wrap s"><svg class="mk" width="32" height="32" viewBox="0 0 64 64" style="--sw:3" role="img" aria-label="Dumpster mark, 32px"><use href="#dk-mark"/></svg></div><span class="meta">32px · 1.5px · 3u<br>mark</span></div>
+    <div class="tile dark"><div class="mk-wrap s"><svg class="mk" width="24" height="24" viewBox="0 0 64 64" style="--sw:4" role="img" aria-label="Dumpster mark, 24px"><use href="#dk-mark-small"/></svg></div><span class="meta">24px · 1.5px · 4u<br>mark-small</span></div>
+    <div class="tile dark"><div class="mk-wrap s"><svg class="mk" width="16" height="16" viewBox="0 0 64 64" style="--sw:5" role="img" aria-label="Dumpster mark, 16px"><use href="#dk-mark-small"/></svg></div><span class="meta">16px · 1.25px · 5u<br>mark-small</span></div>
+  </div>
+  <div class="sizes" style="margin-top:12px">
+    <div class="tile paper"><div class="mk-wrap"><svg class="mk" width="200" height="200" viewBox="0 0 64 64" style="--sw:.64" role="img" aria-label="Dumpster mark, 200px"><use href="#dk-mark"/></svg></div><span class="meta">on paper</span></div>
+    <div class="tile paper"><div class="mk-wrap"><svg class="mk" width="64" height="64" viewBox="0 0 64 64" style="--sw:1.8" role="img" aria-label="Dumpster mark, 64px"><use href="#dk-mark"/></svg></div><span class="meta">on paper</span></div>
+    <div class="tile paper"><div class="mk-wrap s"><svg class="mk" width="32" height="32" viewBox="0 0 64 64" style="--sw:3" role="img" aria-label="Dumpster mark, 32px"><use href="#dk-mark"/></svg></div><span class="meta">on paper</span></div>
+    <div class="tile paper"><div class="mk-wrap s"><svg class="mk" width="24" height="24" viewBox="0 0 64 64" style="--sw:4" role="img" aria-label="Dumpster mark, 24px"><use href="#dk-mark-small"/></svg></div><span class="meta">on paper</span></div>
+    <div class="tile paper"><div class="mk-wrap s"><svg class="mk" width="16" height="16" viewBox="0 0 64 64" style="--sw:5" role="img" aria-label="Dumpster mark, 16px"><use href="#dk-mark-small"/></svg></div><span class="meta">on paper</span></div>
+  </div>
+
+  <div class="sub"><h3>Clear space and minimum size</h3></div>
+  <div class="clear">
+    <div class="tile dark" style="padding:28px 28px 56px">
+      <svg viewBox="0 0 130 112" role="img" aria-label="Clear space diagram">
+        <rect x="1" y="1" width="128" height="110" fill="none" stroke="rgba(238,238,236,.24)" stroke-dasharray="2 2" stroke-width=".4"/>
+        <rect x="28.7" y="27.9" width="71.55" height="56.2" fill="none" stroke="rgba(238,238,236,.35)" stroke-width=".3"/>
+        <g transform="translate(21.3 13.05) scale(1.35)" stroke="#EEEEEC" stroke-width=".85" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect x="5.5" y="11" width="53" height="6" rx="1.8"/><path d="M9.5 17V45.5H51L54.5 17Z"/><path d="M9.5 26H53.3"/><rect x="16" y="32" width="22" height="5" rx="1.4"/><path d="M15 45.5v2M45 45.5v2"/><circle cx="15" cy="50" r="2.6"/><circle cx="45" cy="50" r="2.6"/></g>
+        <g stroke="#7E9BFF" stroke-width=".4"><path d="M1 56H28.7M100.25 56H129M65 1V27.9M65 84.1V111"/></g>
+        <g font-family="Geist Mono, monospace" font-size="4.5" fill="#8B8F94" text-anchor="middle"><text x="15" y="54">x</text><text x="114.6" y="54">x</text><text x="68" y="16" text-anchor="start">x</text><text x="68" y="100" text-anchor="start">x</text></g>
+      </svg>
+      <span class="label">x = half the mark's height, all sides</span>
+    </div>
+    <div class="spec-list">
+      <span class="label">Rules</span>
+      <ul>
+        <li>Clear space <b>x on every side</b></li>
+        <li>Mark minimum <b>16px / 5mm</b></li>
+        <li>Wordmark minimum <b>10px cap height / 20mm wide</b></li>
+        <li>Horizontal lockup minimum <b>96px wide</b></li>
+        <li>Gap, mark to wordmark <b>½ the mark height</b></li>
+        <li>Mark sits on the wordmark's baseline, lid top ≈ cap height</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sub"><h3>Lockups</h3><span class="label">Horizontal · stacked · mark only</span></div>
+  <div class="grid-3">
+    <div class="tile dark lock-tile h"><div role="img" aria-label="Dumpster horizontal lockup" style="color:#EEEEEC"><svg viewBox="-2 -6.05 691.14 78.05"><g transform="translate(-9.79 -23.63) scale(1.78)" fill="none" stroke="currentColor" stroke-width="1.95" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="11" width="53" height="6" rx="1.8"/><path d="M9.5 17V45.5H51L54.5 17Z"/><path d="M9.5 26H53.3"/><rect x="16" y="32" width="22" height="5" rx="1.4"/><path d="M15 45.5v2M45 45.5v2"/><circle cx="15" cy="50" r="2.6"/><circle cx="45" cy="50" r="2.6"/></g><path transform="translate(130.34 0)" fill="currentColor" d="M0 70V60.4H9.4V9.6H0V0H28Q42 0 49.45 7.1Q56.9 14.2 56.9 28.5V41.6Q56.9 55.9 49.45 62.95Q42 70 28 70ZM20.3 60.2H28.1Q37.2 60.2 41.6 55.6Q46 51 46 41.9V28.1Q46 18.9 41.6 14.4Q37.2 9.9 28.1 9.9H20.3ZM101.7 71.4Q93.4 71.4 87.45 68.4Q81.5 65.4 78.25 59.75Q75 54.1 75 46V0H85.9V46.3Q85.9 53.7 90 57.7Q94.1 61.7 101.7 61.7Q109.3 61.7 113.4 57.7Q117.5 53.7 117.5 46.3V0H128.3V46Q128.3 54.1 125.1 59.75Q121.9 65.4 115.9 68.4Q109.9 71.4 101.7 71.4ZM148 70V0H168.3L183.6 62.8H185.2L200.5 0H220.8V70H210.3V7.6H208.7L193.5 70H175.3L160.1 7.6H158.5V70ZM240.8 70V0H268.6Q275 0 280.05 2.55Q285.1 5.1 287.95 9.75Q290.8 14.4 290.8 20.9V22.2Q290.8 28.7 287.85 33.4Q284.9 38.1 279.9 40.6Q274.9 43.1 268.6 43.1H251.6V70ZM251.6 33.3H267.5Q273.2 33.3 276.6 30.3Q280 27.3 280 22.1V21.1Q280 15.8 276.6 12.8Q273.2 9.8 267.5 9.8H251.6ZM332.7 71.4Q324.8 71.4 318.7 68.6Q312.6 65.8 309.15 60.35Q305.7 54.9 305.7 47.1V44.6H316.4V47.1Q316.4 54.5 320.85 58.2Q325.3 61.9 332.7 61.9Q340.2 61.9 344 58.75Q347.8 55.6 347.8 50.6Q347.8 47.3 346 45.2Q344.2 43.1 340.9 41.85Q337.6 40.6 333 39.5L329.3 38.6Q322.6 37 317.65 34.65Q312.7 32.3 310 28.4Q307.3 24.5 307.3 18.4Q307.3 12.2 310.35 7.8Q313.4 3.4 318.8 1Q324.2 -1.4 331.5 -1.4Q338.8 -1.4 344.55 1.1Q350.3 3.6 353.6 8.5Q356.9 13.4 356.9 20.8V24.4H346.2V20.8Q346.2 16.3 344.35 13.5Q342.5 10.7 339.2 9.4Q335.9 8.1 331.5 8.1Q325.1 8.1 321.55 10.75Q318 13.4 318 18.1Q318 21.3 319.55 23.35Q321.1 25.4 324.1 26.7Q327.1 28 331.6 29L335.3 29.9Q342.1 31.4 347.3 33.75Q352.5 36.1 355.5 40.1Q358.5 44.1 358.5 50.4Q358.5 56.7 355.35 61.4Q352.2 66.1 346.4 68.75Q340.6 71.4 332.7 71.4ZM393.9 70V9.8H372.4V0H426.2V9.8H404.7V70ZM441.6 70V0H485.7V9.8H452.4V29.9H482.9V39.7H452.4V60.2H486.2V70ZM505.5 70V0H534.9Q541.4 0 546.35 2.25Q551.3 4.5 554.05 8.7Q556.8 12.9 556.8 18.7V19.8Q556.8 26.4 553.65 30.35Q550.5 34.3 546 35.9V37.5Q549.8 37.7 552.1 40.05Q554.4 42.4 554.4 46.8V70H543.5V48.3Q543.5 45.6 542.1 44Q540.7 42.4 537.6 42.4H516.3V70ZM516.3 32.6H533.7Q539.5 32.6 542.7 29.65Q545.9 26.7 545.9 21.6V20.8Q545.9 15.7 542.75 12.75Q539.6 9.8 533.7 9.8H516.3Z"/></svg></div><span class="label">Horizontal, primary</span></div>
+    <div class="tile dark lock-tile s"><div role="img" aria-label="Dumpster stacked lockup" style="color:#EEEEEC"><svg viewBox="-2 -2 560.80 220.32"><g transform="translate(192.00 -29.70) scale(2.7)" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="11" width="53" height="6" rx="1.8"/><path d="M9.5 17V45.5H51L54.5 17Z"/><path d="M9.5 26H53.3"/><rect x="16" y="32" width="22" height="5" rx="1.4"/><path d="M15 45.5v2M45 45.5v2"/><circle cx="15" cy="50" r="2.6"/><circle cx="45" cy="50" r="2.6"/></g><path transform="translate(0.00 146.32)" fill="currentColor" d="M0 70V60.4H9.4V9.6H0V0H28Q42 0 49.45 7.1Q56.9 14.2 56.9 28.5V41.6Q56.9 55.9 49.45 62.95Q42 70 28 70ZM20.3 60.2H28.1Q37.2 60.2 41.6 55.6Q46 51 46 41.9V28.1Q46 18.9 41.6 14.4Q37.2 9.9 28.1 9.9H20.3ZM101.7 71.4Q93.4 71.4 87.45 68.4Q81.5 65.4 78.25 59.75Q75 54.1 75 46V0H85.9V46.3Q85.9 53.7 90 57.7Q94.1 61.7 101.7 61.7Q109.3 61.7 113.4 57.7Q117.5 53.7 117.5 46.3V0H128.3V46Q128.3 54.1 125.1 59.75Q121.9 65.4 115.9 68.4Q109.9 71.4 101.7 71.4ZM148 70V0H168.3L183.6 62.8H185.2L200.5 0H220.8V70H210.3V7.6H208.7L193.5 70H175.3L160.1 7.6H158.5V70ZM240.8 70V0H268.6Q275 0 280.05 2.55Q285.1 5.1 287.95 9.75Q290.8 14.4 290.8 20.9V22.2Q290.8 28.7 287.85 33.4Q284.9 38.1 279.9 40.6Q274.9 43.1 268.6 43.1H251.6V70ZM251.6 33.3H267.5Q273.2 33.3 276.6 30.3Q280 27.3 280 22.1V21.1Q280 15.8 276.6 12.8Q273.2 9.8 267.5 9.8H251.6ZM332.7 71.4Q324.8 71.4 318.7 68.6Q312.6 65.8 309.15 60.35Q305.7 54.9 305.7 47.1V44.6H316.4V47.1Q316.4 54.5 320.85 58.2Q325.3 61.9 332.7 61.9Q340.2 61.9 344 58.75Q347.8 55.6 347.8 50.6Q347.8 47.3 346 45.2Q344.2 43.1 340.9 41.85Q337.6 40.6 333 39.5L329.3 38.6Q322.6 37 317.65 34.65Q312.7 32.3 310 28.4Q307.3 24.5 307.3 18.4Q307.3 12.2 310.35 7.8Q313.4 3.4 318.8 1Q324.2 -1.4 331.5 -1.4Q338.8 -1.4 344.55 1.1Q350.3 3.6 353.6 8.5Q356.9 13.4 356.9 20.8V24.4H346.2V20.8Q346.2 16.3 344.35 13.5Q342.5 10.7 339.2 9.4Q335.9 8.1 331.5 8.1Q325.1 8.1 321.55 10.75Q318 13.4 318 18.1Q318 21.3 319.55 23.35Q321.1 25.4 324.1 26.7Q327.1 28 331.6 29L335.3 29.9Q342.1 31.4 347.3 33.75Q352.5 36.1 355.5 40.1Q358.5 44.1 358.5 50.4Q358.5 56.7 355.35 61.4Q352.2 66.1 346.4 68.75Q340.6 71.4 332.7 71.4ZM393.9 70V9.8H372.4V0H426.2V9.8H404.7V70ZM441.6 70V0H485.7V9.8H452.4V29.9H482.9V39.7H452.4V60.2H486.2V70ZM505.5 70V0H534.9Q541.4 0 546.35 2.25Q551.3 4.5 554.05 8.7Q556.8 12.9 556.8 18.7V19.8Q556.8 26.4 553.65 30.35Q550.5 34.3 546 35.9V37.5Q549.8 37.7 552.1 40.05Q554.4 42.4 554.4 46.8V70H543.5V48.3Q543.5 45.6 542.1 44Q540.7 42.4 537.6 42.4H516.3V70ZM516.3 32.6H533.7Q539.5 32.6 542.7 29.65Q545.9 26.7 545.9 21.6V20.8Q545.9 15.7 542.75 12.75Q539.6 9.8 533.7 9.8H516.3Z"/></svg></div><span class="label">Stacked</span></div>
+    <div class="tile dark lock-tile m"><svg class="mk" viewBox="0 0 64 64" style="--sw:1.6;color:#EEEEEC;width:96px;height:96px"><use href="#dk-mark"/></svg><span class="label">Mark only</span></div>
+  </div>
+  <div class="grid-3" style="margin-top:12px">
+    <div class="tile paper lock-tile h"><div role="img" aria-label="Dumpster horizontal lockup" style="color:#0E0E0F"><svg viewBox="-2 -6.05 691.14 78.05"><g transform="translate(-9.79 -23.63) scale(1.78)" fill="none" stroke="currentColor" stroke-width="1.95" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="11" width="53" height="6" rx="1.8"/><path d="M9.5 17V45.5H51L54.5 17Z"/><path d="M9.5 26H53.3"/><rect x="16" y="32" width="22" height="5" rx="1.4"/><path d="M15 45.5v2M45 45.5v2"/><circle cx="15" cy="50" r="2.6"/><circle cx="45" cy="50" r="2.6"/></g><path transform="translate(130.34 0)" fill="currentColor" d="M0 70V60.4H9.4V9.6H0V0H28Q42 0 49.45 7.1Q56.9 14.2 56.9 28.5V41.6Q56.9 55.9 49.45 62.95Q42 70 28 70ZM20.3 60.2H28.1Q37.2 60.2 41.6 55.6Q46 51 46 41.9V28.1Q46 18.9 41.6 14.4Q37.2 9.9 28.1 9.9H20.3ZM101.7 71.4Q93.4 71.4 87.45 68.4Q81.5 65.4 78.25 59.75Q75 54.1 75 46V0H85.9V46.3Q85.9 53.7 90 57.7Q94.1 61.7 101.7 61.7Q109.3 61.7 113.4 57.7Q117.5 53.7 117.5 46.3V0H128.3V46Q128.3 54.1 125.1 59.75Q121.9 65.4 115.9 68.4Q109.9 71.4 101.7 71.4ZM148 70V0H168.3L183.6 62.8H185.2L200.5 0H220.8V70H210.3V7.6H208.7L193.5 70H175.3L160.1 7.6H158.5V70ZM240.8 70V0H268.6Q275 0 280.05 2.55Q285.1 5.1 287.95 9.75Q290.8 14.4 290.8 20.9V22.2Q290.8 28.7 287.85 33.4Q284.9 38.1 279.9 40.6Q274.9 43.1 268.6 43.1H251.6V70ZM251.6 33.3H267.5Q273.2 33.3 276.6 30.3Q280 27.3 280 22.1V21.1Q280 15.8 276.6 12.8Q273.2 9.8 267.5 9.8H251.6ZM332.7 71.4Q324.8 71.4 318.7 68.6Q312.6 65.8 309.15 60.35Q305.7 54.9 305.7 47.1V44.6H316.4V47.1Q316.4 54.5 320.85 58.2Q325.3 61.9 332.7 61.9Q340.2 61.9 344 58.75Q347.8 55.6 347.8 50.6Q347.8 47.3 346 45.2Q344.2 43.1 340.9 41.85Q337.6 40.6 333 39.5L329.3 38.6Q322.6 37 317.65 34.65Q312.7 32.3 310 28.4Q307.3 24.5 307.3 18.4Q307.3 12.2 310.35 7.8Q313.4 3.4 318.8 1Q324.2 -1.4 331.5 -1.4Q338.8 -1.4 344.55 1.1Q350.3 3.6 353.6 8.5Q356.9 13.4 356.9 20.8V24.4H346.2V20.8Q346.2 16.3 344.35 13.5Q342.5 10.7 339.2 9.4Q335.9 8.1 331.5 8.1Q325.1 8.1 321.55 10.75Q318 13.4 318 18.1Q318 21.3 319.55 23.35Q321.1 25.4 324.1 26.7Q327.1 28 331.6 29L335.3 29.9Q342.1 31.4 347.3 33.75Q352.5 36.1 355.5 40.1Q358.5 44.1 358.5 50.4Q358.5 56.7 355.35 61.4Q352.2 66.1 346.4 68.75Q340.6 71.4 332.7 71.4ZM393.9 70V9.8H372.4V0H426.2V9.8H404.7V70ZM441.6 70V0H485.7V9.8H452.4V29.9H482.9V39.7H452.4V60.2H486.2V70ZM505.5 70V0H534.9Q541.4 0 546.35 2.25Q551.3 4.5 554.05 8.7Q556.8 12.9 556.8 18.7V19.8Q556.8 26.4 553.65 30.35Q550.5 34.3 546 35.9V37.5Q549.8 37.7 552.1 40.05Q554.4 42.4 554.4 46.8V70H543.5V48.3Q543.5 45.6 542.1 44Q540.7 42.4 537.6 42.4H516.3V70ZM516.3 32.6H533.7Q539.5 32.6 542.7 29.65Q545.9 26.7 545.9 21.6V20.8Q545.9 15.7 542.75 12.75Q539.6 9.8 533.7 9.8H516.3Z"/></svg></div><span class="label">Horizontal, on paper</span></div>
+    <div class="tile paper lock-tile s"><div role="img" aria-label="Dumpster stacked lockup" style="color:#0E0E0F"><svg viewBox="-2 -2 560.80 220.32"><g transform="translate(192.00 -29.70) scale(2.7)" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="11" width="53" height="6" rx="1.8"/><path d="M9.5 17V45.5H51L54.5 17Z"/><path d="M9.5 26H53.3"/><rect x="16" y="32" width="22" height="5" rx="1.4"/><path d="M15 45.5v2M45 45.5v2"/><circle cx="15" cy="50" r="2.6"/><circle cx="45" cy="50" r="2.6"/></g><path transform="translate(0.00 146.32)" fill="currentColor" d="M0 70V60.4H9.4V9.6H0V0H28Q42 0 49.45 7.1Q56.9 14.2 56.9 28.5V41.6Q56.9 55.9 49.45 62.95Q42 70 28 70ZM20.3 60.2H28.1Q37.2 60.2 41.6 55.6Q46 51 46 41.9V28.1Q46 18.9 41.6 14.4Q37.2 9.9 28.1 9.9H20.3ZM101.7 71.4Q93.4 71.4 87.45 68.4Q81.5 65.4 78.25 59.75Q75 54.1 75 46V0H85.9V46.3Q85.9 53.7 90 57.7Q94.1 61.7 101.7 61.7Q109.3 61.7 113.4 57.7Q117.5 53.7 117.5 46.3V0H128.3V46Q128.3 54.1 125.1 59.75Q121.9 65.4 115.9 68.4Q109.9 71.4 101.7 71.4ZM148 70V0H168.3L183.6 62.8H185.2L200.5 0H220.8V70H210.3V7.6H208.7L193.5 70H175.3L160.1 7.6H158.5V70ZM240.8 70V0H268.6Q275 0 280.05 2.55Q285.1 5.1 287.95 9.75Q290.8 14.4 290.8 20.9V22.2Q290.8 28.7 287.85 33.4Q284.9 38.1 279.9 40.6Q274.9 43.1 268.6 43.1H251.6V70ZM251.6 33.3H267.5Q273.2 33.3 276.6 30.3Q280 27.3 280 22.1V21.1Q280 15.8 276.6 12.8Q273.2 9.8 267.5 9.8H251.6ZM332.7 71.4Q324.8 71.4 318.7 68.6Q312.6 65.8 309.15 60.35Q305.7 54.9 305.7 47.1V44.6H316.4V47.1Q316.4 54.5 320.85 58.2Q325.3 61.9 332.7 61.9Q340.2 61.9 344 58.75Q347.8 55.6 347.8 50.6Q347.8 47.3 346 45.2Q344.2 43.1 340.9 41.85Q337.6 40.6 333 39.5L329.3 38.6Q322.6 37 317.65 34.65Q312.7 32.3 310 28.4Q307.3 24.5 307.3 18.4Q307.3 12.2 310.35 7.8Q313.4 3.4 318.8 1Q324.2 -1.4 331.5 -1.4Q338.8 -1.4 344.55 1.1Q350.3 3.6 353.6 8.5Q356.9 13.4 356.9 20.8V24.4H346.2V20.8Q346.2 16.3 344.35 13.5Q342.5 10.7 339.2 9.4Q335.9 8.1 331.5 8.1Q325.1 8.1 321.55 10.75Q318 13.4 318 18.1Q318 21.3 319.55 23.35Q321.1 25.4 324.1 26.7Q327.1 28 331.6 29L335.3 29.9Q342.1 31.4 347.3 33.75Q352.5 36.1 355.5 40.1Q358.5 44.1 358.5 50.4Q358.5 56.7 355.35 61.4Q352.2 66.1 346.4 68.75Q340.6 71.4 332.7 71.4ZM393.9 70V9.8H372.4V0H426.2V9.8H404.7V70ZM441.6 70V0H485.7V9.8H452.4V29.9H482.9V39.7H452.4V60.2H486.2V70ZM505.5 70V0H534.9Q541.4 0 546.35 2.25Q551.3 4.5 554.05 8.7Q556.8 12.9 556.8 18.7V19.8Q556.8 26.4 553.65 30.35Q550.5 34.3 546 35.9V37.5Q549.8 37.7 552.1 40.05Q554.4 42.4 554.4 46.8V70H543.5V48.3Q543.5 45.6 542.1 44Q540.7 42.4 537.6 42.4H516.3V70ZM516.3 32.6H533.7Q539.5 32.6 542.7 29.65Q545.9 26.7 545.9 21.6V20.8Q545.9 15.7 542.75 12.75Q539.6 9.8 533.7 9.8H516.3Z"/></svg></div><span class="label">Stacked, on paper</span></div>
+    <div class="tile paper lock-tile m"><svg class="mk" viewBox="0 0 64 64" style="--sw:1.6;color:#0E0E0F;width:96px;height:96px"><use href="#dk-mark"/></svg><span class="label">Mark only, on paper</span></div>
+  </div>
+  <p class="note" style="margin-top:20px">Wordmark: DUMPSTER in Space Grotesk 500, tracked 0.064em, with hand-tuned pair spacing (UM −8, MP −10, PS +14, ST +10, TE −8, ER +16 in 1000-unit em). It ships as outlined paths, so no font is needed. Lockup stroke is 1.95u at 1.78× scale, about 3.5px against an 8px wordmark stem: a thin mark beside a firm name, like Blackstar's star.</p>
+
+  <div class="sub"><h3>App icon</h3><span class="label">1024 · rounded square · void + soft light + grain</span></div>
+  <div class="grid-2">
+    <div class="tile dark"><div class="icons-row"><figure><img src="assets/app-icon-1024.png" width="180" height="180" alt="Dumpster app icon, dark"><figcaption>1024 · dark</figcaption></figure><figure><img src="assets/app-icon-1024.png" width="87" height="87" alt=""><figcaption>87</figcaption></figure><figure><img src="assets/app-icon-1024.png" width="60" height="60" alt=""><figcaption>60</figcaption></figure></div></div>
+    <div class="tile" style="background:#17181A"><div class="icons-row"><figure><img src="assets/app-icon-paper-1024.png" width="180" height="180" alt="Dumpster app icon, paper"><figcaption>1024 · paper</figcaption></figure><figure><img src="assets/app-icon-paper-1024.png" width="87" height="87" alt=""><figcaption>87</figcaption></figure><figure><img src="assets/app-icon-paper-1024.png" width="60" height="60" alt=""><figcaption>60</figcaption></figure></div></div>
+  </div>
+  <p class="note" style="margin-top:16px">Mark centred in bone on void; stroke 1.05u at 10.6× (about 11px at 1024). The light is a soft radial from the top and a faint one at lower right, plus 7% grain. Flat-safe: the stores apply their own mask, so no baked corners are needed beyond the PNG preview. Stroke is not thinned for small icon sizes.</p>
+
+  <div class="sub"><h3>Misuse</h3><span class="label">Don't</span></div>
+  <div class="grid-3">
+    <div class="tile dark dont"><span class="x">Don't</span><svg class="mk" viewBox="0 0 64 64" style="color:#EEEEEC;transform:scaleX(1.5)"><use href="#dk-mark"/></svg><p>Stretch or squash it.</p></div>
+    <div class="tile dark dont"><span class="x">Don't</span><svg class="mk" viewBox="0 0 64 64" style="color:var(--sent)"><use href="#dk-mark"/></svg><p>Colorize it. Blue belongs to what you send, not to the brand.</p></div>
+    <div class="tile dark dont"><span class="x">Don't</span><svg class="mk" viewBox="0 0 64 64" style="color:#EEEEEC;--sw:5"><use href="#dk-mark"/></svg><p>Thicken the line. It is a fine-line mark at every size.</p></div>
+    <div class="tile dark dont"><span class="x">Don't</span><svg class="mk" viewBox="0 0 64 64" style="color:#EEEEEC;filter:drop-shadow(3px 4px 0 rgba(238,238,236,.5))"><use href="#dk-mark"/></svg><p>Add shadows, outlines, glows or hard offsets.</p></div>
+    <div class="tile dark dont"><span class="x">Don't</span><svg class="mk" viewBox="0 0 64 64" style="color:#EEEEEC;transform:rotate(-14deg)"><use href="#dk-mark"/></svg><p>Rotate or tilt it. The lid hinges, the mark does not.</p></div>
+    <div class="tile dont" style="background:linear-gradient(135deg,#e6c24a,#d5502b);border-color:transparent"><span class="x" style="color:#111">Don't</span><svg class="mk" viewBox="0 0 64 64" style="color:#EEEEEC"><use href="#dk-mark"/></svg><p style="color:rgba(0,0,0,.7)">Put it on busy or bright color. Void, ink, graphite and paper only.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="explorations">
+  <div class="head"><span class="label">03 / Logo explorations</span><div><h2>Five drawings, one kept</h2><p>The first mark read as a shopping cart. We redrew it from the side, where a front-load dumpster has a silhouette nothing else shares, and tested every version at 16 to 200px on void and paper.</p></div></div>
+  <div class="exp">
+    <article class="pick"><div class="art"><img src="assets/explorations/a-side-boxy-closed.svg" alt="Variant A"></div><div class="txt"><span class="label tag">A · Chosen</span><h4>Side, closed</h4><p>Boxy body, flat lid proud of it, one rib, one fork pocket, small casters. Holds at 16px, never reads as a cart, and the lid hinges cleanly.</p></div></article>
+    <article><div class="art"><img src="assets/explorations/b-front-split-lid.svg" alt="Variant B"></div><div class="txt"><span class="label">B · Runner-up</span><h4>Front, split lid</h4><p>Boxy front with a double lid and two ribs. Close to the old mark: a cabinet or crate at small sizes, and two lids is a messier animation.</p></div></article>
+    <article><div class="art"><img src="assets/explorations/c-three-quarter.svg" alt="Variant C"></div><div class="txt"><span class="label">C · Runner-up</span><h4>Three-quarter</h4><p>Single-weight line, lid as a slab. Lovely large, but the extra planes clot below 32px and it reads as a gift box.</p></div></article>
+    <article><div class="art"><img src="assets/explorations/d-side-ajar-glint.svg" alt="Variant D"></div><div class="txt"><span class="label">D · Kept as a state</span><h4>Side, lid ajar + glint</h4><p>The most dumpster of all, and a nod to Blackstar's star. But a mark that is always open cannot rest, so it became <code class="code">mark-ajar.svg</code> for empty and ready states.</p></div></article>
+    <article style="opacity:.78"><div class="art"><img src="assets/explorations/e-side-slanted-rejected.svg" alt="Variant E"></div><div class="txt"><span class="label">E · Rejected</span><h4>Side, slanted front</h4><p>Our first side drawing. A sloped front plus big wheels turned it back into a trolley. Kept here so nobody redraws it.</p></div></article>
+  </div>
+  <div class="sheets" style="display:grid;gap:12px;margin-top:12px">
+    <img src="assets/explorations/sheet-dark.png" alt="Variants at 200, 64, 32, 24 and 16px on void" loading="lazy">
+    <img src="assets/explorations/sheet-paper.png" alt="Variants at 200, 64, 32, 24 and 16px on paper" loading="lazy">
+  </div>
+  <p class="note" style="margin-top:16px">Rows top to bottom: 200px, 64, 32, 24, 16, each at its own stroke weight.</p>
+</section>
+
+<section class="wrap" id="send">
+  <div class="head"><span class="label">04 / The send</span><div><h2>Everything you send<br>goes in the dumpster</h2><p>The one signature interaction. The message flies into the mark, the lid shuts, a glint says it is filed. It is the only fast, physical motion in the brand. Press send, or let it run.</p></div></div>
+  <div class="send-demo" role="group" aria-label="Send animation demo">
+    <div class="stage" id="stage">
+      <div class="bubble-sent bubble" id="bubble">mom: 48 Willow Creek Dr, Apt 3B</div>
+      <svg class="mk big-mk" id="bigbin" viewBox="0 0 64 64" role="img" aria-label="Dumpster mark">
+        <g id="lid"><rect x="5.5" y="11" width="53" height="6" rx="1.8"/></g>
+        <g id="body"><path d="M9.5 17V45.5H51L54.5 17Z"/><path d="M9.5 26H53.3"/><rect x="16" y="32" width="22" height="5" rx="1.4"/><path d="M15 45.5v2M45 45.5v2"/><circle cx="15" cy="50" r="2.6"/><circle cx="45" cy="50" r="2.6"/></g>
+        <g transform="translate(55 6.5) scale(.2) translate(-24 -24)"><path id="glint" d="M24 2C25 15 29 19 46 24C29 29 25 33 24 46C23 33 19 29 2 24C19 19 23 15 24 2Z"/></g>
+      </svg>
+      <div class="stage-filed" id="filed" aria-live="polite">Filed <b>→ Places</b></div>
+    </div>
+    <div class="demo-bar">
+      <div class="field" aria-hidden="true"><span id="demoText">mom: 48 Willow Creek Dr, Apt 3B</span></div>
+      <button class="btn-send" id="sendBtn" type="button" aria-label="Send"><svg class="mk" width="22" height="22" viewBox="0 0 64 64" style="--sw:4.4"><use href="#dk-mark-small"/></svg></button>
+    </div>
+    <p class="demo-note">Press send. The send button is the dumpster too.</p>
+  </div>
+  <div class="sub"><h3>Sequence</h3><span class="label">~2.4s end to end</span></div>
+  <div class="rows seq">
+    <div class="rowx"><div><b>Bubble appears</b><div>Sent blue, above the mark. Fades up 10px.</div></div><span>320ms · ease-out</span></div>
+    <div class="rowx"><div><b>Lid opens</b><div>Hinges at its back edge, 30° up.</div></div><span>260ms · ease-out</span></div>
+    <div class="rowx"><div><b>It drops in</b><div>Shrinks to a dot as it falls into the mouth. The only physical moment.</div></div><span>640ms · ease-drop</span></div>
+    <div class="rowx"><div><b>Lid shuts</b><div>A 3° overshoot, then rest. The mark settles 2px.</div></div><span>300ms · ease-in</span></div>
+    <div class="rowx"><div><b>Glint</b><div>The four-point sparkle blooms at the lid's far corner and fades.</div></div><span>900ms · ease-out</span></div>
+    <div class="rowx"><div><b>FILED → PLACES</b><div>Tracked label fades in below. Tap it to move the item.</div></div><span>500ms · ease-out</span></div>
+  </div>
+  <p class="note" style="margin-top:20px"><b style="color:var(--bone);font-weight:500">Reduced motion:</b> the flight is skipped. The bubble fades in and the label fades in. No lid, no drop, no glint.</p>
+</section>
+
+<section class="wrap" id="color">
+  <div class="head"><span class="label">05 / Color</span><div><h2>Monochrome, plus one blue</h2><p>Six neutrals and a single color. Hierarchy comes from opacity and size, not hue. Piles are names, not colors.</p></div></div>
+  <div class="swatches">
+    <figure class="sw"><div style="background:#070707"></div><figcaption><b>Void</b>#070707 · base</figcaption></figure>
+    <figure class="sw"><div style="background:#0E0E0F"></div><figcaption><b>Ink</b>#0E0E0F · surfaces</figcaption></figure>
+    <figure class="sw"><div style="background:#17181A"></div><figcaption><b>Graphite</b>#17181A · raised</figcaption></figure>
+    <figure class="sw"><div style="background:#24262A"></div><figcaption><b>Smoke</b>#24262A · pressed</figcaption></figure>
+    <figure class="sw"><div style="background:#8B8F94"></div><figcaption><b>Ash</b>#8B8F94 · secondary</figcaption></figure>
+    <figure class="sw"><div style="background:#EEEEEC"></div><figcaption><b>Bone</b>#EEEEEC · text</figcaption></figure>
+    <figure class="sw"><div style="background:#F4F1EC"></div><figcaption><b>Paper</b>#F4F1EC · light mode, print</figcaption></figure>
+    <figure class="sw"><div style="background:#2B5CFF"></div><figcaption><b>Sent</b>#2B5CFF · press #2149D6</figcaption></figure>
+  </div>
+
+  <div class="sub"><h3>The one rule</h3></div>
+  <div class="rule">
+    <h3>Blue only on what you send.</h3>
+    <div class="twocol">
+      <div class="stack" style="display:grid;gap:10px"><span class="label yes">Do</span><div class="bubble-sent">call dentist before friday</div></div>
+      <div class="stack" style="display:grid;gap:10px"><span class="label no">Don't</span><div style="display:flex;gap:10px;flex-wrap:wrap"><span style="background:var(--sent);color:#fff;border-radius:99px;padding:10px 20px;font:500 14px var(--font-display)">Save</span><span style="border:1px solid var(--sent);color:var(--sent);padding:9px 14px;border-radius:4px;font-size:14px">Places</span></div></div>
+    </div>
+  </div>
+  <p class="note" style="margin-top:16px">Your own words are the brightest thing on screen. Buttons, tabs, links, pile names and pile counts stay monochrome. The only other color in the app is user content: photos and thumbnails.</p>
+
+  <div class="sub"><h3>Contrast</h3><span class="label">WCAG 2.2</span></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Pair</th><th>Ratio</th><th>Use</th></tr></thead>
+    <tbody>
+      <tr><td>Bone on Void</td><td class="m">17.3 : 1</td><td>All body text. AAA.</td></tr>
+      <tr><td>Bone on Graphite</td><td class="m">15.3 : 1</td><td>Text on raised surfaces and cards. AAA.</td></tr>
+      <tr><td>White on Sent</td><td class="m">5.2 : 1</td><td>Message text in the blue bubble. AA.</td></tr>
+      <tr><td>Ash on Void</td><td class="m">6.2 : 1</td><td>Icons and secondary text. AA.</td></tr>
+      <tr><td>Dim (52% bone) on Void</td><td class="m">5.0 : 1</td><td>Secondary copy, 14px and up only. AA.</td></tr>
+      <tr><td>Ink on Paper</td><td class="m">17.1 : 1</td><td>All body text in paper mode. AAA.</td></tr>
+      <tr><td>Ash on Paper</td><td class="m">4.5 : 1</td><td>Icons and small secondary text in paper mode. AA.</td></tr>
+      <tr><td>Dim (56% ink) on Paper</td><td class="m">4.3 : 1</td><td>Large or 14px+ secondary only. Falls short of AA for small text; use Ash or Ink if it must be read.</td></tr>
+      <tr><td>Sent on Void</td><td class="m">3.9 : 1</td><td>Never used as text color. Fills only.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="sub"><h3>Paper mode</h3><span class="label">data-theme="paper"</span></div>
+  <p class="lead" style="margin-bottom:24px">Same system, flipped. Bone becomes ink, void becomes paper. Sent blue does not change, and white on it is still 5.2:1. Toggle it in the nav; the whole page is a live example.</p>
+  <div class="swatches six">
+    <figure class="sw"><div style="background:#F4F1EC"></div><figcaption><b>Void → Paper</b>#F4F1EC</figcaption></figure>
+    <figure class="sw"><div style="background:#ECE8E1"></div><figcaption><b>Ink</b>#ECE8E1 · surfaces</figcaption></figure>
+    <figure class="sw"><div style="background:#E4DFD7"></div><figcaption><b>Graphite</b>#E4DFD7 · raised</figcaption></figure>
+    <figure class="sw"><div style="background:#6B6F74"></div><figcaption><b>Ash</b>#6B6F74 · secondary</figcaption></figure>
+    <figure class="sw"><div style="background:#0E0E0F"></div><figcaption><b>Bone → Ink</b>#0E0E0F</figcaption></figure>
+    <figure class="sw"><div style="background:#2B5CFF"></div><figcaption><b>Sent</b>unchanged</figcaption></figure>
+  </div>
+</section>
+
+<section class="wrap" id="type">
+  <div class="head"><span class="label">06 / Typography</span><div><h2>Three typefaces, all quiet</h2><p>Free stand-ins for Blackstar's pairing. Display and labels in Space Grotesk, text and UI in Geist, the small facts in Geist Mono.</p></div></div>
+  <div class="type">
+    <div class="spec-card"><span class="label">Display + labels · 300–600</span><div class="big">Space Grotesk</div><p>Headings set light (300–400) and tight. The wordmark is 500. Labels uppercase at 11.5px, tracked 0.32em.</p></div>
+    <div class="spec-card b"><span class="label">Text + UI · 300–500</span><div class="big">Geist</div><p>Messages, card titles, settings. Body 300–400.</p></div>
+  </div>
+  <div class="spec-card m" style="margin-top:12px"><span class="label">Meta · 400</span><div class="big">Geist Mono 0123</div><p>Timestamps, counts, sources, file names. 12px, in dim.</p></div>
+
+  <div class="sub"><h3>Scale</h3><span class="label">classes in tokens.css</span></div>
+  <div class="rows scale">
+    <div class="rowx"><span>.t-display</span><div class="t-display" style="color:var(--bone)">Dump it.</div><span>64/64 · 300 · −0.03em</span></div>
+    <div class="rowx"><span>.t-h1</span><div class="t-h1" style="color:var(--bone)">Everything you sent</div><span>40/44 · 400 · −0.02em</span></div>
+    <div class="rowx"><span>.t-h2</span><div class="t-h2" style="color:var(--bone)">Somewhere you can find it</div><span>28/32 · 400 · −0.02em</span></div>
+    <div class="rowx"><span>.t-h3</span><div class="t-h3" style="color:var(--bone)">Places</div><span>18/24 · 500</span></div>
+    <div class="rowx"><span>.t-body</span><div class="t-body" style="color:var(--bone)">Dump anything. Dumpster sorts it, you dig it back up.</div><span>16/24 · 300–400</span></div>
+    <div class="rowx"><span>.t-small</span><div class="t-small" style="color:var(--bone)">Filed under Places, from Mom.</div><span>14/20 · 300</span></div>
+    <div class="rowx"><span>.label</span><div class="label">Filed → Places · from Mom</div><span>11.5 · uppercase · .32em</span></div>
+    <div class="rowx"><span>.t-meta</span><div class="t-meta">YOUTUBE.COM · 4:38</div><span>12 · mono</span></div>
+  </div>
+
+  <div class="sub"><h3>The wordmark</h3><span class="label">Space Grotesk 500 · outlined</span></div>
+  <div class="tile dark wm-spec" style="margin-bottom:12px"><div style="color:#EEEEEC" role="img" aria-label="DUMPSTER"><svg class="big" viewBox="-1 -1 558.8 72.0" fill="currentColor" aria-hidden="true"><path d="M0 70V60.4H9.4V9.6H0V0H28Q42 0 49.45 7.1Q56.9 14.2 56.9 28.5V41.6Q56.9 55.9 49.45 62.95Q42 70 28 70ZM20.3 60.2H28.1Q37.2 60.2 41.6 55.6Q46 51 46 41.9V28.1Q46 18.9 41.6 14.4Q37.2 9.9 28.1 9.9H20.3ZM101.7 71.4Q93.4 71.4 87.45 68.4Q81.5 65.4 78.25 59.75Q75 54.1 75 46V0H85.9V46.3Q85.9 53.7 90 57.7Q94.1 61.7 101.7 61.7Q109.3 61.7 113.4 57.7Q117.5 53.7 117.5 46.3V0H128.3V46Q128.3 54.1 125.1 59.75Q121.9 65.4 115.9 68.4Q109.9 71.4 101.7 71.4ZM148 70V0H168.3L183.6 62.8H185.2L200.5 0H220.8V70H210.3V7.6H208.7L193.5 70H175.3L160.1 7.6H158.5V70ZM240.8 70V0H268.6Q275 0 280.05 2.55Q285.1 5.1 287.95 9.75Q290.8 14.4 290.8 20.9V22.2Q290.8 28.7 287.85 33.4Q284.9 38.1 279.9 40.6Q274.9 43.1 268.6 43.1H251.6V70ZM251.6 33.3H267.5Q273.2 33.3 276.6 30.3Q280 27.3 280 22.1V21.1Q280 15.8 276.6 12.8Q273.2 9.8 267.5 9.8H251.6ZM332.7 71.4Q324.8 71.4 318.7 68.6Q312.6 65.8 309.15 60.35Q305.7 54.9 305.7 47.1V44.6H316.4V47.1Q316.4 54.5 320.85 58.2Q325.3 61.9 332.7 61.9Q340.2 61.9 344 58.75Q347.8 55.6 347.8 50.6Q347.8 47.3 346 45.2Q344.2 43.1 340.9 41.85Q337.6 40.6 333 39.5L329.3 38.6Q322.6 37 317.65 34.65Q312.7 32.3 310 28.4Q307.3 24.5 307.3 18.4Q307.3 12.2 310.35 7.8Q313.4 3.4 318.8 1Q324.2 -1.4 331.5 -1.4Q338.8 -1.4 344.55 1.1Q350.3 3.6 353.6 8.5Q356.9 13.4 356.9 20.8V24.4H346.2V20.8Q346.2 16.3 344.35 13.5Q342.5 10.7 339.2 9.4Q335.9 8.1 331.5 8.1Q325.1 8.1 321.55 10.75Q318 13.4 318 18.1Q318 21.3 319.55 23.35Q321.1 25.4 324.1 26.7Q327.1 28 331.6 29L335.3 29.9Q342.1 31.4 347.3 33.75Q352.5 36.1 355.5 40.1Q358.5 44.1 358.5 50.4Q358.5 56.7 355.35 61.4Q352.2 66.1 346.4 68.75Q340.6 71.4 332.7 71.4ZM393.9 70V9.8H372.4V0H426.2V9.8H404.7V70ZM441.6 70V0H485.7V9.8H452.4V29.9H482.9V39.7H452.4V60.2H486.2V70ZM505.5 70V0H534.9Q541.4 0 546.35 2.25Q551.3 4.5 554.05 8.7Q556.8 12.9 556.8 18.7V19.8Q556.8 26.4 553.65 30.35Q550.5 34.3 546 35.9V37.5Q549.8 37.7 552.1 40.05Q554.4 42.4 554.4 46.8V70H543.5V48.3Q543.5 45.6 542.1 44Q540.7 42.4 537.6 42.4H516.3V70ZM516.3 32.6H533.7Q539.5 32.6 542.7 29.65Q545.9 26.7 545.9 21.6V20.8Q545.9 15.7 542.75 12.75Q539.6 9.8 533.7 9.8H516.3Z"/></svg></div><span class="label">Tracking 0.064em · optical pair spacing · converted to paths</span></div>
+</section>
+
+<section class="wrap" id="light">
+  <div class="head"><span class="label">07 / Light and texture</span><div><h2>Never flat</h2><p>Near-black lit by faint silver radials, with film grain on top. It should read as smoke in a dim studio, not as a fill.</p></div></div>
+  <div class="grid-2">
+    <div class="light-demo"><div class="bg bg-void bg-void--still" style="position:absolute"></div><div class="layers"><span class="label">Void + 3 radials + grain</span></div></div>
+    <pre><span class="c">/* the recipe, from assets/tokens.css */</span>
+.bg-void {
+  background:
+    radial-gradient(circle at 54% 12%, rgba(222,228,233,.06), transparent 42%),
+    radial-gradient(circle at 18% 60%, rgba(176,183,189,.035), transparent 40%),
+    radial-gradient(circle at 82% 82%, rgba(204,210,214,.03), transparent 45%),
+    var(--void);
+}
+.bg-void::after {
+  content: ""; position: absolute; inset: 0;
+  background-image: var(--grain);   <span class="c">/* feTurbulence, .85 freq */</span>
+  opacity: .07; mix-blend-mode: overlay;
+  pointer-events: none;
+}
+<span class="c">/* drift: 18s ease-in-out, light layers only */</span></pre>
+  </div>
+  <div class="rows" style="margin-top:32px">
+    <div class="rowx"><b>Radials</b><p>Three, between 3% and 6% silver. A fourth is allowed in hero areas. Never brighter than 16%, never colored.</p></div>
+    <div class="rowx"><b>Grain</b><p>6–8% on dark, overlay blend. Paper mode uses 6% black grain. Grain sits above the light and below the content.</p></div>
+    <div class="rowx"><b>Drift</b><p>15–20 seconds, background-position only. It pauses under reduced motion.</p></div>
+    <div class="rowx"><b>Lines</b><p>1px hairlines at 12% (<code class="code">--line</code>) or 24% (<code class="code">--line-strong</code>) instead of boxes. No drop shadows, no thick borders, no hard offsets. The only glow in the product is the pin on a map card.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="ui">
+  <div class="head"><span class="label">08 / UI components</span><div><h2>What Dumpster renders</h2><p>Chat bubbles, cards, piles, Dig, tabs and buttons. Every piece below is built from classes in <code class="code">tokens.css</code>, shown in dark and in paper.</p></div></div>
+  <div class="panel-grid">
+    <div class="panel" data-theme="dark"><span class="label">Dark</span>
+<div class="blk"><span class="label">Send</span>
+  <div class="bubble-sent">mom: 48 Willow Creek Dr, Apt 3B</div>
+  <div class="filed">Filed <b>→ Places</b> · from Mom</div>
+  <div class="bubble-sent">call dentist before friday</div>
+  <div class="filed" style="margin-bottom:0">Filed <b>→ To-dos</b></div>
+</div>
+<div class="blk"><span class="label">Rendered cards</span><div class="stack">
+  <div class="card"><div class="card-map"></div><div class="card-body"><span class="card-title">48 Willow Creek Dr, Apt 3B</span><span class="card-meta">BROOKLYN NY · OPEN IN MAPS</span></div></div>
+  <div class="card"><div class="card-body card-link"><span class="thumb"></span><span><span class="card-title">Pasta water is a sauce ingredient</span><span class="card-meta">YOUTUBE.COM · 4:38</span></span></div></div>
+  <div class="card"><div class="card-body card-todo"><span><span class="card-title">Call dentist</span><span class="card-meta">BY FRIDAY</span></span></div></div>
+  <div class="card"><div class="card-body card-voice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mic"/></svg><span class="bars"><i style="height:6px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:10px"></i><i style="height:16px"></i><i style="height:20px"></i><i style="height:8px"></i><i style="height:14px"></i><i style="height:18px"></i><i style="height:9px"></i><i style="height:12px"></i><i style="height:6px"></i><i style="height:10px"></i><i style="height:16px"></i><i style="height:8px"></i><i style="height:5px"></i></span><span class="card-meta" style="margin:0">0:14</span></div></div>
+</div></div>
+<div class="blk"><span class="label">Piles</span>
+  <div class="hairline-list">
+    <h4 class="list-heading" style="margin-top:0;border-bottom:0">Saved</h4>
+    <div class="row"><span class="row-name"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-places"/></svg>Places</span><span class="row-count">05</span></div>
+    <div class="row"><span class="row-name"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-watch"/></svg>Watch later</span><span class="row-count">08</span></div>
+    <div class="row"><span class="row-name"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-reads"/></svg>Reads</span><span class="row-count">05</span></div>
+  </div>
+</div>
+<div class="blk"><span class="label">Dig</span>
+  <div class="field"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-dig"/></svg><input placeholder="that address mom sent" aria-label="Dig" value="that address mom sent"></div>
+  <p class="answer">Willow Creek Dr, from Mom. <em>Oct 03.</em></p>
+  <div class="card"><div class="card-body"><span class="card-title">48 Willow Creek Dr, Apt 3B</span><span class="card-meta">PLACES</span></div></div>
+</div>
+<div class="blk"><span class="label">Buttons</span>
+  <div class="btns"><button class="btn" type="button">Dig</button><button class="btn-ghost" type="button">Move</button><button class="btn-send" type="button" aria-label="Send"><svg class="mk" width="22" height="22" viewBox="0 0 64 64" style="--sw:4.4"><use href="#dk-mark-small"/></svg></button><button class="btn-icon" type="button" aria-label="Add"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-plus"/></svg></button></div>
+</div>
+<div class="blk"><span class="label">Composer + tabs</span>
+  <div class="composer"><div class="field"><input placeholder="Dump anything…" aria-label="Dump"></div><button class="btn-send" type="button" aria-label="Send"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-up"/></svg></button></div>
+  <div class="tabbar" style="margin-top:18px"><a class="is-active" href="#ui">Dump</a><a href="#ui">Piles</a><a href="#ui">Dig</a></div>
+</div>
+</div>
+    <div class="panel" data-theme="paper"><span class="label">Paper</span>
+<div class="blk"><span class="label">Send</span>
+  <div class="bubble-sent">mom: 48 Willow Creek Dr, Apt 3B</div>
+  <div class="filed">Filed <b>→ Places</b> · from Mom</div>
+  <div class="bubble-sent">call dentist before friday</div>
+  <div class="filed" style="margin-bottom:0">Filed <b>→ To-dos</b></div>
+</div>
+<div class="blk"><span class="label">Rendered cards</span><div class="stack">
+  <div class="card"><div class="card-map"></div><div class="card-body"><span class="card-title">48 Willow Creek Dr, Apt 3B</span><span class="card-meta">BROOKLYN NY · OPEN IN MAPS</span></div></div>
+  <div class="card"><div class="card-body card-link"><span class="thumb"></span><span><span class="card-title">Pasta water is a sauce ingredient</span><span class="card-meta">YOUTUBE.COM · 4:38</span></span></div></div>
+  <div class="card"><div class="card-body card-todo"><span><span class="card-title">Call dentist</span><span class="card-meta">BY FRIDAY</span></span></div></div>
+  <div class="card"><div class="card-body card-voice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mic"/></svg><span class="bars"><i style="height:6px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:10px"></i><i style="height:16px"></i><i style="height:20px"></i><i style="height:8px"></i><i style="height:14px"></i><i style="height:18px"></i><i style="height:9px"></i><i style="height:12px"></i><i style="height:6px"></i><i style="height:10px"></i><i style="height:16px"></i><i style="height:8px"></i><i style="height:5px"></i></span><span class="card-meta" style="margin:0">0:14</span></div></div>
+</div></div>
+<div class="blk"><span class="label">Piles</span>
+  <div class="hairline-list">
+    <h4 class="list-heading" style="margin-top:0;border-bottom:0">Saved</h4>
+    <div class="row"><span class="row-name"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-places"/></svg>Places</span><span class="row-count">05</span></div>
+    <div class="row"><span class="row-name"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-watch"/></svg>Watch later</span><span class="row-count">08</span></div>
+    <div class="row"><span class="row-name"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-reads"/></svg>Reads</span><span class="row-count">05</span></div>
+  </div>
+</div>
+<div class="blk"><span class="label">Dig</span>
+  <div class="field"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-dig"/></svg><input placeholder="that address mom sent" aria-label="Dig" value="that address mom sent"></div>
+  <p class="answer">Willow Creek Dr, from Mom. <em>Oct 03.</em></p>
+  <div class="card"><div class="card-body"><span class="card-title">48 Willow Creek Dr, Apt 3B</span><span class="card-meta">PLACES</span></div></div>
+</div>
+<div class="blk"><span class="label">Buttons</span>
+  <div class="btns"><button class="btn" type="button">Dig</button><button class="btn-ghost" type="button">Move</button><button class="btn-send" type="button" aria-label="Send"><svg class="mk" width="22" height="22" viewBox="0 0 64 64" style="--sw:4.4"><use href="#dk-mark-small"/></svg></button><button class="btn-icon" type="button" aria-label="Add"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-plus"/></svg></button></div>
+</div>
+<div class="blk"><span class="label">Composer + tabs</span>
+  <div class="composer"><div class="field"><input placeholder="Dump anything…" aria-label="Dump"></div><button class="btn-send" type="button" aria-label="Send"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-up"/></svg></button></div>
+  <div class="tabbar" style="margin-top:18px"><a class="is-active" href="#ui">Dump</a><a href="#ui">Piles</a><a href="#ui">Dig</a></div>
+</div>
+</div>
+  </div>
+  <div class="rows" style="margin-top:32px">
+    <div class="rowx"><b>Sent bubble</b><p><code class="code">.bubble-sent</code> · blue, white text, 16/16/4/16 radius, right-aligned, no border.</p></div>
+    <div class="rowx"><b>Filed label</b><p><code class="code">.filed</code> · uppercase, tracked, dim. The pile name in bone. Tap to move.</p></div>
+    <div class="rowx"><b>Cards</b><p><code class="code">.card</code> · ink surface, 1px strong line, radius 10. Link, map, to-do, voice, image. Bone text. Map is a hairline grid with a glowing bone pin.</p></div>
+    <div class="rowx"><b>Piles</b><p><code class="code">.hairline-list .row</code> · name left, mono count right, 1px dividers, grouped under small headings (Saved, Doing).</p></div>
+    <div class="rowx"><b>Dig</b><p><code class="code">.field</code> · a hairline pill, a quiet answer line, then the cards.</p></div>
+    <div class="rowx"><b>Tab bar</b><p><code class="code">.tabbar</code> · DUMP · PILES · DIG in tracked uppercase. Active is bone, others dim.</p></div>
+    <div class="rowx"><b>Buttons</b><p><code class="code">.btn</code> bone pill with void text. <code class="code">.btn-ghost</code> hairline pill. <code class="code">.btn-send</code> a bone circle holding the mark. 44px minimum.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="icons">
+  <div class="head"><span class="label">09 / Iconography</span><div><h2>Fine line, 1.5px</h2><p>24px grid, 2px padding, 1.5px stroke, round caps and joins, <code class="code">currentColor</code>. Icons sit in ash at rest and in bone when active. No fills, no color.</p></div></div>
+  <div class="icon-grid"><a class="icon-cell a" href="assets/icons/dump.svg" aria-label="dump icon svg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-dump"/></svg><span>dump</span></a><a class="icon-cell a" href="assets/icons/piles.svg" aria-label="piles icon svg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-piles"/></svg><span>piles</span></a><a class="icon-cell a" href="assets/icons/dig.svg" aria-label="dig icon svg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-dig"/></svg><span>dig</span></a><a class="icon-cell a" href="assets/icons/plus.svg" aria-label="plus icon svg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-plus"/></svg><span>plus</span></a><a class="icon-cell a" href="assets/icons/mic.svg" aria-label="mic icon svg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-mic"/></svg><span>mic</span></a><a class="icon-cell a" href="assets/icons/image.svg" aria-label="image icon svg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-image"/></svg><span>image</span></a><a class="icon-cell a" href="assets/icons/settings.svg" aria-label="settings icon svg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-settings"/></svg><span>settings</span></a><a class="icon-cell a" href="assets/icons/share.svg" aria-label="share icon svg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-share"/></svg><span>share</span></a><a class="icon-cell a" href="assets/icons/places.svg" aria-label="places icon svg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-places"/></svg><span>places</span></a><a class="icon-cell a" href="assets/icons/watch.svg" aria-label="watch icon svg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-watch"/></svg><span>watch</span></a><a class="icon-cell a" href="assets/icons/reads.svg" aria-label="reads icon svg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-reads"/></svg><span>reads</span></a><a class="icon-cell a" href="assets/icons/shopping.svg" aria-label="shopping icon svg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shopping"/></svg><span>shopping</span></a><a class="icon-cell a" href="assets/icons/people.svg" aria-label="people icon svg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-people"/></svg><span>people</span></a><a class="icon-cell a" href="assets/icons/todos.svg" aria-label="todos icon svg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-todos"/></svg><span>todos</span></a><a class="icon-cell a" href="assets/icons/ideas.svg" aria-label="ideas icon svg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ideas"/></svg><span>ideas</span></a><a class="icon-cell a" href="assets/icons/unsorted.svg" aria-label="unsorted icon svg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-unsorted"/></svg><span>unsorted</span></a><a class="icon-cell a" href="assets/icons/check.svg" aria-label="check icon svg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"/></svg><span>check</span></a><a class="icon-cell a" href="assets/icons/arrow-up.svg" aria-label="arrow-up icon svg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow-up"/></svg><span>arrow-up</span></a><a class="icon-cell a" href="assets/icons/close.svg" aria-label="close icon svg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-close"/></svg><span>close</span></a><a class="icon-cell a" href="assets/icons/more.svg" aria-label="more icon svg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-more"/></svg><span>more</span></a></div>
+  <p class="note" style="margin-top:20px">Hit areas are 44px regardless of the glyph. Pile icons appear in lists at 18px in ash; tab and header icons at 20–24px. Files: <code class="code">assets/icons/*.svg</code>.</p>
+</section>
+
+<section class="wrap" id="motion">
+  <div class="head"><span class="label">10 / Motion</span><div><h2>Slow and ambient.<br>Quick only when you send.</h2><p>The product is quiet, so movement is rare and it means something.</p></div></div>
+  <div class="rows">
+    <div class="rowx"><b>Ambient</b><p>The light layers drift over 15–20s. Fades and cross-fades run 200–600ms on <code class="code">--ease-out</code>.</p></div>
+    <div class="rowx"><b>One physical moment</b><p>The send flight: lid, drop, shut, glint. 260 to 640ms per beat, <code class="code">--ease-drop</code> on the fall. Nothing else flies.</p></div>
+    <div class="rowx"><b>Nothing bounces</b><p>No springs, no squish, no overshoot beyond the 3° lid settle. Press states are opacity, not scale.</p></div>
+    <div class="rowx"><b>Easing</b><p><code class="code">--ease-out: cubic-bezier(.2,.8,.2,1)</code> for arrivals · <code class="code">--ease-drop: cubic-bezier(.55,0,.8,.3)</code> for things falling.</p></div>
+    <div class="rowx"><b>Reduced motion</b><p>Honor <code class="code">prefers-reduced-motion</code>: drift stops, the send becomes a fade, the glint is dropped. State still communicates through the filed label.</p></div>
+    <div class="rowx"><b>Focus</b><p>1px bone outline, 3px offset, on every interactive element. Always visible with the keyboard.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="voice">
+  <div class="head"><span class="label">11 / Voice</span><div><h2>Dry wit, few words</h2><p>Grounded, warm, refined. Say it in as few words as you can, and stop. Lowercase-friendly in the UI, uppercase tracked for micro-labels. The name is the joke; we don't make more.</p></div></div>
+  <div class="tbl-wrap"><table class="vt">
+    <thead><tr><th>Moment</th><th>Do</th><th>Don't</th></tr></thead>
+    <tbody>
+      <tr><td>After a send</td><td>Filed → Places</td><td>Awesome! We've organized your item!</td></tr>
+      <tr><td>Empty pile</td><td>Nothing here. Suspicious.</td><td>Oops! Looks like you haven't dumped anything yet!</td></tr>
+      <tr><td>Dig, no result</td><td>Nothing under that. Try fewer words.</td><td>Sorry, we couldn't find what you're looking for :(</td></tr>
+      <tr><td>Composer</td><td>Dump anything…</td><td>What's on your mind today?</td></tr>
+      <tr><td>Send failed</td><td>Didn't go. Tried twice. Retry.</td><td>Uh oh, something went wrong! Please try again later.</td></tr>
+      <tr><td>Onboarding</td><td>Text yourself, but it remembers.</td><td>Unlock the power of AI-driven organization.</td></tr>
+      <tr><td>Marketing line</td><td>Dump it. Find it.</td><td>Toss it, dig it, love it! (no puns)</td></tr>
+    </tbody>
+  </table></div>
+  <div class="rows" style="margin-top:32px">
+    <div class="rowx"><b>Rules</b><p>No exclamation marks. No emoji. No puns on the product name. No "AI-powered". Wit is dry and rare, one idea per screen at most.</p></div>
+    <div class="rowx"><b>Test</b><p>Read it aloud. If it sounds like a LinkedIn post or a 3am infomercial, rewrite it shorter.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="scraps">
+  <div class="head"><span class="label">12 / Scraps</span><div><h2>Scraps, retired.<br>Almost.</h2><p>The raccoon left the brand front. He survives as a rare fine-line easter egg, drawn in the same 1.5px stroke language as the icons.</p></div></div>
+  <div class="scraps">
+    <div class="tile smoke" style="min-height:320px"><div style="color:#EEEEEC;display:grid;place-items:center;width:100%"><svg viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Scraps, peeking"><path d="M10 76H86"/><path d="M22 76C16 62 14 54 18 50L13 46L22 44C26 40 36 37 48 37S70 40 74 44L83 46L78 50C82 54 80 62 74 76"/><path d="M27 42C24 34 27 28 33 29C37 30 39 33 40 38M69 42C72 34 69 28 63 29C59 30 57 33 56 38"/><path d="M24 55C30 47 41 48 48 52C55 48 66 47 72 55C66 60 56 59 48 55C40 59 30 60 24 55Z"/><circle cx="37" cy="54" r="1.3" fill="currentColor" stroke="none"/><circle cx="59" cy="54" r="1.3" fill="currentColor" stroke="none"/><path d="M44.5 62.5h7L48 66.5z"/><path d="M48 66.5v2.5M44 70.5c1.8 1.2 2.8 1.2 4 0 1.2 1.2 2.2 1.2 4 0"/><path d="M30 76v-5.5a3.2 3.2 0 0 1 6.4 0V76M59.6 76v-5.5a3.2 3.2 0 0 1 6.4 0V76"/></svg>
+</div><span class="label">scraps-fineline.svg</span></div>
+    <div>
+      <div class="rows" style="border-top:1px solid var(--line)">
+        <div class="rowx" style="grid-template-columns:140px 1fr"><b>Where</b><p>An empty Dig result. A long-press on the logo. The 404. Maybe an About screen.</p></div>
+        <div class="rowx" style="grid-template-columns:140px 1fr"><b>How often</b><p>Rare. Never twice in one session, never on a first run.</p></div>
+        <div class="rowx" style="grid-template-columns:140px 1fr"><b>Never</b><p>In marketing, in the app icon, in the nav. Never colored, never filled, never animated with bounce. No speech bubbles, no puns.</p></div>
+        <div class="rowx" style="grid-template-columns:140px 1fr"><b>Pose</b><p>Peeking over a rim line, paws on the edge. He does not leave the frame.</p></div>
+        <div class="rowx" style="grid-template-columns:140px 1fr"><b>Line</b><p>1.5px stroke at 96px grid, round caps, currentColor. At 24px he is not drawn.</p></div>
+        <div class="rowx" style="grid-template-columns:140px 1fr"><b>Copy</b><p>"Nothing under that." Just that. Scraps doesn't talk.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="downloads">
+  <div class="head"><span class="label">13 / Downloads</span><div><h2>Everything, as files</h2><p>SVGs use <code class="code">currentColor</code> unless named otherwise. <code class="code">-bone</code> and <code class="code">-ink</code> files have the color baked in for use in &lt;img&gt;.</p></div></div>
+  <div class="dl-groups"><h4>Logo</h4><div class="dl"><a href="assets/mark.svg" download>mark.svg<span>494 B</span></a><a href="assets/mark-bone.svg" download>mark-bone.svg<span>516 B</span></a><a href="assets/mark-ink.svg" download>mark-ink.svg<span>516 B</span></a><a href="assets/mark-small.svg" download>mark-small.svg<span>390 B</span></a><a href="assets/mark-ajar.svg" download>mark-ajar.svg<span>535 B</span></a><a href="assets/mark-animated.svg" download>mark-animated.svg<span>1.7 KB</span></a><a href="assets/wordmark.svg" download>wordmark.svg<span>2.2 KB</span></a><a href="assets/wordmark-ink.svg" download>wordmark-ink.svg<span>2.2 KB</span></a><a href="assets/lockup-horizontal.svg" download>lockup-horizontal.svg<span>2.6 KB</span></a><a href="assets/lockup-horizontal-ink.svg" download>lockup-horizontal-ink.svg<span>2.6 KB</span></a><a href="assets/lockup-stacked.svg" download>lockup-stacked.svg<span>2.6 KB</span></a><a href="assets/lockup-stacked-ink.svg" download>lockup-stacked-ink.svg<span>2.6 KB</span></a><a href="assets/glint.svg" download>glint.svg<span>197 B</span></a><a href="assets/favicon.svg" download>favicon.svg<span>441 B</span></a><a href="assets/scraps-fineline.svg" download>scraps-fineline.svg<span>867 B</span></a></div><h4>App icon</h4><div class="dl"><a href="assets/app-icon-dark.svg" download>app-icon-dark.svg<span>1.5 KB</span></a><a href="assets/app-icon-paper.svg" download>app-icon-paper.svg<span>1.5 KB</span></a><a href="assets/app-icon-1024.png" download>app-icon-1024.png<span>986.9 KB</span></a><a href="assets/app-icon-paper-1024.png" download>app-icon-paper-1024.png<span>789.3 KB</span></a></div><h4>Tokens</h4><div class="dl"><a href="assets/tokens.css" download>tokens.css<span>15.5 KB</span></a><a href="assets/tokens.json" download>tokens.json<span>3.7 KB</span></a></div><h4>Explorations</h4><div class="dl"><a href="assets/explorations/a-side-boxy-closed.svg" download>a-side-boxy-closed.svg<span>530 B</span></a><a href="assets/explorations/b-front-split-lid.svg" download>b-front-split-lid.svg<span>478 B</span></a><a href="assets/explorations/c-three-quarter.svg" download>c-three-quarter.svg<span>494 B</span></a><a href="assets/explorations/d-side-ajar-glint.svg" download>d-side-ajar-glint.svg<span>749 B</span></a><a href="assets/explorations/e-side-slanted-rejected.svg" download>e-side-slanted-rejected.svg<span>518 B</span></a><a href="assets/explorations/sheet-dark.png" download>sheet-dark.png<span>38.7 KB</span></a><a href="assets/explorations/sheet-paper.png" download>sheet-paper.png<span>39.5 KB</span></a></div><h4>Icons (24px, 1.5px)</h4><div class="dl"><a href="assets/icons/arrow-up.svg" download>arrow-up.svg<span>223 B</span></a><a href="assets/icons/check.svg" download>check.svg<span>224 B</span></a><a href="assets/icons/close.svg" download>close.svg<span>222 B</span></a><a href="assets/icons/dig.svg" download>dig.svg<span>259 B</span></a><a href="assets/icons/dump.svg" download>dump.svg<span>348 B</span></a><a href="assets/icons/ideas.svg" download>ideas.svg<span>290 B</span></a><a href="assets/icons/image.svg" download>image.svg<span>312 B</span></a><a href="assets/icons/mic.svg" download>mic.svg<span>286 B</span></a><a href="assets/icons/more.svg" download>more.svg<span>289 B</span></a><a href="assets/icons/people.svg" download>people.svg<span>352 B</span></a><a href="assets/icons/piles.svg" download>piles.svg<span>348 B</span></a><a href="assets/icons/places.svg" download>places.svg<span>296 B</span></a><a href="assets/icons/plus.svg" download>plus.svg<span>218 B</span></a><a href="assets/icons/reads.svg" download>reads.svg<span>300 B</span></a><a href="assets/icons/settings.svg" download>settings.svg<span>290 B</span></a><a href="assets/icons/share.svg" download>share.svg<span>280 B</span></a><a href="assets/icons/shopping.svg" download>shopping.svg<span>256 B</span></a><a href="assets/icons/todos.svg" download>todos.svg<span>263 B</span></a><a href="assets/icons/unsorted.svg" download>unsorted.svg<span>302 B</span></a><a href="assets/icons/watch.svg" download>watch.svg<span>257 B</span></a></div></div>
+</section>
+
+</main>
+
+<footer class="wrap"><span role="img" aria-label="Dumpster"><svg class="wm foot" viewBox="-1 -1 558.8 72.0" fill="currentColor" aria-hidden="true"><path d="M0 70V60.4H9.4V9.6H0V0H28Q42 0 49.45 7.1Q56.9 14.2 56.9 28.5V41.6Q56.9 55.9 49.45 62.95Q42 70 28 70ZM20.3 60.2H28.1Q37.2 60.2 41.6 55.6Q46 51 46 41.9V28.1Q46 18.9 41.6 14.4Q37.2 9.9 28.1 9.9H20.3ZM101.7 71.4Q93.4 71.4 87.45 68.4Q81.5 65.4 78.25 59.75Q75 54.1 75 46V0H85.9V46.3Q85.9 53.7 90 57.7Q94.1 61.7 101.7 61.7Q109.3 61.7 113.4 57.7Q117.5 53.7 117.5 46.3V0H128.3V46Q128.3 54.1 125.1 59.75Q121.9 65.4 115.9 68.4Q109.9 71.4 101.7 71.4ZM148 70V0H168.3L183.6 62.8H185.2L200.5 0H220.8V70H210.3V7.6H208.7L193.5 70H175.3L160.1 7.6H158.5V70ZM240.8 70V0H268.6Q275 0 280.05 2.55Q285.1 5.1 287.95 9.75Q290.8 14.4 290.8 20.9V22.2Q290.8 28.7 287.85 33.4Q284.9 38.1 279.9 40.6Q274.9 43.1 268.6 43.1H251.6V70ZM251.6 33.3H267.5Q273.2 33.3 276.6 30.3Q280 27.3 280 22.1V21.1Q280 15.8 276.6 12.8Q273.2 9.8 267.5 9.8H251.6ZM332.7 71.4Q324.8 71.4 318.7 68.6Q312.6 65.8 309.15 60.35Q305.7 54.9 305.7 47.1V44.6H316.4V47.1Q316.4 54.5 320.85 58.2Q325.3 61.9 332.7 61.9Q340.2 61.9 344 58.75Q347.8 55.6 347.8 50.6Q347.8 47.3 346 45.2Q344.2 43.1 340.9 41.85Q337.6 40.6 333 39.5L329.3 38.6Q322.6 37 317.65 34.65Q312.7 32.3 310 28.4Q307.3 24.5 307.3 18.4Q307.3 12.2 310.35 7.8Q313.4 3.4 318.8 1Q324.2 -1.4 331.5 -1.4Q338.8 -1.4 344.55 1.1Q350.3 3.6 353.6 8.5Q356.9 13.4 356.9 20.8V24.4H346.2V20.8Q346.2 16.3 344.35 13.5Q342.5 10.7 339.2 9.4Q335.9 8.1 331.5 8.1Q325.1 8.1 321.55 10.75Q318 13.4 318 18.1Q318 21.3 319.55 23.35Q321.1 25.4 324.1 26.7Q327.1 28 331.6 29L335.3 29.9Q342.1 31.4 347.3 33.75Q352.5 36.1 355.5 40.1Q358.5 44.1 358.5 50.4Q358.5 56.7 355.35 61.4Q352.2 66.1 346.4 68.75Q340.6 71.4 332.7 71.4ZM393.9 70V9.8H372.4V0H426.2V9.8H404.7V70ZM441.6 70V0H485.7V9.8H452.4V29.9H482.9V39.7H452.4V60.2H486.2V70ZM505.5 70V0H534.9Q541.4 0 546.35 2.25Q551.3 4.5 554.05 8.7Q556.8 12.9 556.8 18.7V19.8Q556.8 26.4 553.65 30.35Q550.5 34.3 546 35.9V37.5Q549.8 37.7 552.1 40.05Q554.4 42.4 554.4 46.8V70H543.5V48.3Q543.5 45.6 542.1 44Q540.7 42.4 537.6 42.4H516.3V70ZM516.3 32.6H533.7Q539.5 32.6 542.7 29.65Q545.9 26.7 545.9 21.6V20.8Q545.9 15.7 542.75 12.75Q539.6 9.8 533.7 9.8H516.3Z"/></svg></span><p class="label" style="margin-top:22px">Range Of View Studios · Brand guidelines v2.0</p></footer>
+
+<script>
+(() => {
+  /* Theme toggle: dark (default) or paper. localStorage is optional. */
+  const root = document.documentElement, btn = document.getElementById('themeToggle'), lab = document.getElementById('themeLabel');
+  const KEY = 'dumpster-brand-theme';
+  function apply(t) { root.setAttribute('data-theme', t); btn.setAttribute('aria-pressed', String(t === 'paper')); lab.textContent = t === 'paper' ? 'Dark' : 'Paper'; }
+  let saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
+  apply(saved === 'paper' ? 'paper' : 'dark');
+  btn.addEventListener('click', () => { const n = root.getAttribute('data-theme') === 'paper' ? 'dark' : 'paper'; apply(n); try { localStorage.setItem(KEY, n); } catch (e) {} });
+
+  /* The send: message flies into the mark, lid opens and shuts, glint, FILED → PILE. */
+  const samples = [
+    ['mom: 48 Willow Creek Dr, Apt 3B', 'Places'],
+    ['youtube.com/watch?v=pasta-water', 'Watch later'],
+    ['buy AA batteries', 'To-dos'],
+    ['idea: a podcast about receipts', 'Ideas'],
+    ['the grey jacket, size M, $89', 'Shopping'],
+  ];
+  const $ = (id) => document.getElementById(id);
+  const bubble = $('bubble'), lid = $('lid'), bin = $('bigbin'), glint = $('glint'), filed = $('filed'), input = $('demoText'), btnSend = $('sendBtn');
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let i = 0, busy = false, auto = true;
+
+  async function send() {
+    if (busy) return;
+    busy = true;
+    const [text, pile] = samples[i % samples.length];
+    bubble.textContent = text;
+    filed.innerHTML = 'Filed <b>→ ' + pile + '</b>';
+    filed.style.opacity = 0;
+    input.textContent = '';
+    try {
+      if (still) {
+        await bubble.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300, fill: 'forwards' }).finished;
+        await filed.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300, fill: 'forwards' }).finished;
+      } else {
+        const b = bubble.getBoundingClientRect(), r = bin.getBoundingClientRect();
+        const dy = (r.top + r.height * 0.27) - (b.top + b.height / 2);
+        const base = 'translateX(-50%)';
+        await bubble.animate([{ opacity: 0, transform: base + ' translateY(-10px)' }, { opacity: 1, transform: base }], { duration: 320, easing: 'ease-out', fill: 'forwards' }).finished;
+        lid.animate([{ transform: 'rotate(0)' }, { transform: 'rotate(-30deg)' }], { duration: 260, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'forwards' });
+        await bubble.animate([{ opacity: 1, transform: base }, { opacity: .9, transform: base + ' translateY(' + dy * 0.55 + 'px) scale(.6)', offset: .6 }, { opacity: 0, transform: base + ' translateY(' + dy + 'px) scale(.08)' }], { duration: 640, delay: 140, easing: 'cubic-bezier(.55,0,.8,.3)', fill: 'forwards' }).finished;
+        await lid.animate([{ transform: 'rotate(-30deg)' }, { transform: 'rotate(3deg)', offset: .7 }, { transform: 'rotate(0)' }], { duration: 300, easing: 'ease-in', fill: 'forwards' }).finished;
+        bin.animate([{ transform: 'translateY(0)' }, { transform: 'translateY(2px)' }, { transform: 'translateY(0)' }], { duration: 220, easing: 'ease-out' });
+        glint.animate([{ opacity: 0, transform: 'scale(.3) rotate(0)' }, { opacity: 1, transform: 'scale(1) rotate(45deg)', offset: .4 }, { opacity: 0, transform: 'scale(.6) rotate(90deg)' }], { duration: 900, easing: 'ease-out' });
+        await filed.animate([{ opacity: 0, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none' }], { duration: 500, delay: 150, easing: 'ease-out', fill: 'forwards' }).finished;
+      }
+    } catch (e) { /* cancelled animations are fine */ }
+    i++;
+    input.textContent = samples[i % samples.length][0];
+    busy = false;
+  }
+  btnSend.addEventListener('click', () => { auto = false; send(); });
+  let timer = null;
+  new IntersectionObserver(([e]) => {
+    clearInterval(timer);
+    if (e.isIntersecting && auto) { send(); timer = setInterval(() => auto && send(), 4200); }
+  }, { threshold: .5 }).observe($('stage'));
+})();
+</script>
+</body>
+</html>

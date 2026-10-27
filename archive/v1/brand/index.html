@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dumpster Brand Guidelines</title>
+<meta name="description" content="Brand kit and visual guidelines for Dumpster, the chat-first app that sorts what you dump. By Range Of View Studios.">
+<link rel="icon" type="image/svg+xml" href="assets/logo-icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--yellow);color:var(--ink);font:400 16px/24px var(--font-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{max-width:100%}
+h1,h2,h3,h4,p,ul,ol,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
+@media(max-width:480px){.wrap{padding:0 16px}}
+
+/* ---------- top bar ---------- */
+.bar{position:sticky;top:0;z-index:50;background:var(--cream);border-bottom:var(--border-thick)}
+.bar .wrap{display:flex;align-items:center;gap:16px;height:60px}
+.bar img{height:26px;width:auto;flex:none}
+.bar nav{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:6px 4px 6px 0;margin-left:auto;min-width:0}
+.bar nav::-webkit-scrollbar{display:none}
+.bar nav a{flex:none}
+.bar .nb-chip{min-height:36px}
+.bar .nb-chip:hover{background:var(--yellow)}
+@media(max-width:700px){.bar img{display:none}.bar nav{margin-left:0}}
+
+/* ---------- cover ---------- */
+.cover{padding:56px 0 72px;overflow:hidden}
+.cover .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:32px;align-items:center}
+.cover .meta{font:600 12px/16px var(--font-mono);letter-spacing:.08em;text-transform:uppercase;display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.cover .wm{width:100%;max-width:620px;display:block}
+.cover h1{font:900 clamp(30px,5.2vw,56px)/1.02 var(--font-display);font-stretch:122%;margin-top:28px;letter-spacing:-.01em}
+.cover .sub{max-width:44ch;margin-top:16px;font-size:18px;line-height:28px}
+.cover .hero{position:relative;justify-self:center;width:100%;max-width:380px}
+.cover .hero .nb-card{padding:24px;background:var(--cream);transform:rotate(2deg);box-shadow:var(--shadow-lg);border:var(--border-thick);border-radius:var(--radius-lg)}
+.cover .hero img{display:block;width:100%}
+.cover .stamp{position:absolute;left:-14px;bottom:18px;transform:rotate(-6deg)}
+@media(max-width:820px){.cover .wrap{grid-template-columns:1fr}.cover .hero{max-width:300px;justify-self:start;margin-top:8px}}
+
+/* ---------- sections ---------- */
+section{padding:72px 0;border-top:var(--border-thick)}
+section.cream{background:var(--cream)}
+section.ink{background:var(--ink);color:var(--cream)}
+.sec-head{display:grid;grid-template-columns:auto 1fr;gap:4px 20px;align-items:end;margin-bottom:36px}
+.sec-head .no{font:600 12px/16px var(--font-mono);letter-spacing:.08em;grid-column:1/-1}
+.sec-head h2{font:900 clamp(30px,5vw,48px)/1.02 var(--font-display);font-stretch:120%;letter-spacing:-.01em}
+.sec-head p{grid-column:1/-1;max-width:62ch;margin-top:12px;font-size:17px;line-height:26px}
+section.ink .nb-card{color:var(--ink)}
+h3.sub{font:800 18px/22px var(--font-display);font-stretch:110%;margin:48px 0 16px;display:flex;align-items:center;gap:12px}
+h3.sub::after{content:"";flex:1;height:3px;background:var(--ink)}
+section.ink h3.sub::after{background:var(--cream)}
+.grid{display:grid;gap:24px}
+.grid>*{min-width:0}
+.comp,.sq,.spec,.pillar{grid-template-columns:minmax(0,1fr)}
+.icspec{grid-template-columns:auto minmax(0,1fr)!important}
+@media(max-width:420px){.icspec{grid-template-columns:minmax(0,1fr)!important}}
+.mono,.hold,.fn{overflow-wrap:anywhere}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g5{grid-template-columns:repeat(5,1fr)}
+@media(max-width:900px){.g4,.g5{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.g2,.g3,.g4,.g5{grid-template-columns:minmax(0,1fr)}}
+.cap{font:400 12px/16px var(--font-mono);color:var(--ink-2);margin-top:12px}
+.cap b{font-weight:600;color:var(--ink)}
+.small{font:500 14px/20px var(--font-body)}
+.mono{font-family:var(--font-mono)}
+.tag{display:inline-flex;align-items:center;gap:6px;font:600 11px/1 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;padding:5px 8px;border:2px solid var(--ink);border-radius:6px;background:var(--cream);color:var(--ink)}
+.tag.do{background:var(--mint)}.tag.dont{background:var(--danger)}
+.stage{display:grid;place-items:center;border:var(--border);border-radius:var(--radius);min-height:200px;padding:24px;overflow:hidden}
+.stage img{display:block}
+.on-y{background:var(--yellow)}.on-c{background:var(--cream)}.on-i{background:var(--ink)}
+.ic{width:24px;height:24px;flex:none}
+
+/* ---------- logo ---------- */
+.clear{position:relative;display:inline-block;padding:40px;outline:2px dashed var(--ink);outline-offset:-1px}
+.clear img{display:block;width:160px;position:relative}
+.clear i{position:absolute;display:grid;place-items:center;background:var(--pink);border:2px solid var(--ink);font:600 12px/1 var(--font-mono);font-style:normal}
+.clear i.t{top:0;left:50%;width:40px;height:40px;transform:translateX(-50%);}
+.clear i.l{left:0;top:50%;width:40px;height:40px;transform:translateY(-50%)}
+.clear i.r{right:0;top:50%;width:40px;height:40px;transform:translateY(-50%)}
+.clear i.b{bottom:0;left:50%;width:40px;height:40px;transform:translateX(-50%)}
+.clear.wm-clear{padding:24px}.clear.wm-clear img{width:260px}
+.clear.wm-clear i{width:24px;height:24px}
+.minrow{display:flex;gap:28px;align-items:flex-end;flex-wrap:wrap}
+.minrow figure{display:grid;gap:8px;justify-items:start}
+.miss{border:var(--border);border-radius:var(--radius);background:var(--cream);overflow:hidden;box-shadow:var(--shadow-sm)}
+.miss .pic{height:150px;display:grid;place-items:center;border-bottom:var(--border);overflow:hidden;position:relative}
+.miss .pic img{height:64px;width:auto;max-width:90%}
+.miss .txt{padding:12px 14px;display:grid;gap:8px;justify-items:start}
+.miss .txt span{font:500 14px/20px var(--font-body)}
+
+/* ---------- scraps ---------- */
+.pose{padding:0;overflow:hidden}
+.pose .pic{display:grid;place-items:center;padding:20px;border-bottom:var(--border);height:200px}
+.pose .pic img{height:100%;width:auto}
+.pose .txt{padding:14px 16px 16px}
+.pose h4{font:800 18px/22px var(--font-display);font-stretch:110%}
+.rules{display:grid;gap:12px;counter-reset:r}
+.rules li{counter-increment:r;display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--cream);border:var(--border);border-radius:var(--radius);box-shadow:var(--shadow-sm)}
+.rules li::before{content:counter(r,decimal-leading-zero);font:600 12px/24px var(--font-mono);flex:none}
+.anat{display:flex;flex-wrap:wrap;gap:8px}
+
+/* ---------- color ---------- */
+.sw{overflow:hidden;padding:0}
+.sw .chip{height:96px;border-bottom:var(--border)}
+.sw .txt{padding:12px 14px;display:grid;gap:2px}
+.sw b{font:800 16px/20px var(--font-display);font-stretch:110%}
+.sw .hex{font:600 13px/18px var(--font-mono)}
+.sw small{font:400 13px/18px var(--font-body);color:var(--ink-2)}
+.pile-sw .nb-folder__body{padding:0;overflow:hidden;--fill:var(--cream)}
+.pile-sw .top{background:var(--tab);padding:14px;display:flex;align-items:center;gap:12px;border-bottom:var(--border)}
+.pile-sw .top b{font:800 18px/22px var(--font-display);font-stretch:110%}
+.pile-sw .txt{padding:12px 14px;display:grid;gap:6px}
+.ratio{display:inline-flex;gap:6px;align-items:center;font:600 12px/1 var(--font-mono)}
+.ok{background:var(--mint);border:2px solid var(--ink);border-radius:5px;padding:3px 6px}
+.warn{background:var(--butter);border:2px solid var(--ink);border-radius:5px;padding:3px 6px}
+.prop{display:flex;height:56px;border:var(--border-thick);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.prop div{display:grid;place-items:center;font:600 12px/1 var(--font-mono);border-right:var(--border)}
+.prop div:last-child{border-right:0}
+
+/* ---------- type ---------- */
+.spec{padding:24px;display:grid;gap:12px}
+.spec .aa{font-size:96px;line-height:1;overflow:hidden}
+.scale{display:grid}
+.scale>div{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:baseline;padding:14px 0;border-bottom:2px solid var(--ink)}
+.scale>div:last-child{border-bottom:0}
+.scale .lbl{font:600 12px/16px var(--font-mono)}
+.scale .lbl span{display:block;font-weight:400;color:var(--ink-2)}
+.scale .smp{min-width:0;overflow-wrap:anywhere}
+@media(max-width:520px){.scale>div{grid-template-columns:1fr;gap:4px}.t-display{font-size:34px!important;line-height:38px!important}}
+
+/* ---------- brutalist system ---------- */
+.demo-box{height:92px;display:grid;place-items:center;background:var(--cream);font:600 13px/1 var(--font-mono);border-radius:var(--radius)}
+.sq{padding:28px;display:grid;gap:20px;justify-items:start}
+.sq .nb-btn{min-height:56px;font-size:18px;padding:0 28px}
+.hold{font:400 12px/16px var(--font-mono);color:var(--ink-2)}
+.anatomy{position:relative;max-width:560px;margin:0 auto;padding:12px 170px 12px 0}
+.anatomy .nb-folder{margin-top:8px}
+.anatomy .nb-folder__body{padding:18px;display:grid;gap:8px;min-height:130px}
+.anatomy .pin{position:absolute;right:0;font:600 11px/14px var(--font-mono);width:160px;display:flex;align-items:center;gap:6px;white-space:nowrap}
+.anatomy .pin::before{content:"";width:18px;height:2px;background:var(--ink);flex:none}
+.spec-list{display:grid;gap:10px}
+.spec-list li{display:flex;gap:12px;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:10px}
+.spec-list li:last-child{border:0}
+.spec-list b{font:600 12px/16px var(--font-mono);min-width:96px}
+
+/* ---------- icons ---------- */
+.icgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:16px}
+.icgrid figure{display:grid;gap:8px;justify-items:center;padding:16px 8px 12px;background:var(--cream);border:var(--border);border-radius:var(--radius);box-shadow:var(--shadow-sm)}
+.icgrid figcaption{font:600 12px/16px var(--font-mono)}
+.icgrid .ic{width:32px;height:32px}
+.gridviz{width:120px;height:120px;background-image:linear-gradient(var(--ink) 1px,transparent 1px),linear-gradient(90deg,var(--ink) 1px,transparent 1px);background-size:5px 5px;background-color:var(--cream);border:var(--border);display:grid;place-items:center;opacity:1}
+.gridviz svg{width:120px;height:120px}
+
+/* ---------- components ---------- */
+.row{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.comp{padding:24px;display:grid;gap:18px;align-content:start}
+.lbl-s{font:600 12px/16px var(--font-mono);letter-spacing:.06em;text-transform:uppercase}
+.composer{display:flex;gap:10px;align-items:center}
+.composer .field{flex:1;min-width:0;display:flex;align-items:center;gap:8px;min-height:48px;padding:0 6px 0 16px;background:var(--paper);border:var(--border);border-radius:var(--radius-pill)}
+.composer input{flex:1;min-width:0;border:0;background:none;font:400 16px/24px var(--font-body);color:var(--ink);padding:10px 0;outline:0}
+.composer .field:focus-within{box-shadow:var(--shadow-sm);outline:3px solid var(--ink);outline-offset:3px}
+.composer input::placeholder{color:var(--ink-2)}
+.ib{width:40px;height:40px;display:grid;place-items:center;border:0;background:none;border-radius:50%;cursor:pointer;color:var(--ink)}
+.ib:active{background:var(--yellow)}
+.chat{display:grid;gap:10px;background:var(--yellow);padding:18px;border:var(--border);border-radius:var(--radius)}
+.bubble{justify-self:end;max-width:86%;background:var(--cream);border:var(--border);border-radius:16px 16px 4px 16px;box-shadow:var(--shadow-sm);padding:10px 14px}
+.bubble .mono{display:block;text-align:right;font:400 11px/14px var(--font-mono);color:var(--ink-2);margin-top:4px}
+.file-chip{justify-self:end;display:inline-flex;align-items:center;gap:8px;font:600 13px/1 var(--font-mono);background:var(--paper);border:2px solid var(--ink);border-radius:999px;padding:6px 12px 6px 6px;box-shadow:var(--shadow-sm)}
+.file-chip .nb-icon-tile{--size:26px;box-shadow:none;border-width:2px;border-radius:6px}
+.file-chip .nb-icon-tile svg{width:16px;height:16px}
+.file-chip strong{font-weight:700}
+.smart{padding:0;overflow:hidden;display:grid}
+.smart .media{height:96px;border-bottom:var(--border);display:grid;place-items:center;position:relative}
+.smart .body{padding:12px 14px;display:grid;gap:6px;justify-items:start}
+.smart h4{font:800 16px/20px var(--font-display);font-stretch:108%}
+.playbtn{width:44px;height:44px;border-radius:50%;background:var(--cream);border:var(--border);display:grid;place-items:center;box-shadow:var(--shadow-sm)}
+.mapbg{background-color:var(--cream);background-image:linear-gradient(var(--ink) 2px,transparent 2px),linear-gradient(90deg,var(--ink) 2px,transparent 2px);background-size:32px 32px;background-position:-1px -1px}
+.mapbg .pinb{width:44px;height:44px;display:grid;place-items:center;background:var(--pink);border:var(--border);border-radius:50% 50% 50% 4px;transform:rotate(-45deg);box-shadow:var(--shadow-sm)}
+.mapbg .pinb svg{transform:rotate(45deg)}
+.todo{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;width:100%;text-align:left;font:500 16px/24px var(--font-body);background:var(--cream);border:var(--border);border-radius:var(--radius);box-shadow:var(--shadow);color:var(--ink);transition:transform var(--dur) var(--ease-snap),box-shadow var(--dur) var(--ease-snap)}
+.todo:active{transform:translate(3px,3px);box-shadow:var(--shadow-sm)}
+.todo .box{width:28px;height:28px;flex:none;display:grid;place-items:center;border:var(--border);border-radius:8px;background:var(--paper)}
+.todo .box svg{opacity:0;width:20px;height:20px}
+.todo[aria-pressed="true"] .box{background:var(--mint)}
+.todo[aria-pressed="true"] .box svg{opacity:1}
+.todo[aria-pressed="true"] span.l{text-decoration:line-through;text-decoration-thickness:2px;color:var(--ink-2)}
+.tabbar{display:grid;grid-template-columns:repeat(3,1fr);background:var(--cream);border:var(--border-thick);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:6px;gap:6px}
+.tabbar button{display:grid;justify-items:center;gap:2px;min-height:56px;border:2px solid transparent;border-radius:14px;background:none;font:800 12px/16px var(--font-display);font-stretch:110%;letter-spacing:.02em;color:var(--ink);cursor:pointer;padding:6px 0}
+.tabbar button[aria-selected="true"]{background:var(--yellow);border-color:var(--ink);box-shadow:var(--shadow-sm)}
+.pilecard .nb-folder__body{display:grid;gap:10px}
+.pilecard .row{justify-content:space-between;flex-wrap:nowrap;gap:12px}
+.count{font:600 22px/1 var(--font-mono)}
+.pilegrid{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px}
+@media(max-width:480px){.anatomy{padding-right:120px}.anatomy .pin{width:112px;white-space:normal;font-size:10px;line-height:12px}.anatomy .pin::before{width:10px}}
+@media(max-width:600px){.pilegrid{grid-template-columns:1fr}}
+
+/* ---------- voice ---------- */
+.pillar{padding:22px;display:grid;gap:10px;align-content:start}
+.pillar h4{font:900 26px/28px var(--font-display);font-stretch:120%}
+table.dd{width:100%;border-collapse:separate;border-spacing:0;border:var(--border-thick);border-radius:var(--radius);overflow:hidden;background:var(--cream);box-shadow:var(--shadow)}
+.dd th,.dd td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:2px solid var(--ink)}
+.dd tr:last-child td{border-bottom:0}
+.dd th{font:600 12px/16px var(--font-mono);letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--cream)}
+.dd td:first-child{background:var(--mint)}.dd td:nth-child(2){background:#FFD6D6;border-left:2px solid var(--ink)}
+.dd td:nth-child(3){border-left:2px solid var(--ink);font-size:14px;line-height:20px}
+@media(max-width:700px){.dd thead{display:none}.dd,.dd tbody,.dd tr,.dd td{display:block;width:100%}.dd td{border-left:0!important}.dd td:first-child::before{content:"Do  ";font:600 11px/1 var(--font-mono);display:block;margin-bottom:4px;text-transform:uppercase}.dd td:nth-child(2)::before{content:"Don't  ";font:600 11px/1 var(--font-mono);display:block;margin-bottom:4px;text-transform:uppercase}}
+
+/* ---------- downloads ---------- */
+.dl{display:flex;align-items:center;gap:14px;padding:12px 14px;text-decoration:none;background:var(--cream);border:var(--border);border-radius:var(--radius);box-shadow:var(--shadow);transition:transform var(--dur) var(--ease-snap),box-shadow var(--dur) var(--ease-snap);min-height:64px}
+.dl:hover{transform:translate(-1px,-1px)}
+.dl:active{transform:translate(3px,3px);box-shadow:var(--shadow-sm)}
+.dl img{width:40px;height:40px;object-fit:contain;flex:none}
+.dl .nm{font:800 15px/18px var(--font-display);font-stretch:108%}
+.dl .fn{font:400 12px/16px var(--font-mono);color:var(--ink-2);overflow-wrap:anywhere}
+.dl .go{margin-left:auto}
+footer{border-top:var(--border-thick);background:var(--ink);color:var(--cream);padding:40px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer .mono{font:400 12px/18px var(--font-mono)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ---------- logo options ---------- */
+.opt{padding:0;overflow:hidden;margin-top:28px}
+.opt-h{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:12px 16px;border-bottom:var(--border);background:var(--yellow)}
+.opt-h h4{font:900 22px/26px var(--font-display);font-stretch:115%;margin:0}
+.opt-l{display:grid;place-items:center;min-width:36px;height:36px;background:var(--cream);border:var(--border);border-radius:8px;font:900 18px/1 var(--font-display);box-shadow:var(--shadow-sm)}
+.opt-b{padding:16px;display:grid;gap:16px}
+.opt-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.opt-grid .stage{min-height:230px;padding:16px}
+.opt-grid .stage img{height:auto}
+.sizes{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:center;gap:20px}
+.sizes figure{display:grid;justify-items:center;gap:6px}
+.sizes .cap{margin:0}
+.opt-why{font-size:17px;line-height:26px;max-width:70ch}
+.opt-sw{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.opt-sw ul{display:grid;gap:8px;margin-top:10px}
+.opt-sw li{font:500 14px/20px var(--font-body);padding-left:14px;position:relative}
+.opt-sw li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;background:var(--ink)}
+.wm-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.wm-grid .stage{min-height:120px;padding:16px}
+.wm-grid .stage img{width:100%;max-width:230px;height:auto}
+.rec{--fill:var(--yellow);border:var(--border-thick);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);padding:24px}
+.rec h3{font:900 28px/32px var(--font-display);font-stretch:118%;margin:10px 0 12px}
+.rec p+p{margin-top:12px}
+.rec .recrow{display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px;align-items:center}
+@media(max-width:900px){.wm-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.opt-grid,.opt-sw,.rec .recrow{grid-template-columns:minmax(0,1fr)}.opt-grid .stage{min-height:190px}.rec{padding:16px}.rec h3{font-size:22px;line-height:26px}}
+@media(max-width:420px){.wm-grid{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><symbol id="i-places" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol><symbol id="i-watch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3.5"/><path d="M10.5 9.5v5l4-2.5z"/></symbol><symbol id="i-reads" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6a2 2 0 0 1 2-2h5v15H6a2 2 0 0 0-2 2zM20 6a2 2 0 0 0-2-2h-5v15h5a2 2 0 0 1 2 2z"/></symbol><symbol id="i-shopping" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V7a3 3 0 0 1 6 0v1"/></symbol><symbol id="i-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.9 3.1-6 7-6s7 2.1 7 6"/></symbol><symbol id="i-todos" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3.5"/><path d="M8.5 12.2l2.5 2.5 4.5-5"/></symbol><symbol id="i-ideas" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/><path d="M9.5 19h5M10.5 21.5h3"/></symbol><symbol id="i-unsorted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2.3-7a2 2 0 0 1 1.9-1.4h9.6a2 2 0 0 1 1.9 1.4L21 13v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 13h5l1.5 2.5h5L16 13h5"/></symbol><symbol id="i-dump" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-6l-5 4v-4H6a2 2 0 0 1-2-2z"/></symbol><symbol id="i-piles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7V5.5A1.5 1.5 0 0 1 7.5 4h3.3L12.5 6H17a1.5 1.5 0 0 1 1.5 1.5V8"/><path d="M3 11a1.5 1.5 0 0 1 1.5-1.5h4.2l1.8 2h8.9A1.5 1.5 0 0 1 21 13v5.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/></symbol><symbol id="i-dig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></symbol><symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></symbol><symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol><symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3.5"/><circle cx="9" cy="10" r="1.5"/><path d="M21 16l-5-5-8 8"/></symbol><symbol id="i-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></symbol><symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M8 7l4-4 4 4M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></symbol><symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17v-6a6 6 0 0 1 12 0v6l2 2H4z"/><path d="M10 21.5h4"/></symbol></svg>
+
+<header class="bar">
+  <div class="wrap">
+    <a href="#cover" aria-label="Dumpster, top of page"><img src="assets/wordmark.svg" alt="dumpster"></a>
+    <nav aria-label="Sections">
+      <a class="nb-chip" href="#idea">Idea</a>
+      <a class="nb-chip" href="#logo">Logo</a>
+      <a class="nb-chip" href="#logo-options">Logo options</a>
+      <a class="nb-chip" href="#scraps">Scraps</a>
+      <a class="nb-chip" href="#color">Color</a>
+      <a class="nb-chip" href="#type">Type</a>
+      <a class="nb-chip" href="#system">System</a>
+      <a class="nb-chip" href="#icons">Icons</a>
+      <a class="nb-chip" href="#components">Components</a>
+      <a class="nb-chip" href="#voice">Voice</a>
+      <a class="nb-chip" href="#downloads">Downloads</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- ================= COVER ================= -->
+<div class="cover" id="cover">
+  <div class="wrap">
+    <div>
+      <div class="meta"><span class="tag">Brand guidelines</span><span class="tag">v1.0</span><span class="tag">Oct 2026</span></div>
+      <img class="wm" src="assets/wordmark.svg" alt="dumpster">
+      <h1>Dump it. Find it.</h1>
+      <p class="sub">Text yourself, but it remembers. This is the guide to how Dumpster looks, sounds and behaves, made by Range Of View Studios.</p>
+    </div>
+    <div class="hero" aria-hidden="true">
+      <div class="nb-card"><img src="assets/mascot-peek.svg" alt=""></div>
+      <span class="tag stamp" style="background:var(--pink)">Scraps, resident raccoon</span>
+    </div>
+  </div>
+</div>
+
+<!-- ================= IDEA ================= -->
+<section id="idea" class="cream">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">01 / The idea</span><h2>Nobody organizes. Everybody dumps.</h2></div>
+    <div class="grid g2" style="align-items:start">
+      <p style="font-size:20px;line-height:30px">Mom texts an address, you text it to yourself, and it is gone forever. Dumpster is that same habit with a memory. You toss anything into one thread, quietly it gets sorted into Piles, and later you just ask for it in plain language. Zero effort in, organized out.</p>
+      <div class="nb-card" style="--fill:var(--yellow)">
+        <span class="lbl-s">The brand in one line</span>
+        <p class="t-h2" style="margin-top:8px;font-stretch:112%">Loud on the outside, calm on the inside.</p>
+        <p class="small" style="margin-top:10px">The look is hazard-sign loud so it feels like play. The behavior is quiet and dependable so it feels like trust.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOGO ================= -->
+<section id="logo">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">02 / Logo</span><h2>Logo</h2><p>Three pieces: the app icon, the wordmark, and the lockup that joins them. All are hand-built vectors with a 3px ink line at the 120px scale.</p></div>
+
+    <div class="grid g3">
+      <figure><div class="stage on-y"><img src="assets/logo-icon.svg" width="150" height="150" alt="Dumpster app icon: Scraps the raccoon peeking over a bin on a yellow rounded square"></div><figcaption class="cap"><b>App icon.</b> Scraps over the rim of the bin. Reads down to 29px.</figcaption></figure>
+      <figure><div class="stage on-c"><img src="assets/wordmark.svg" width="260" alt="dumpster wordmark"></div><figcaption class="cap"><b>Wordmark.</b> Lowercase, wide and heavy, ink with a hard white offset shadow. Built from paths, no font needed.</figcaption></figure>
+      <figure><div class="stage on-y"><img src="assets/lockup.svg" width="280" alt="Dumpster horizontal lockup: icon and wordmark"></div><figcaption class="cap"><b>Lockup.</b> Icon left, wordmark right, vertically centered. Use it wherever there is room.</figcaption></figure>
+    </div>
+
+    <h3 class="sub">Wordmark colorways</h3>
+    <div class="grid g3">
+      <figure><div class="stage on-y" style="min-height:130px"><img src="assets/wordmark.svg" width="220" alt=""></div><figcaption class="cap"><b>wordmark.svg</b> Primary. On yellow or cream.</figcaption></figure>
+      <figure><div class="stage on-c" style="min-height:130px"><img src="assets/wordmark-ink.svg" width="220" alt=""></div><figcaption class="cap"><b>wordmark-ink.svg</b> One color, no shadow. Stamps, print, tiny sizes.</figcaption></figure>
+      <figure><div class="stage on-i" style="min-height:130px"><img src="assets/wordmark-light.svg" width="220" alt=""></div><figcaption class="cap"><b>wordmark-light.svg</b> Cream with a yellow shadow, for ink backgrounds.</figcaption></figure>
+    </div>
+
+    <h3 class="sub">Clear space</h3>
+    <div class="grid g2" style="align-items:center">
+      <div class="stage on-c" style="gap:24px">
+        <div class="clear"><i class="t">x</i><i class="l">x</i><i class="r">x</i><i class="b">x</i><img src="assets/logo-icon.svg" alt=""></div>
+      </div>
+      <div class="stage on-c">
+        <div class="clear wm-clear"><i class="t">x</i><i class="l">x</i><i class="r">x</i><i class="b">x</i><img src="assets/wordmark.svg" alt=""></div>
+      </div>
+    </div>
+    <p class="cap" style="margin-top:14px"><b>x = one quarter of the icon's width</b> (so 40px on a 160px icon). For the wordmark, x is the height of the letter u. Keep every other element at least x away, shadow included.</p>
+
+    <h3 class="sub">Minimum size</h3>
+    <div class="nb-card" style="--fill:var(--cream)">
+      <div class="minrow">
+        <figure><img src="assets/logo-icon.svg" width="29" height="29" alt=""><span class="cap" style="margin:0"><b>29px</b> icon, digital</span></figure>
+        <figure><img src="assets/logo-icon.svg" width="20" height="20" alt=""><span class="cap" style="margin:0"><b>20px</b> absolute floor</span></figure>
+        <figure><img src="assets/wordmark.svg" width="96" alt=""><span class="cap" style="margin:0"><b>96px</b> wordmark</span></figure>
+        <figure><img src="assets/lockup.svg" width="150" alt=""><span class="cap" style="margin:0"><b>150px</b> lockup</span></figure>
+      </div>
+    </div>
+
+    <h3 class="sub">Do and don't</h3>
+    <div class="grid g4">
+      <div class="miss"><div class="pic on-y"><img src="assets/wordmark.svg" alt=""></div><div class="txt"><span class="tag do">Do</span><span>Place it on flat yellow or cream.</span></div></div>
+      <div class="miss"><div class="pic on-i"><img src="assets/wordmark-light.svg" alt=""></div><div class="txt"><span class="tag do">Do</span><span>Switch to the light version on ink.</span></div></div>
+      <div class="miss"><div class="pic on-c"><img src="assets/logo-icon.svg" alt="" style="height:84px"></div><div class="txt"><span class="tag do">Do</span><span>Give the icon its clear space.</span></div></div>
+      <div class="miss"><div class="pic on-y"><img src="assets/lockup.svg" alt="" style="height:60px"></div><div class="txt"><span class="tag do">Do</span><span>Keep icon and wordmark proportions as supplied.</span></div></div>
+
+      <div class="miss"><div class="pic on-y"><img src="assets/wordmark.svg" alt="" style="width:220px;height:40px;max-width:none;transform:scaleX(1.0) scaleY(.5)"></div><div class="txt"><span class="tag dont">Don't</span><span>Stretch or squash it.</span></div></div>
+      <div class="miss"><div class="pic on-c"><img src="assets/wordmark-ink.svg" alt="" style="filter:invert(36%) sepia(80%) saturate(2800%) hue-rotate(310deg)"></div><div class="txt"><span class="tag dont">Don't</span><span>Recolor it. Ink, cream or yellow only.</span></div></div>
+      <div class="miss"><div class="pic on-y"><img src="assets/logo-icon.svg" alt="" style="height:84px;filter:drop-shadow(0 8px 6px rgba(0,0,0,.55))"></div><div class="txt"><span class="tag dont">Don't</span><span>Add soft or blurred shadows.</span></div></div>
+      <div class="miss"><div class="pic on-y"><img src="assets/wordmark.svg" alt="" style="transform:rotate(-12deg)"></div><div class="txt"><span class="tag dont">Don't</span><span>Tilt it. The shadow is the only thing that sits off-axis.</span></div></div>
+      <div class="miss"><div class="pic" style="background:var(--stone)"><img src="assets/wordmark-ink.svg" alt="" style="opacity:.45"></div><div class="txt"><span class="tag dont">Don't</span><span>Fade it or put it on busy or low-contrast fills.</span></div></div>
+      <div class="miss"><div class="pic on-c"><img src="assets/logo-icon.svg" alt="" style="height:84px;border-radius:50%"></div><div class="txt"><span class="tag dont">Don't</span><span>Crop the icon to a circle. Rounded square only.</span></div></div>
+      <div class="miss"><div class="pic on-y"><span class="t-h2" style="font-family:var(--font-body);font-weight:700">Dumpster</span></div><div class="txt"><span class="tag dont">Don't</span><span>Retype it in another font.</span></div></div>
+      <div class="miss"><div class="pic on-c"><img src="assets/mascot-peek.svg" alt="" style="height:84px;transform:scaleX(-1)"><span style="position:absolute;inset:auto 8px 6px auto" class="tag">flip</span></div><div class="txt"><span class="tag dont">Don't</span><span>Mirror the mascot or the icon.</span></div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= LOGO OPTIONS ================= -->
+<section id="logo-options" class="cream">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">02b / Logo options</span><h2>Logo options</h2><p>Six directions for the mark and two wordmark treatments, for the client to choose from. The current logo comes first for comparison. Each option is hand-built SVG, tested at 29px, and each card shows the mark on yellow and ink, the app icon at 180, 60 and 29px, and a lockup. Files live in assets/logo-options/.</p></div>
+    
+    <article class="nb-card opt" id="opt-v1" style="--fill:var(--cream)">
+      <div class="opt-h" style="background:var(--stone)"><span class="opt-l">v1</span><h4>Current (v1)</h4></div>
+      <div class="opt-b">
+        <div class="opt-grid">
+          <div class="stage on-y"><img src="assets/logo-icon.svg" width="190" height="190" alt="Current v1 app icon on yellow"></div>
+          <div class="stage on-c"><img src="assets/wordmark.svg" width="260" alt="Current v1 wordmark with white shadow on cream"></div>
+          <div class="stage on-c sizes">
+            <figure><img src="assets/logo-icon.svg" width="180" height="180" alt="Current icon at 180px"><figcaption class="cap"><b>180</b></figcaption></figure>
+            <figure><img src="assets/logo-icon.svg" width="60" height="60" alt="Current icon at 60px"><figcaption class="cap"><b>60</b></figcaption></figure>
+            <figure><img src="assets/logo-icon.svg" width="29" height="29" alt="Current icon at 29px"><figcaption class="cap"><b>29</b></figcaption></figure>
+          </div>
+          <div class="stage" style="background:var(--pink)"><img src="assets/wordmark.svg" width="260" alt="Current wordmark on pink, where the white shadow looks like a glitch"></div>
+        </div>
+        <p class="opt-why">The baseline the options are measured against. It has the right character, but it is a small illustration instead of a mark.</p>
+        <div class="opt-sw">
+          <div><span class="tag do">Strengths</span><ul><li>Scraps is charming and instantly on brand.</li><li>Bold color and line weight.</li></ul></div>
+          <div><span class="tag dont">Watch-outs</span><ul><li>The raccoon in a slanted bin can read as a shopping cart at small sizes.</li><li>The hard white offset shadow on the wordmark looks like a glitch on yellow and pink (see the pink panel).</li></ul></div>
+        </div>
+      </div>
+    </article>
+    
+    <article class="nb-card opt" id="opt-a" style="--fill:var(--cream)">
+      <div class="opt-h"><span class="opt-l">A</span><h4>Chat Bin</h4></div>
+      <div class="opt-b">
+        <div class="opt-grid">
+          <div class="stage on-y"><img src="assets/logo-options/a-mark.svg" width="190" height="190" alt="Logo option A, Chat Bin: the mark on yellow"></div>
+          <div class="stage on-i"><img src="assets/logo-options/a-mark.svg" width="190" height="190" alt="Logo option A mark on an ink background"></div>
+          <div class="stage on-c sizes">
+            <figure><img src="assets/logo-options/a-icon.svg" width="180" height="180" alt="Option A app icon at 180px"><figcaption class="cap"><b>180</b></figcaption></figure>
+            <figure><img src="assets/logo-options/a-icon.svg" width="60" height="60" alt="Option A app icon at 60px"><figcaption class="cap"><b>60</b></figcaption></figure>
+            <figure><img src="assets/logo-options/a-icon.svg" width="29" height="29" alt="Option A app icon at 29px"><figcaption class="cap"><b>29</b></figcaption></figure>
+          </div>
+          <div class="stage on-y"><img src="assets/logo-options/a-lockup.svg" style="width:100%;max-width:340px;height:auto" alt="Option A lockup: mark and wordmark"></div>
+        </div>
+        <p class="opt-why">A speech bubble is the lid of the bin. One shape says chat, the other says dump, and the three typing dots go straight in.</p>
+        <div class="opt-sw">
+          <div><span class="tag do">Strengths</span><ul><li>Explains the product in one glance: chat in, bin out.</li><li>Symmetrical and geometric, and the lid is easy to animate open and shut.</li></ul></div>
+          <div><span class="tag dont">Watch-outs</span><ul><li>Two stacked shapes get busy under 40px.</li><li>The wide body can still drift toward a basket if the ribs get too many.</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="nb-card opt" id="opt-b" style="--fill:var(--cream)">
+      <div class="opt-h"><span class="opt-l">B</span><h4>Bubble Dumpster</h4></div>
+      <div class="opt-b">
+        <div class="opt-grid">
+          <div class="stage on-y"><img src="assets/logo-options/b-mark.svg" width="190" height="190" alt="Logo option B, Bubble Dumpster: the mark on yellow"></div>
+          <div class="stage on-i"><img src="assets/logo-options/b-mark.svg" width="190" height="190" alt="Logo option B mark on an ink background"></div>
+          <div class="stage on-c sizes">
+            <figure><img src="assets/logo-options/b-icon.svg" width="180" height="180" alt="Option B app icon at 180px"><figcaption class="cap"><b>180</b></figcaption></figure>
+            <figure><img src="assets/logo-options/b-icon.svg" width="60" height="60" alt="Option B app icon at 60px"><figcaption class="cap"><b>60</b></figcaption></figure>
+            <figure><img src="assets/logo-options/b-icon.svg" width="29" height="29" alt="Option B app icon at 29px"><figcaption class="cap"><b>29</b></figcaption></figure>
+          </div>
+          <div class="stage on-y"><img src="assets/logo-options/b-lockup.svg" style="width:100%;max-width:340px;height:auto" alt="Option B lockup: mark and wordmark"></div>
+        </div>
+        <p class="opt-why">The whole mark is a chat bubble dressed as a dumpster: a lid band, ribs, wheels for feet and the tail doing double duty as a kickstand.</p>
+        <div class="opt-sw">
+          <div><span class="tag do">Strengths</span><ul><li>One bold silhouette, so it holds together as a single shape at small sizes.</li><li>The tail gives the bin a direction and a bit of attitude.</li></ul></div>
+          <div><span class="tag dont">Watch-outs</span><ul><li>At 29px it reads bin first and chat second.</li><li>Wheels and tail compete at the bottom edge; keep them simple.</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="nb-card opt" id="opt-c" style="--fill:var(--cream)">
+      <div class="opt-h"><span class="opt-l">C</span><h4>Mask</h4></div>
+      <div class="opt-b">
+        <div class="opt-grid">
+          <div class="stage on-y"><img src="assets/logo-options/c-mark.svg" width="190" height="190" alt="Logo option C, Mask: the mark on yellow"></div>
+          <div class="stage on-i"><img src="assets/logo-options/c-mark.svg" width="190" height="190" alt="Logo option C mark on an ink background"></div>
+          <div class="stage on-c sizes">
+            <figure><img src="assets/logo-options/c-icon.svg" width="180" height="180" alt="Option C app icon at 180px"><figcaption class="cap"><b>180</b></figcaption></figure>
+            <figure><img src="assets/logo-options/c-icon.svg" width="60" height="60" alt="Option C app icon at 60px"><figcaption class="cap"><b>60</b></figcaption></figure>
+            <figure><img src="assets/logo-options/c-icon.svg" width="29" height="29" alt="Option C app icon at 29px"><figcaption class="cap"><b>29</b></figcaption></figure>
+          </div>
+          <div class="stage on-y"><img src="assets/logo-options/c-lockup.svg" style="width:100%;max-width:340px;height:auto" alt="Option C lockup: mark and wordmark"></div>
+        </div>
+        <p class="opt-why">Just Scraps' mask band and two eyes inside a grey face. A character instead of a scene, so it survives as a favicon, a notification badge and a 16px tab.</p>
+        <div class="opt-sw">
+          <div><span class="tag do">Strengths</span><ul><li>Clearest of the six at 16 to 29px.</li><li>Ownable, and it shares its DNA with the mascot we already have.</li></ul></div>
+          <div><span class="tag dont">Watch-outs</span><ul><li>No bin or chat cue on its own; the idea lives in the name beside it.</li><li>A raccoon face is a common animal mark, and the ink mask melts into ink backgrounds (the grey face carries it).</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="nb-card opt" id="opt-d" style="--fill:var(--cream)">
+      <div class="opt-h"><span class="opt-l">D</span><h4>d monogram</h4></div>
+      <div class="opt-b">
+        <div class="opt-grid">
+          <div class="stage on-y"><img src="assets/logo-options/d-mark.svg" width="190" height="190" alt="Logo option D, d monogram: the mark on yellow"></div>
+          <div class="stage on-i"><img src="assets/logo-options/d-mark.svg" width="190" height="190" alt="Logo option D mark on an ink background"></div>
+          <div class="stage on-c sizes">
+            <figure><img src="assets/logo-options/d-icon.svg" width="180" height="180" alt="Option D app icon at 180px"><figcaption class="cap"><b>180</b></figcaption></figure>
+            <figure><img src="assets/logo-options/d-icon.svg" width="60" height="60" alt="Option D app icon at 60px"><figcaption class="cap"><b>60</b></figcaption></figure>
+            <figure><img src="assets/logo-options/d-icon.svg" width="29" height="29" alt="Option D app icon at 29px"><figcaption class="cap"><b>29</b></figcaption></figure>
+          </div>
+          <div class="stage on-y"><img src="assets/logo-options/d-lockup.svg" style="width:100%;max-width:340px;height:auto" alt="Option D lockup: mark and wordmark"></div>
+        </div>
+        <p class="opt-why">A chunky lowercase d. The bowl is the bin and the ascender is the post the lid is hinged to, propped open in pink.</p>
+        <div class="opt-sw">
+          <div><span class="tag do">Strengths</span><ul><li>Works as a single letter and in one color.</li><li>The open lid gives motion a clear moment to play.</li></ul></div>
+          <div><span class="tag dont">Watch-outs</span><ul><li>Weakest at 29px: the lid shrinks to a speck and the d starts to look like a boxy block.</li><li>Needs another round of refinement to feel as crafted as the others.</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="nb-card opt" id="opt-e" style="--fill:var(--cream)">
+      <div class="opt-h"><span class="opt-l">E</span><h4>Pile stack</h4></div>
+      <div class="opt-b">
+        <div class="opt-grid">
+          <div class="stage on-y"><img src="assets/logo-options/e-mark.svg" width="190" height="190" alt="Logo option E, Pile stack: the mark on yellow"></div>
+          <div class="stage on-i"><img src="assets/logo-options/e-mark.svg" width="190" height="190" alt="Logo option E mark on an ink background"></div>
+          <div class="stage on-c sizes">
+            <figure><img src="assets/logo-options/e-icon.svg" width="180" height="180" alt="Option E app icon at 180px"><figcaption class="cap"><b>180</b></figcaption></figure>
+            <figure><img src="assets/logo-options/e-icon.svg" width="60" height="60" alt="Option E app icon at 60px"><figcaption class="cap"><b>60</b></figcaption></figure>
+            <figure><img src="assets/logo-options/e-icon.svg" width="29" height="29" alt="Option E app icon at 29px"><figcaption class="cap"><b>29</b></figcaption></figure>
+          </div>
+          <div class="stage on-y"><img src="assets/logo-options/e-lockup.svg" style="width:100%;max-width:340px;height:auto" alt="Option E lockup: mark and wordmark"></div>
+        </div>
+        <p class="opt-why">Three folder-tab cards in pile colors, stacked so the pile also reads as a bin. It is the Piles screen, made into a logo.</p>
+        <div class="opt-sw">
+          <div><span class="tag do">Strengths</span><ul><li>Ties straight to the product: this is what Dumpster does with your stuff.</li><li>Staggered tabs and pile colors are distinctive and cheerful.</li></ul></div>
+          <div><span class="tag dont">Watch-outs</span><ul><li>Reads as files and folders before it reads as a dumpster.</li><li>Tabs go thin at 29px, and it needs a one-color version for print.</li></ul></div>
+        </div>
+      </div>
+    </article>
+    <article class="nb-card opt" id="opt-f" style="--fill:var(--cream)">
+      <div class="opt-h"><span class="opt-l">F</span><h4>Sticker badge</h4><span class="tag" style="background:var(--pink)">Not for small sizes</span></div>
+      <div class="opt-b">
+        <div class="opt-grid">
+          <div class="stage on-y"><img src="assets/logo-options/f-mark.svg" width="190" height="190" alt="Logo option F, Sticker badge: the mark on yellow"></div>
+          <div class="stage on-i"><img src="assets/logo-options/f-mark.svg" width="190" height="190" alt="Logo option F mark on an ink background"></div>
+          <div class="stage on-c sizes">
+            <figure><img src="assets/logo-options/f-icon.svg" width="180" height="180" alt="Option F app icon at 180px"><figcaption class="cap"><b>180</b></figcaption></figure>
+            <figure><img src="assets/logo-options/f-icon.svg" width="60" height="60" alt="Option F app icon at 60px"><figcaption class="cap"><b>60</b></figcaption></figure>
+            <figure><img src="assets/logo-options/f-icon.svg" width="29" height="29" alt="Option F app icon at 29px"><figcaption class="cap"><b>29</b></figcaption></figure>
+          </div>
+          <div class="stage on-y"><img src="assets/logo-options/f-lockup.svg" style="width:100%;max-width:340px;height:auto" alt="Option F lockup: mark and wordmark"></div>
+        </div>
+        <p class="opt-why">A round stamp with Scraps peeking over a bin, ringed by DUMPSTER, DUMP IT and FIND IT. Made for stickers, merch and social avatars, not for the app icon.</p>
+        <div class="opt-sw">
+          <div><span class="tag do">Strengths</span><ul><li>Carries the tagline and the personality in one object.</li><li>The ring type is outlined, so it needs no font.</li></ul></div>
+          <div><span class="tag dont">Watch-outs</span><ul><li>The ring text is unreadable below about 120px. That is by design; do not use it as an app icon.</li><li>Too much detail for one-color or embossed uses.</li></ul></div>
+        </div>
+      </div>
+    </article>
+
+    <h3 class="sub" style="margin-top:64px">Wordmark treatments</h3>
+    <p class="small" style="max-width:62ch;margin-bottom:8px">Both keep the existing geometric letter construction, so no font is needed. They replace the white shadow that clashes with yellow and pink.</p>
+    
+    <h3 class="sub">W1: ink outline, ink hard shadow</h3>
+    <div class="wm-grid">
+      <figure><div class="stage on-y" style=""><img src="assets/logo-options/w1-wordmark.svg" alt="W1: ink outline, ink hard shadow on Yellow"></div><figcaption class="cap">Yellow</figcaption></figure>
+      <figure><div class="stage on-c" style=""><img src="assets/logo-options/w1-wordmark.svg" alt="W1: ink outline, ink hard shadow on Cream"></div><figcaption class="cap">Cream</figcaption></figure>
+      <figure><div class="stage " style="background:var(--pink)"><img src="assets/logo-options/w1-wordmark.svg" alt="W1: ink outline, ink hard shadow on Pink"></div><figcaption class="cap">Pink</figcaption></figure>
+      <figure><div class="stage on-i" style=""><img src="assets/logo-options/w1-wordmark-on-ink.svg" alt="W1: ink outline, ink hard shadow on Ink"></div><figcaption class="cap">Ink</figcaption></figure>
+    </div>
+    <p class="cap" style="margin-top:14px"><b>w1-wordmark.svg</b> Cream letters, ink outline, ink offset shadow. The classic neo-brutal sticker. On ink, w1-wordmark-on-ink.svg swaps the shadow to yellow so it stays visible.</p>
+    
+    <h3 class="sub">W2: the u carries a bin</h3>
+    <div class="wm-grid">
+      <figure><div class="stage on-y" style=""><img src="assets/logo-options/w2-wordmark.svg" alt="W2: the u carries a bin on Yellow"></div><figcaption class="cap">Yellow</figcaption></figure>
+      <figure><div class="stage on-c" style=""><img src="assets/logo-options/w2-wordmark.svg" alt="W2: the u carries a bin on Cream"></div><figcaption class="cap">Cream</figcaption></figure>
+      <figure><div class="stage " style="background:var(--pink)"><img src="assets/logo-options/w2-wordmark.svg" alt="W2: the u carries a bin on Pink"></div><figcaption class="cap">Pink</figcaption></figure>
+      <figure><div class="stage on-i" style=""><img src="assets/logo-options/w2-wordmark-on-ink.svg" alt="W2: the u carries a bin on Ink"></div><figcaption class="cap">Ink</figcaption></figure>
+    </div>
+    <p class="cap" style="margin-top:14px"><b>w2-wordmark.svg</b> Flat ink letters. The u becomes the bin: mint inside, pink lid propped on its edge. On ink, w2-wordmark-on-ink.svg switches the letters to cream.</p>
+
+    <h3 class="sub" style="margin-top:64px">Our recommendation</h3>
+    <div class="nb-card rec">
+      <div class="recrow">
+        <div style="display:flex;gap:12px;align-items:flex-end"><img src="assets/logo-options/c-icon.svg" width="120" height="120" alt="Option C app icon"><img src="assets/logo-options/c-icon.svg" width="29" height="29" alt="Option C app icon at 29px"></div>
+        <div>
+          <span class="tag" style="background:var(--cream)">Our pick</span>
+          <h3>C, Mask, with the W2 wordmark</h3>
+          <p>After rendering all six at 29px, the mask is the only one that is unmistakable at a glance. It is a character instead of a scene, so there is nothing to clutter, and it is ours: nobody else has Scraps. The v1 problem (the cart read) disappears because there is no bin to misread.</p>
+          <p>Pair it with W2, where the u is a tiny bin, so the dumpster idea is carried by the name next to the mark. B (Bubble Dumpster) is the runner-up if the client wants the chat and bin idea inside the icon itself. Use A's bubble lid as an illustration motif, E for the Piles screen and F for stickers and merch.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SCRAPS ================= -->
+<section id="scraps" class="cream">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">03 / Meet Scraps</span><h2>Meet Scraps</h2><p>A trash panda who digs through everything so you do not have to. Cute but graphic: grey body, a darker mask band, white eye highlights, a ringed tail and small hands. Same line weight in every pose.</p></div>
+
+    <div class="grid g5">
+      <article class="nb-card pose"><div class="pic on-y"><img src="assets/mascot-peek.svg" alt="Scraps peeking over a bin"></div><div class="txt"><h4>Peek</h4><p class="small">Default. App icon, splash, small spots.</p></div></article>
+      <article class="nb-card pose"><div class="pic" style="background:var(--sky)"><img src="assets/mascot-dig.svg" alt="Scraps digging through a pile with a magnifier"></div><div class="txt"><h4>Dig</h4><p class="small">Searching and loading. "Scraps is sorting."</p></div></article>
+      <article class="nb-card pose"><div class="pic" style="background:var(--mint)"><img src="assets/mascot-hold.svg" alt="Scraps holding a saved item card"></div><div class="txt"><h4>Hold</h4><p class="small">Save confirmations and success moments.</p></div></article>
+      <article class="nb-card pose"><div class="pic" style="background:var(--butter)"><img src="assets/mascot-sleep.svg" alt="Scraps curled up asleep"></div><div class="txt"><h4>Sleep</h4><p class="small">Empty states. "Nothing here yet. Scraps is bored."</p></div></article>
+      <article class="nb-card pose"><div class="pic" style="background:var(--pink)"><img src="assets/mascot-wave.svg" alt="Scraps waving"></div><div class="txt"><h4>Wave</h4><p class="small">Onboarding and first run.</p></div></article>
+    </div>
+
+    <h3 class="sub">Anatomy</h3>
+    <div class="anat">
+      <span class="nb-chip" style="--fill:#A9A9A9">Body #A9A9A9</span>
+      <span class="nb-chip" style="--fill:#3E3E3E;color:var(--cream)">Mask band #3E3E3E</span>
+      <span class="nb-chip" style="--fill:var(--paper)">White eye highlights</span>
+      <span class="nb-chip" style="--fill:var(--cream)">Cream muzzle + belly</span>
+      <span class="nb-chip">Ringed tail, 5 to 6 rings</span>
+      <span class="nb-chip">Small dark hands</span>
+      <span class="nb-chip" style="--fill:var(--ink);color:var(--cream)">Ink line 3px at 120px</span>
+    </div>
+
+    <h3 class="sub">Usage rules</h3>
+    <ol class="rules">
+      <li><span>One Scraps per screen, and never in the way of the content. He supports, he does not star.</span></li>
+      <li><span>Pose follows meaning. Peek is the default. Do not use Wave for an error or Sleep for a success.</span></li>
+      <li><span>Sit him on a flat fill: yellow, cream or a pile color. Never on photos, patterns or gradients.</span></li>
+      <li><span>Do not recolor the body. The grey is what makes him read against every pile accent.</span></li>
+      <li><span>Minimum 64px tall in product. Below that, use the app icon instead.</span></li>
+      <li><span>He never talks in speech bubbles or uses emoji. Copy sits next to him, in the product voice.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= COLOR ================= -->
+<section id="color">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">04 / Color</span><h2>Color</h2><p>Hazard yellow carries the brand. Cream holds the content. Ink draws every line. Each Pile then owns exactly one accent, so you know where you are by color alone.</p></div>
+
+    <h3 class="sub" style="margin-top:0">Base</h3>
+    <div class="grid g3" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr))">
+      <div class="nb-card sw"><div class="chip" style="background:var(--yellow)"></div><div class="txt"><b>Hazard Yellow</b><span class="hex">#FFD23F</span><small>App chrome, hero backgrounds, primary buttons.</small></div></div>
+      <div class="nb-card sw"><div class="chip" style="background:var(--cream)"></div><div class="txt"><b>Cream</b><span class="hex">#FFF8EC</span><small>Cards and surfaces.</small></div></div>
+      <div class="nb-card sw"><div class="chip" style="background:var(--paper)"></div><div class="txt"><b>Paper</b><span class="hex">#FFFFFF</span><small>Inputs, checkboxes, highlights.</small></div></div>
+      <div class="nb-card sw"><div class="chip" style="background:var(--ink)"></div><div class="txt"><b>Ink</b><span class="hex">#111111</span><small>Borders, shadows, text. Never pure black.</small></div></div>
+      <div class="nb-card sw"><div class="chip" style="background:var(--ink-2)"></div><div class="txt"><b>Ink 2</b><span class="hex">#4A4A4A</span><small>Secondary text. 8.4:1 on cream.</small></div></div>
+      <div class="nb-card sw"><div class="chip" style="background:var(--ink-3)"></div><div class="txt"><b>Ink 3</b><span class="hex">#8A8A8A</span><small>Timestamps and counts only. 3.3:1 on cream, so never the only carrier of meaning.</small></div></div>
+    </div>
+
+    <h3 class="sub">Proportion</h3>
+    <div class="prop" role="img" aria-label="Suggested proportion: yellow 45 percent, cream 30, ink 15, accents 10">
+      <div style="flex:45;background:var(--yellow)">YELLOW 45</div><div style="flex:30;background:var(--cream)">CREAM 30</div><div style="flex:15;background:var(--ink);color:var(--cream)">INK 15</div><div style="flex:10;background:var(--pink)">PILES</div>
+    </div>
+
+    <h3 class="sub">Pile accents</h3>
+    <div class="grid g4">
+      <div class="nb-folder pile-sw pile-places"><div class="nb-folder__body"><div class="top"><span class="nb-icon-tile" style="--tile:var(--cream)"><svg class="ic"><use href="#i-places"/></svg></span><b>Places</b></div><div class="txt"><span class="hex mono">#FF5C8A · --pink</span><span class="ratio"><span class="ok">Ink 6.4:1</span><span>White 2.9:1 fails</span></span><span class="small">Addresses, maps, spots to try.</span></div></div></div>
+      <div class="nb-folder pile-sw pile-watch"><div class="nb-folder__body"><div class="top"><span class="nb-icon-tile" style="--tile:var(--cream)"><svg class="ic"><use href="#i-watch"/></svg></span><b>Watch Later</b></div><div class="txt"><span class="hex mono">#7B61FF · --violet</span><span class="ratio"><span class="warn">Ink 4.49:1</span><span>White 4.2:1 fails</span></span><span class="small">Videos and clips. Ink labels at 18px bold or larger only.</span></div></div></div>
+      <div class="nb-folder pile-sw pile-reads"><div class="nb-folder__body"><div class="top"><span class="nb-icon-tile" style="--tile:var(--cream)"><svg class="ic"><use href="#i-reads"/></svg></span><b>Reads</b></div><div class="txt"><span class="hex mono">#A3E635 · --lime</span><span class="ratio"><span class="ok">Ink 12.5:1</span></span><span class="small">Articles, threads, long reads.</span></div></div></div>
+      <div class="nb-folder pile-sw pile-shopping"><div class="nb-folder__body"><div class="top"><span class="nb-icon-tile" style="--tile:var(--cream)"><svg class="ic"><use href="#i-shopping"/></svg></span><b>Shopping</b></div><div class="txt"><span class="hex mono">#3EC1F3 · --sky</span><span class="ratio"><span class="ok">Ink 9.1:1</span></span><span class="small">Products, wishlists, gift ideas.</span></div></div></div>
+      <div class="nb-folder pile-sw pile-people"><div class="nb-folder__body"><div class="top"><span class="nb-icon-tile" style="--tile:var(--cream)"><svg class="ic"><use href="#i-people"/></svg></span><b>People</b></div><div class="txt"><span class="hex mono">#FF8A3D · --orange</span><span class="ratio"><span class="ok">Ink 8.1:1</span></span><span class="small">Contacts, birthdays, things to tell someone.</span></div></div></div>
+      <div class="nb-folder pile-sw pile-todos"><div class="nb-folder__body"><div class="top"><span class="nb-icon-tile" style="--tile:var(--cream)"><svg class="ic"><use href="#i-todos"/></svg></span><b>To-dos</b></div><div class="txt"><span class="hex mono">#4ADE9B · --mint</span><span class="ratio"><span class="ok">Ink 11.0:1</span></span><span class="small">Tasks. Also the success color.</span></div></div></div>
+      <div class="nb-folder pile-sw pile-ideas"><div class="nb-folder__body"><div class="top"><span class="nb-icon-tile" style="--tile:var(--cream)"><svg class="ic"><use href="#i-ideas"/></svg></span><b>Ideas</b></div><div class="txt"><span class="hex mono">#FFE58F · --butter</span><span class="ratio"><span class="ok">Ink 15.2:1</span></span><span class="small">Half-thoughts and shower thoughts. Sits close to yellow, so always keep the ink border.</span></div></div></div>
+      <div class="nb-folder pile-sw pile-unsorted"><div class="nb-folder__body"><div class="top"><span class="nb-icon-tile" style="--tile:var(--cream)"><svg class="ic"><use href="#i-unsorted"/></svg></span><b>Unsorted</b></div><div class="txt"><span class="hex mono">#BDBDBD · --stone</span><span class="ratio"><span class="ok">Ink 10.1:1</span></span><span class="small">Scraps is not sure yet.</span></div></div></div>
+    </div>
+
+    <h3 class="sub">Contrast notes</h3>
+    <ul class="spec-list">
+      <li><b>Rule</b><span>All text on accent fills is ink. White on pink (2.9:1), violet (4.2:1) and every other accent fails AA, so white is not used on any pile color.</span></li>
+      <li><b>Violet</b><span>Ink on violet measures 4.49:1, a hair under AA for body text. Use it for 18px bold labels, icons and tabs, and put small text on cream.</span></li>
+      <li><b>Semantic</b><span>Success is mint, danger is #FF4D4D. Ink on danger is 5.8:1. Never signal state by color alone: pair with an icon or word.</span></li>
+      <li><b>On yellow</b><span>Cream on yellow is 1.4:1, so separation always comes from the ink border and shadow, not from the fill change.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= TYPE ================= -->
+<section id="type" class="cream">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">05 / Typography</span><h2>Typography</h2><p>Three voices. Archivo shouts the headline, DM Sans does the reading, JetBrains Mono keeps the receipts.</p></div>
+
+    <div class="grid g3">
+      <div class="nb-card spec" style="--fill:var(--yellow)"><span class="lbl-s">Display · Archivo</span><div class="aa" style="font-family:var(--font-display);font-weight:900;font-stretch:125%">Aa</div><p class="small">800 to 900, width 110 to 125. Headlines, nav labels, buttons, big numbers.</p><p class="mono" style="font-size:12px">Archivo:wdth,wght@100..125,400..900</p></div>
+      <div class="nb-card spec"><span class="lbl-s">Body · DM Sans</span><div class="aa" style="font-family:var(--font-body);font-weight:500">Aa</div><p class="small">400, 500, 700. Messages, descriptions, everything you read.</p><p class="mono" style="font-size:12px">DM Sans:wght@400;500;700</p></div>
+      <div class="nb-card spec" style="--fill:var(--ink);color:var(--cream)"><span class="lbl-s">Meta · JetBrains Mono</span><div class="aa" style="font-family:var(--font-mono);font-weight:600">Aa</div><p class="small">400, 600. Timestamps, counts, sources, file names.</p><p class="mono" style="font-size:12px">JetBrains Mono:wght@400;600</p></div>
+    </div>
+
+    <h3 class="sub">Scale</h3>
+    <div class="nb-card nb-card--lg" style="padding:8px 24px">
+      <div class="scale">
+        <div><div class="lbl">Display<span>40 / 44 · 900</span></div><div class="smp t-display">Dump it. Find it.</div></div>
+        <div><div class="lbl">H1<span>32 / 36 · 800</span></div><div class="smp t-h1">Your piles, sorted</div></div>
+        <div><div class="lbl">H2<span>24 / 28 · 800</span></div><div class="smp t-h2">Remember this?</div></div>
+        <div><div class="lbl">H3<span>18 / 22 · 800</span></div><div class="smp t-h3">Tossed in Places</div></div>
+        <div><div class="lbl">Body<span>16 / 24 · 400</span></div><div class="smp t-body">Mom texted an address on Tuesday. It is in Places, with the map and who sent it.</div></div>
+        <div><div class="lbl">Small<span>14 / 20 · 500</span></div><div class="smp t-small">Opens in Maps. Moved from Unsorted.</div></div>
+        <div><div class="lbl">Meta<span>12 / 16 · mono</span></div><div class="smp t-meta">12 ITEMS · LAST ADDED 2D AGO · FROM MOM</div></div>
+      </div>
+    </div>
+    <p class="cap" style="margin-top:14px">Headlines go tight (-0.01em). Never set body copy in Archivo, and never go below 12px. In product, display type is sentence case except for the wordmark, which is always lowercase.</p>
+  </div>
+</section>
+
+<!-- ================= SYSTEM ================= -->
+<section id="system">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">06 / Brutalist system</span><h2>Brutalist system</h2><p>Thick ink borders, hard offset shadows, flat fills. Everything is a physical object you could pick up. There is no blur, no gradient and no transparency in the system.</p></div>
+
+    <h3 class="sub" style="margin-top:0">Borders</h3>
+    <div class="grid g2">
+      <div class="demo-box" style="border:var(--border)">2.5px · default</div>
+      <div class="demo-box" style="border:var(--border-thick)">3px · hero cards, icon, mascot</div>
+    </div>
+
+    <h3 class="sub">Shadows</h3>
+    <div class="grid g3">
+      <div class="demo-box" style="border:var(--border);box-shadow:var(--shadow-sm)">sm · 2 2 0</div>
+      <div class="demo-box" style="border:var(--border);box-shadow:var(--shadow)">md · 4 4 0</div>
+      <div class="demo-box" style="border:var(--border-thick);box-shadow:var(--shadow-lg)">lg · 6 6 0</div>
+    </div>
+    <p class="cap">Shadows always fall down and right at 0 blur, in ink. Never in color, never soft.</p>
+
+    <h3 class="sub">Radii</h3>
+    <div class="grid g4">
+      <div class="demo-box" style="border:var(--border);border-radius:var(--radius-sm)">8 · tiles, inputs</div>
+      <div class="demo-box" style="border:var(--border);border-radius:var(--radius)">14 · cards, buttons</div>
+      <div class="demo-box" style="border:var(--border);border-radius:var(--radius-lg)">20 · sheets</div>
+      <div class="demo-box" style="border:var(--border);border-radius:999px">999 · chips</div>
+    </div>
+
+    <h3 class="sub">Press squish</h3>
+    <div class="grid g2" style="align-items:stretch">
+      <div class="nb-card nb-card--lg sq" style="--fill:var(--cream)">
+        <span class="lbl-s">Try it</span>
+        <button class="nb-btn" type="button">Press me</button>
+        <span class="hold">Rests at 4px shadow. On press: translate(3px, 3px), shadow drops to 2px. 140ms, slight overshoot.</span>
+      </div>
+      <div class="nb-card" style="display:grid;gap:12px;align-content:center">
+        <ul class="spec-list">
+          <li><b>Rest</b><span class="mono small">transform: none · shadow 4px 4px 0</span></li>
+          <li><b>Hover</b><span class="mono small">translate(-1px,-1px) · shadow 5px 5px 0</span></li>
+          <li><b>Press</b><span class="mono small">translate(3px,3px) · shadow 2px 2px 0</span></li>
+          <li><b>Easing</b><span class="mono small">cubic-bezier(.34,1.56,.64,1)</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub">Folder-tab card anatomy</h3>
+    <div class="anatomy">
+      <div class="nb-folder pile-places"><div class="nb-folder__body">
+        <div class="row"><span class="nb-icon-tile"><svg class="ic"><use href="#i-places"/></svg></span><span class="count">12</span></div>
+        <h4 class="t-h3">Places</h4>
+        <span class="t-meta" style="color:var(--ink-2)">LAST: 14 MAPLE ST</span>
+      </div></div>
+      <span class="pin" style="top:20px">Tab in pile color</span>
+      <span class="pin" style="top:62px">Card, 2.5px ink</span>
+      <span class="pin" style="top:100px">Icon tile</span>
+      <span class="pin" style="top:140px">Title, H3</span>
+      <span class="pin" style="bottom:14px">Hard shadow 4/4</span>
+    </div>
+    <p class="cap" style="text-align:center;margin-top:14px">The tab sticks up behind the card, shares its border, and is the only place the pile color is loud.</p>
+  </div>
+</section>
+
+<!-- ================= ICONS ================= -->
+<section id="icons" class="cream">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">07 / Iconography</span><h2>Iconography</h2><p>Hand-drawn on a 24px grid, 2.5px stroke, round caps and joins, no fills. They inherit text color, so ink on cream, ink on a pile tile. No emoji, ever.</p></div>
+
+    <div class="grid g2 icspec" style="align-items:center;gap:24px">
+      <div class="gridviz"><svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><use href="#i-places"/></svg></div>
+      <ul class="spec-list">
+        <li><b>Grid</b><span class="small">24 x 24, 2px safe margin</span></li>
+        <li><b>Stroke</b><span class="small">2.5px, currentColor</span></li>
+        <li><b>Ends</b><span class="small">Round caps, round joins</span></li>
+        <li><b>Tile</b><span class="small">44px square, 2.5px ink border, sm shadow</span></li>
+      </ul>
+    </div>
+
+    <h3 class="sub">Piles</h3>
+    <div class="icgrid">
+      <figure class="pile-places"><span class="nb-icon-tile"><svg class="ic"><use href="#i-places"/></svg></span><figcaption>places</figcaption></figure>
+      <figure class="pile-watch"><span class="nb-icon-tile"><svg class="ic"><use href="#i-watch"/></svg></span><figcaption>watch</figcaption></figure>
+      <figure class="pile-reads"><span class="nb-icon-tile"><svg class="ic"><use href="#i-reads"/></svg></span><figcaption>reads</figcaption></figure>
+      <figure class="pile-shopping"><span class="nb-icon-tile"><svg class="ic"><use href="#i-shopping"/></svg></span><figcaption>shopping</figcaption></figure>
+      <figure class="pile-people"><span class="nb-icon-tile"><svg class="ic"><use href="#i-people"/></svg></span><figcaption>people</figcaption></figure>
+      <figure class="pile-todos"><span class="nb-icon-tile"><svg class="ic"><use href="#i-todos"/></svg></span><figcaption>todos</figcaption></figure>
+      <figure class="pile-ideas"><span class="nb-icon-tile"><svg class="ic"><use href="#i-ideas"/></svg></span><figcaption>ideas</figcaption></figure>
+      <figure class="pile-unsorted"><span class="nb-icon-tile"><svg class="ic"><use href="#i-unsorted"/></svg></span><figcaption>unsorted</figcaption></figure>
+    </div>
+
+    <h3 class="sub">Interface</h3>
+    <div class="icgrid">
+      <figure><svg class="ic"><use href="#i-dump"/></svg><figcaption>dump</figcaption></figure>
+      <figure><svg class="ic"><use href="#i-piles"/></svg><figcaption>piles</figcaption></figure>
+      <figure><svg class="ic"><use href="#i-dig"/></svg><figcaption>dig</figcaption></figure>
+      <figure><svg class="ic"><use href="#i-plus"/></svg><figcaption>plus</figcaption></figure>
+      <figure><svg class="ic"><use href="#i-mic"/></svg><figcaption>mic</figcaption></figure>
+      <figure><svg class="ic"><use href="#i-image"/></svg><figcaption>image</figcaption></figure>
+      <figure><svg class="ic"><use href="#i-settings"/></svg><figcaption>settings</figcaption></figure>
+      <figure><svg class="ic"><use href="#i-share"/></svg><figcaption>share</figcaption></figure>
+      <figure><svg class="ic"><use href="#i-bell"/></svg><figcaption>bell</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPONENTS ================= -->
+<section id="components">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">08 / Components</span><h2>Components</h2><p>The core kit, using the classes in assets/tokens.css. Everything below is live: press things.</p></div>
+
+    <div class="grid g2" style="align-items:start">
+      <div class="nb-card comp">
+        <span class="lbl-s">Buttons · .nb-btn</span>
+        <div class="row">
+          <button class="nb-btn" type="button">Toss it</button>
+          <button class="nb-btn nb-btn--cream" type="button">Not now</button>
+          <button class="nb-btn nb-btn--ink" type="button">Dig</button>
+          <button class="nb-btn nb-btn--sq" type="button" aria-label="Add"><svg class="ic"><use href="#i-plus"/></svg></button>
+          <button class="nb-btn" type="button" disabled>Disabled</button>
+        </div>
+      </div>
+
+      <div class="nb-card comp">
+        <span class="lbl-s">Chips · .nb-chip</span>
+        <div class="row" style="gap:10px" id="chips">
+          <button class="nb-chip" type="button" aria-pressed="true" style="--fill:var(--yellow)">All</button>
+          <button class="nb-chip" type="button" aria-pressed="false">YouTube</button>
+          <button class="nb-chip" type="button" aria-pressed="false">TikTok</button>
+          <button class="nb-chip" type="button" aria-pressed="false">Articles</button>
+          <span class="nb-chip nb-chip--mono">12 ITEMS</span>
+        </div>
+      </div>
+
+      <div class="nb-card comp">
+        <span class="lbl-s">Composer</span>
+        <div class="composer">
+          <button class="nb-btn nb-btn--sq" type="button" aria-label="Add photo, voice or file"><svg class="ic"><use href="#i-plus"/></svg></button>
+          <label class="field"><span class="sr" style="position:absolute;left:-9999px">Dump anything</span><input type="text" placeholder="Dump anything…"><button class="ib" type="button" aria-label="Voice note"><svg class="ic"><use href="#i-mic"/></svg></button></label>
+        </div>
+        <div class="composer">
+          <label class="field"><span style="position:absolute;left:-9999px">Dig</span><svg class="ic"><use href="#i-dig"/></svg><input type="text" placeholder="Dig for anything… 'that address mom sent'"></label>
+        </div>
+      </div>
+
+      <div class="nb-card comp">
+        <span class="lbl-s">Chat bubble + filing chip</span>
+        <div class="chat">
+          <div class="bubble">14 Maple St, apt 3B. Ring twice.<span class="mono">9:41 AM</span></div>
+          <span class="file-chip pile-places"><span class="nb-icon-tile"><svg class="ic"><use href="#i-places"/></svg></span>→ Tossed in <strong>Places</strong> <span style="color:var(--ink-2);font-weight:400">· from Mom</span></span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub">Smart cards</h3>
+    <div class="grid g3" style="align-items:start">
+      <article class="nb-card smart pile-watch">
+        <div class="media" style="background:var(--violet)"><span class="playbtn"><svg class="ic"><use href="#i-watch"/></svg></span></div>
+        <div class="body"><span class="lbl-s">Link · Watch Later</span><h4>How to fold a fitted sheet (finally)</h4><span class="t-meta" style="color:var(--ink-2)">YOUTUBE.COM · 8:12</span></div>
+      </article>
+      <article class="nb-card smart pile-places">
+        <div class="media mapbg"><span class="pinb"><svg class="ic"><use href="#i-places"/></svg></span></div>
+        <div class="body"><span class="lbl-s">Address · Places</span><h4>14 Maple St, Apt 3B</h4><span class="t-meta" style="color:var(--ink-2)">FROM MOM · TUE</span><button class="nb-btn nb-btn--cream" type="button" style="min-height:40px;font-size:14px;padding:0 14px;margin-top:4px">Open in Maps</button></div>
+      </article>
+      <div style="display:grid;gap:12px">
+        <span class="lbl-s">To-do · To-dos</span>
+        <button class="todo" type="button" aria-pressed="false"><span class="box"><svg class="ic"><use href="#i-todos"/></svg></span><span class="l">Buy batteries</span></button>
+        <button class="todo" type="button" aria-pressed="true"><span class="box"><svg class="ic"><use href="#i-todos"/></svg></span><span class="l">Call the landlord</span></button>
+      </div>
+    </div>
+
+    <h3 class="sub">Pile cards and tab bar</h3>
+    <div class="grid g2" style="align-items:start">
+      <div class="pilegrid">
+        <div class="nb-folder pilecard pile-places"><div class="nb-folder__body"><div class="row"><span class="nb-icon-tile"><svg class="ic"><use href="#i-places"/></svg></span><span class="count">12</span></div><h4 class="t-h3">Places</h4><span class="t-meta" style="color:var(--ink-2)">14 MAPLE ST</span></div></div>
+        <div class="nb-folder pilecard pile-watch"><div class="nb-folder__body"><div class="row"><span class="nb-icon-tile"><svg class="ic"><use href="#i-watch"/></svg></span><span class="count">31</span></div><h4 class="t-h3">Watch Later</h4><span class="t-meta" style="color:var(--ink-2)">FOLD A SHEET</span></div></div>
+        <div class="nb-folder pilecard pile-todos nb-folder--filled"><div class="nb-folder__body"><div class="row"><span class="nb-icon-tile" style="--tile:var(--cream)"><svg class="ic"><use href="#i-todos"/></svg></span><span class="count">7</span></div><h4 class="t-h3">To-dos</h4><span class="t-meta">BUY BATTERIES</span></div></div>
+        <div class="nb-folder pilecard pile-ideas"><div class="nb-folder__body"><div class="row"><span class="nb-icon-tile"><svg class="ic"><use href="#i-ideas"/></svg></span><span class="count">19</span></div><h4 class="t-h3">Ideas</h4><span class="t-meta" style="color:var(--ink-2)">SOUP, BUT COLD</span></div></div>
+      </div>
+      <div class="nb-card comp" style="--fill:var(--yellow)">
+        <span class="lbl-s">Tab bar · Dump · Piles · Dig</span>
+        <div class="tabbar" role="tablist" id="tabs">
+          <button role="tab" type="button" aria-selected="true"><svg class="ic"><use href="#i-dump"/></svg>Dump</button>
+          <button role="tab" type="button" aria-selected="false"><svg class="ic"><use href="#i-piles"/></svg>Piles</button>
+          <button role="tab" type="button" aria-selected="false"><svg class="ic"><use href="#i-dig"/></svg>Dig</button>
+        </div>
+        <p class="small">Three tabs, no more. The active tab gets the yellow fill, the border and the sm shadow. Labels are Archivo, icons are 24px. Touch targets stay at 44px or larger.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VOICE ================= -->
+<section id="voice" class="cream">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">09 / Voice and tone</span><h2>Voice and tone</h2><p>Playful with a light touch. Plain and clear almost everywhere, a little cheeky in a few chosen places.</p></div>
+
+    <div class="grid g3">
+      <div class="nb-card pillar" style="--fill:var(--yellow)"><h4>Grounded</h4><p class="small">Say what happened and what is next. Substance over noise, no hype, no exclamation pile-ups.</p></div>
+      <div class="nb-card pillar" style="--fill:var(--pink)"><h4>Warm</h4><p class="small">A helpful friend who remembers things for you. Never cold, never a robot, never a scold.</p></div>
+      <div class="nb-card pillar" style="--fill:var(--sky)"><h4>Cheeky</h4><p class="small">A raised eyebrow, not a stand-up set. One light touch per screen, at the most.</p></div>
+    </div>
+
+    <h3 class="sub">Pun rules</h3>
+    <div class="grid g2" style="align-items:start">
+      <ul class="rules" style="counter-reset:r">
+        <li><span><b>Puns live on verbs and nav only.</b> Toss it, Piles, Dig, Scraps. That is the whole list.</span></li>
+        <li><span><b>Key moments only:</b> saving, searching, empty states, onboarding.</span></li>
+        <li><span><b>Errors, settings, legal, money: plain.</b> Never joke when something went wrong.</span></li>
+      </ul>
+      <div class="nb-card" style="display:grid;gap:12px">
+        <span class="lbl-s">The real strings</span>
+        <div class="row" style="gap:10px"><span class="tag">Nav</span><b class="t-h3">Dump · Piles · Dig</b></div>
+        <div class="row" style="gap:10px"><span class="tag">Saved</span><span>Tossed in <b>Places</b>.</span></div>
+        <div class="row" style="gap:10px"><span class="tag">Empty</span><span>Nothing here yet. Scraps is bored.</span></div>
+        <div class="row" style="gap:10px"><span class="tag">Search</span><span class="mono small">Dig for anything… 'that address mom sent'</span></div>
+      </div>
+    </div>
+
+    <h3 class="sub">Do and don't copy</h3>
+    <table class="dd">
+      <thead><tr><th>Do</th><th>Don't</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Tossed in Places.</td><td>Garbage in, gold out!!</td><td>Confirm what happened. The cleverness is already in the verb.</td></tr>
+        <tr><td>Nothing here yet. Scraps is bored.</td><td>Trash talk! Nothing to see here</td><td>One light touch, no emoji, no pile-on.</td></tr>
+        <tr><td>Dig for anything… 'that address mom sent'</td><td>Search your items</td><td>Show the plain-language way to ask, with a real example.</td></tr>
+        <tr><td>We could not save that. Try again.</td><td>Oops, that was rubbish!</td><td>Errors are plain, always.</td></tr>
+        <tr><td>Remember this? You saved it two weeks ago.</td><td>Don't let this go to waste!!!</td><td>Warm nudge, no guilt, no urgency.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ================= DOWNLOADS ================= -->
+<section id="downloads">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">10 / Downloads</span><h2>Downloads</h2><p>Everything above as files. SVGs are editable vectors; tokens.css is the one to import.</p></div>
+
+    <h3 class="sub" style="margin-top:0">Logo</h3>
+    <div class="grid g3">
+      <a class="dl" href="assets/logo-icon.svg" download><img src="assets/logo-icon.svg" alt=""><span><span class="nm" style="display:block">App icon</span><span class="fn">logo-icon.svg</span></span></a>
+      <a class="dl" href="assets/wordmark.svg" download><img src="assets/wordmark.svg" alt=""><span><span class="nm" style="display:block">Wordmark</span><span class="fn">wordmark.svg</span></span></a>
+      <a class="dl" href="assets/lockup.svg" download><img src="assets/lockup.svg" alt=""><span><span class="nm" style="display:block">Lockup</span><span class="fn">lockup.svg</span></span></a>
+      <a class="dl" href="assets/wordmark-ink.svg" download><img src="assets/wordmark-ink.svg" alt=""><span><span class="nm" style="display:block">Wordmark, one color</span><span class="fn">wordmark-ink.svg</span></span></a>
+      <a class="dl" href="assets/wordmark-light.svg" download style="background:var(--ink)"><img src="assets/wordmark-light.svg" alt=""><span><span class="nm" style="display:block;color:var(--cream)">Wordmark, light</span><span class="fn" style="color:var(--stone)">wordmark-light.svg</span></span></a>
+    </div>
+    <h3 class="sub">Scraps</h3>
+    <div class="grid g3">
+      <a class="dl" href="assets/mascot-peek.svg" download><img src="assets/mascot-peek.svg" alt=""><span><span class="nm" style="display:block">Peek</span><span class="fn">mascot-peek.svg</span></span></a>
+      <a class="dl" href="assets/mascot-dig.svg" download><img src="assets/mascot-dig.svg" alt=""><span><span class="nm" style="display:block">Dig</span><span class="fn">mascot-dig.svg</span></span></a>
+      <a class="dl" href="assets/mascot-hold.svg" download><img src="assets/mascot-hold.svg" alt=""><span><span class="nm" style="display:block">Hold</span><span class="fn">mascot-hold.svg</span></span></a>
+      <a class="dl" href="assets/mascot-sleep.svg" download><img src="assets/mascot-sleep.svg" alt=""><span><span class="nm" style="display:block">Sleep</span><span class="fn">mascot-sleep.svg</span></span></a>
+      <a class="dl" href="assets/mascot-wave.svg" download><img src="assets/mascot-wave.svg" alt=""><span><span class="nm" style="display:block">Wave</span><span class="fn">mascot-wave.svg</span></span></a>
+    </div>
+    <h3 class="sub">Tokens and icons</h3>
+    <div class="grid g3">
+      <a class="dl" href="assets/tokens.css" download><span class="nb-icon-tile" style="--size:40px"><svg class="ic"><use href="#i-settings"/></svg></span><span><span class="nm" style="display:block">CSS tokens + utilities</span><span class="fn">tokens.css</span></span></a>
+      <a class="dl" href="assets/tokens.json" download><span class="nb-icon-tile" style="--size:40px;--tile:var(--mint)"><svg class="ic"><use href="#i-share"/></svg></span><span><span class="nm" style="display:block">JSON tokens</span><span class="fn">tokens.json</span></span></a>
+      <a class="dl" href="assets/icons/places.svg" download><span class="nb-icon-tile" style="--size:40px;--tile:var(--pink)"><svg class="ic"><use href="#i-piles"/></svg></span><span><span class="nm" style="display:block">Icon set (17 SVGs)</span><span class="fn">assets/icons/*.svg</span></span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/wordmark-light.svg" alt="dumpster" height="30" style="height:30px;width:auto">
+    <span class="mono">Brand guidelines v1.0 · Range Of View Studios · Dump it. Find it.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var chips=document.getElementById('chips');
+  chips.addEventListener('click',function(e){var b=e.target.closest('button.nb-chip');if(!b)return;
+    chips.querySelectorAll('button.nb-chip').forEach(function(c){var on=c===b;c.setAttribute('aria-pressed',on);c.style.setProperty('--fill',on?'var(--yellow)':'var(--cream)')});});
+  document.querySelectorAll('.todo').forEach(function(t){t.addEventListener('click',function(){t.setAttribute('aria-pressed',t.getAttribute('aria-pressed')!=='true')})});
+  var tabs=document.getElementById('tabs');
+  tabs.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+    tabs.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-selected',x===b)})});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dumpster Press Kit</title>
+<meta name="description" content="Press kit for Dumpster, the chat-first app that replaces texting yourself. Fact sheet, boilerplate, screenshots, logos and Scraps the raccoon.">
+<link rel="icon" href="assets/brand/logo-icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="assets/tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--yellow);color:var(--ink);font:400 16px/24px var(--font-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{max-width:100%}
+h1,h2,h3,h4,p,ul,ol,figure,dl,dd,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
+@media(max-width:480px){.wrap{padding:0 16px}}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:50;background:var(--cream);border-bottom:var(--border-thick)}
+.bar .wrap{display:flex;align-items:center;gap:16px;height:60px}
+.bar img{height:26px;width:auto;flex:none}
+.bar nav{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:6px 4px 6px 0;margin-left:auto;min-width:0}
+.bar nav::-webkit-scrollbar{display:none}
+.bar nav a{flex:none;min-height:36px}
+.bar .nb-chip:hover{background:var(--yellow)}
+@media(max-width:700px){.bar img{display:none}.bar nav{margin-left:0}}
+
+/* hero */
+.cover{padding:56px 0 72px;overflow:hidden}
+.cover .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center}
+.cover>.wrap>*{min-width:0}
+.eyebrow{font:600 12px/16px var(--font-mono);letter-spacing:.08em;text-transform:uppercase;display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.cover .wm{width:100%;max-width:560px;display:block}
+.cover h1{font:900 clamp(30px,5.2vw,56px)/1.02 var(--font-display);font-stretch:122%;margin-top:28px;letter-spacing:-.01em}
+.cover .sub{max-width:46ch;margin-top:16px;font-size:18px;line-height:28px}
+.badges{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.store{display:inline-flex;align-items:center;gap:12px;min-height:56px;padding:6px 18px 6px 12px;background:var(--ink);color:var(--cream);border:var(--border);border-radius:var(--radius);box-shadow:4px 4px 0 var(--pink);cursor:default}
+.store svg{width:26px;height:26px;flex:none}
+.store small{display:block;font:600 10px/12px var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--butter)}
+.store b{display:block;font:800 18px/20px var(--font-display);font-stretch:110%}
+.store.g{box-shadow:4px 4px 0 var(--mint)}
+.cta{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.cover .art{position:relative;justify-self:center;width:100%;max-width:380px}
+.cover .art .nb-card{padding:20px;transform:rotate(2deg);box-shadow:var(--shadow-lg);border:var(--border-thick);border-radius:var(--radius-lg);overflow:hidden}
+.cover .art .nb-card img{display:block;width:100%;height:auto}
+.stamp{position:absolute;left:-14px;bottom:18px;transform:rotate(-6deg)}
+@media(max-width:820px){.cover{padding-top:36px}.cover .wrap{grid-template-columns:minmax(0,1fr)}.cover .art{max-width:320px;justify-self:start;margin-top:8px}}
+
+/* sections */
+section{padding:72px 0;border-top:var(--border-thick)}
+section.cream{background:var(--cream)}
+section.ink{background:var(--ink);color:var(--cream)}
+.sec-head{margin-bottom:36px}
+.sec-head .no{font:600 12px/16px var(--font-mono);letter-spacing:.08em;display:block;margin-bottom:6px}
+.sec-head h2{font:900 clamp(28px,5vw,46px)/1.04 var(--font-display);font-stretch:120%;letter-spacing:-.01em}
+.sec-head p{max-width:62ch;margin-top:12px;font-size:17px;line-height:26px}
+h3.sub{font:800 18px/22px var(--font-display);font-stretch:110%;margin:48px 0 16px;display:flex;align-items:center;gap:12px}
+h3.sub::after{content:"";flex:1;height:3px;background:var(--ink)}
+.grid{display:grid;gap:24px}
+.grid>*{min-width:0}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}.g5{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media(max-width:900px){.g4,.g5{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.g2,.g3,.g4,.g5{grid-template-columns:minmax(0,1fr)}}
+.cap{font:400 12px/16px var(--font-mono);color:var(--ink-2);margin-top:10px}
+.cap b{font-weight:600;color:var(--ink)}
+.mono{font-family:var(--font-mono)}
+
+/* TBD chip */
+.tbd{display:inline-block;vertical-align:middle;margin-left:8px;padding:3px 7px;font:600 11px/1 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;background:var(--butter);border:2px dashed var(--ink);border-radius:6px;white-space:nowrap}
+
+/* fact sheet */
+.facts{border:var(--border-thick);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);background:var(--paper);overflow:hidden}
+.facts div{display:grid;grid-template-columns:220px minmax(0,1fr);border-bottom:var(--border)}
+.facts div:last-child{border-bottom:0}
+.facts dt{padding:14px 18px;background:var(--yellow);border-right:var(--border);font:600 12px/20px var(--font-mono);letter-spacing:.06em;text-transform:uppercase}
+.facts dd{padding:14px 18px;font-weight:500;overflow-wrap:anywhere}
+@media(max-width:560px){.facts div{grid-template-columns:minmax(0,1fr)}.facts dt{border-right:0;border-bottom:var(--border);padding:8px 16px}.facts dd{padding:12px 16px}}
+
+/* boilerplate */
+.bp{align-self:start;display:flex;flex-direction:column;gap:14px}
+.bp h3{font:800 20px/24px var(--font-display);font-stretch:110%;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.bp .txt{font-size:16px;line-height:26px;display:grid;gap:12px}
+.bp .btn-row{margin-top:auto}
+.nb-btn.sm{min-height:44px;font-size:14px;padding:0 16px}
+
+/* problem / fix */
+.pf{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:900px){.pf{grid-template-columns:minmax(0,1fr)}}
+.pf .nb-card{display:flex;flex-direction:column;gap:10px}
+.pf h3{font:800 22px/26px var(--font-display);font-stretch:112%}
+.pf .lbl{font:600 12px/16px var(--font-mono);letter-spacing:.08em;text-transform:uppercase}
+.story{margin-top:32px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:24px;align-items:center}
+@media(max-width:820px){.story{grid-template-columns:minmax(0,1fr)}}
+.story p{font-size:18px;line-height:28px}
+.thread{display:grid;gap:10px;padding:20px;background:var(--yellow);border:var(--border-thick);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)}
+.msg{max-width:88%;padding:10px 14px;border:var(--border);border-radius:14px;background:var(--cream);font:500 15px/22px var(--font-body);box-shadow:var(--shadow-sm)}
+.msg.me{justify-self:end;background:var(--paper)}
+.msg .who{display:block;font:600 11px/14px var(--font-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin-bottom:2px}
+.msg.gone{opacity:.55;text-decoration:line-through;text-decoration-thickness:2px}
+.thread .note{justify-self:center;font:600 12px/16px var(--font-mono);padding:6px 10px;background:var(--ink);color:var(--cream);border-radius:999px}
+
+/* features */
+.feat{display:flex;flex-direction:column;gap:12px}
+.feat h3{font:800 20px/24px var(--font-display);font-stretch:112%}
+.feat p{font-size:15px;line-height:23px}
+.nb-icon-tile{--size:52px}
+.nb-icon-tile img{width:26px;height:26px;display:block}
+
+/* scraps */
+.pose{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.pose .pic{display:grid;grid-template-rows:minmax(0,1fr);overflow:hidden;place-items:center;padding:16px;border-bottom:var(--border);height:180px}
+.pose .pic img{height:100%;width:auto;max-width:100%;min-height:0}
+.pose .txt{padding:12px 14px 14px;display:grid;gap:6px;justify-items:start}
+.pose h4{font:800 16px/20px var(--font-display);font-stretch:110%}
+.bio{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;margin-bottom:32px}
+@media(max-width:700px){.bio{grid-template-columns:minmax(0,1fr)}}
+.bio blockquote{font:800 clamp(20px,3vw,28px)/1.25 var(--font-display);font-stretch:108%}
+.g5.poses{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media(max-width:1000px){.g5.poses{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:640px){.g5.poses{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.pose .pic{height:130px}}
+
+/* galleries */
+.shot{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.shot .pic{background:var(--yellow);border-bottom:var(--border);padding:16px 16px 0;display:grid;place-items:end center;overflow:hidden;position:relative}
+.shot .pic img{display:block;width:100%;height:auto;border:var(--border);border-bottom:0;border-radius:12px 12px 0 0;background:var(--cream)}
+.shot.wide .pic{padding:12px}
+.shot.wide .pic img{border:var(--border);border-radius:10px}
+.shot .txt{padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.shot .txt span{font:600 13px/18px var(--font-mono)}
+.shot .fb-tag{display:none;position:absolute;bottom:10px;left:10px;z-index:2;font:600 10px/1 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;background:var(--butter);border:2px dashed var(--ink);border-radius:6px;padding:4px 6px}
+.shot.fb .fb-tag{display:block}
+.dl{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 12px;font:600 12px/1 var(--font-mono);letter-spacing:.04em;text-transform:uppercase;text-decoration:none;background:var(--cream);border:var(--border);border-radius:var(--radius-pill);box-shadow:var(--shadow-sm);transition:transform var(--dur) var(--ease-snap),box-shadow var(--dur) var(--ease-snap)}
+.dl:hover{background:var(--yellow)}
+.dl:active{transform:translate(2px,2px);box-shadow:none}
+.dl svg{width:16px;height:16px}
+.sh-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:1000px){.sh-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.sh-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.sh-grid .txt{flex-direction:column;align-items:flex-start}}
+.mk-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:900px){.mk-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.mk-grid{grid-template-columns:minmax(0,1fr)}}
+.mk-grid .shot .pic{padding:0;background:var(--cream);place-items:center}
+.mk-grid .shot .pic img{border:0;border-radius:0;aspect-ratio:auto;max-height:420px;object-fit:contain;width:100%}
+.mk-grid .shot.fb .pic{background:var(--yellow);padding:12px 12px 0;place-items:end center}
+.mk-grid .shot.fb .pic img{max-height:320px;width:auto;max-width:100%;border:var(--border);border-bottom:0;border-radius:12px 12px 0 0}
+
+/* brand assets */
+.stage{display:grid;place-items:center;border-bottom:var(--border);min-height:170px;padding:20px;overflow:hidden}
+.stage img{display:block;max-width:100%}
+.asset{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.asset .txt{padding:12px 14px;display:grid;gap:10px}
+.asset h4{font:800 16px/20px var(--font-display);font-stretch:110%}
+.asset .links{display:flex;gap:8px;flex-wrap:wrap}
+.on-y{background:var(--yellow)}.on-c{background:var(--cream)}.on-i{background:var(--ink)}
+.chk{background-color:#fff;background-image:linear-gradient(45deg,#e6e0d2 25%,transparent 25%,transparent 75%,#e6e0d2 75%),linear-gradient(45deg,#e6e0d2 25%,transparent 25%,transparent 75%,#e6e0d2 75%);background-size:20px 20px;background-position:0 0,10px 10px}
+.sw{overflow:hidden;padding:0}
+.sw .chip{height:84px;border-bottom:var(--border)}
+.sw .txt{padding:10px 12px;display:grid;gap:2px}
+.sw b{font:800 15px/20px var(--font-display);font-stretch:110%}
+.sw .hex{font:600 13px/18px var(--font-mono)}
+.swatches{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media(max-width:900px){.swatches{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.swatches{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.fonts .nb-card{display:grid;gap:6px}
+.fonts .aa{font-size:56px;line-height:1.05;overflow:hidden}
+.fonts small{font:400 12px/16px var(--font-mono);color:var(--ink-2)}
+
+/* quote */
+.quote{padding:28px;position:relative}
+.quote q{display:block;quotes:none;font:800 clamp(20px,3vw,30px)/1.3 var(--font-display);font-stretch:108%}
+.quote .by{margin-top:18px;font:600 14px/20px var(--font-mono);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+
+/* angles */
+.angle{display:flex;flex-direction:column;gap:12px}
+.angle .n{font:600 12px/16px var(--font-mono);letter-spacing:.08em}
+.angle h3{font:800 20px/26px var(--font-display);font-stretch:108%}
+.angle p{font-size:15px;line-height:23px}
+
+/* guidelines */
+.rule{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;background:var(--cream);border:var(--border);border-radius:var(--radius);box-shadow:var(--shadow-sm)}
+.rule+.rule{margin-top:12px}
+.tag{flex:none;margin-top:1px;font:600 11px/1 var(--font-mono);letter-spacing:.06em;text-transform:uppercase;padding:5px 8px;border:2px solid var(--ink);border-radius:6px}
+.tag.do{background:var(--mint)}.tag.dont{background:var(--danger)}
+.clear{position:relative;display:inline-block;padding:32px;outline:2px dashed var(--ink);outline-offset:-1px;background:var(--cream)}
+.clear img{display:block;width:140px;height:auto}
+.clear i{position:absolute;display:grid;place-items:center;background:var(--pink);border:2px solid var(--ink);font:600 11px/1 var(--font-mono);font-style:normal;width:32px;height:32px}
+.clear i.t{top:0;left:50%;transform:translateX(-50%)}.clear i.l{left:0;top:50%;transform:translateY(-50%)}.clear i.r{right:0;top:50%;transform:translateY(-50%)}.clear i.b{bottom:0;left:50%;transform:translateX(-50%)}
+.guide-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:start}
+@media(max-width:820px){.guide-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* footer */
+footer{background:var(--ink);color:var(--cream);padding:48px 0;border-top:var(--border-thick)}
+footer .wrap{display:flex;gap:24px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+footer img{height:36px;width:auto;display:block}
+footer p{font:400 13px/20px var(--font-mono);max-width:56ch}
+footer a{color:var(--yellow)}
+
+/* toast */
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,24px);opacity:0;pointer-events:none;z-index:100;background:var(--ink);color:var(--cream);border:var(--border);border-radius:var(--radius);box-shadow:4px 4px 0 var(--mint);padding:12px 18px;font:600 14px/20px var(--font-mono);transition:transform var(--dur) var(--ease-snap),opacity var(--dur)}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){#toast,.dl{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <img src="assets/brand/wordmark-ink.svg" alt="Dumpster">
+    <nav aria-label="Sections">
+      <a class="nb-chip" href="#facts">Facts</a>
+      <a class="nb-chip" href="#about">About</a>
+      <a class="nb-chip" href="#features">Features</a>
+      <a class="nb-chip" href="#scraps">Scraps</a>
+      <a class="nb-chip" href="#screens">Screens</a>
+      <a class="nb-chip" href="#brand">Brand</a>
+      <a class="nb-chip" href="#angles">Angles</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="cover" style="border-top:0;padding-bottom:72px">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow"><span class="nb-chip nb-chip--mono nb-chip--shadow">Press kit</span><span class="nb-chip nb-chip--mono nb-chip--shadow">Pre-launch</span></div>
+      <img class="wm" src="assets/brand/wordmark.svg" alt="Dumpster">
+      <h1>Dump it. Find it.</h1>
+      <p class="sub">Dumpster is the chat-first app that replaces texting yourself. Toss anything into one thread. It sorts itself into Piles, and you dig it back up by asking.</p>
+      <div class="badges" aria-label="Availability">
+        <span class="store">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10 18.5h4"/></svg>
+          <span><small>Coming soon to</small><b>iOS</b></span>
+        </span>
+        <span class="store g">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="3"/><path d="M9 4.5v15"/></svg>
+          <span><small>Coming soon to</small><b>Android</b></span>
+        </span>
+      </div>
+      <div class="cta">
+        <a class="nb-btn" href="dumpster-press-kit.zip" download>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>
+          Download press kit (.zip)
+        </a>
+        <a class="nb-btn nb-btn--cream" href="#facts">Jump to the facts</a>
+      </div>
+    </div>
+    <div class="art">
+      <div class="nb-card">
+        <img id="heroimg" src="../showcase/exports/01-hero.png" alt="Dumpster app on a phone" onerror="this.onerror=null;this.src='assets/brand/mascot-peek.svg';this.alt='Scraps the raccoon peeking out of a bin'">
+      </div>
+      <span class="nb-chip nb-chip--shadow stamp" style="--fill:var(--pink);font-weight:700">Scraps approved</span>
+    </div>
+  </div>
+</section>
+
+<!-- FACT SHEET -->
+<section class="cream" id="facts">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="no">01 / FACT SHEET</span>
+      <h2>The quick facts</h2>
+      <p>Everything a headline needs, in one place. Anything marked <span class="tbd" style="margin-left:0">TBD</span> is a placeholder and is not confirmed.</p>
+    </div>
+    <dl class="facts">
+      <div><dt>Name</dt><dd>Dumpster</dd></div>
+      <div><dt>Tagline</dt><dd>Dump it. Find it.</dd></div>
+      <div><dt>Category</dt><dd>Productivity / Utilities</dd></div>
+      <div><dt>Platforms</dt><dd>iOS and Android (pre-launch)</dd></div>
+      <div><dt>Launch</dt><dd>TBA 2026 <span class="tbd">TBD</span></dd></div>
+      <div><dt>Price</dt><dd>Free <span class="tbd">TBD placeholder</span></dd></div>
+      <div><dt>Website</dt><dd>dumpster.app <span class="tbd">TBD placeholder domain</span></dd></div>
+      <div><dt>Press contact</dt><dd>[Name], [email] <span class="tbd">TBD</span></dd></div>
+      <div><dt>Made by</dt><dd>Range Of View Studios</dd></div>
+    </dl>
+    <div class="cta"><a class="dl" href="fact-sheet.md" download>Plain-text fact sheet (.md)</a></div>
+  </div>
+</section>
+
+<!-- BOILERPLATE -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="no">02 / BOILERPLATE</span>
+      <h2>The short version. The long version.</h2>
+      <p>Copy, paste, trim. Use either one as-is.</p>
+    </div>
+    <div class="grid g2">
+      <article class="nb-card bp" style="--fill:var(--cream)">
+        <h3>Short <span class="nb-chip nb-chip--mono">about 50 words</span></h3>
+        <div class="txt" id="bp-short"><p>Dumpster is a chat-first app that replaces texting yourself. Dump links, addresses, photos, voice notes and half-thoughts into one thread. Scraps, a trash-panda mascot, sorts everything into Piles, and you Dig it back up in plain language. Zero effort in, organized out. Coming soon to iOS and Android.</p></div>
+        <div class="btn-row"><button class="nb-btn sm" type="button" data-copy="bp-short">Copy short version</button></div>
+      </article>
+      <article class="nb-card bp" style="--fill:var(--cream)">
+        <h3>Long <span class="nb-chip nb-chip--mono">about 200 words</span></h3>
+        <div class="txt" id="bp-long">
+          <p>Most of us already use a thread with ourselves as a notebook. A link here, an address there, a screenshot we meant to read. It works for about a day, and then it turns into a graveyard no one can search by memory.</p>
+          <p>Dumpster keeps the part that works, which is the thread, and fixes the part that doesn't. You dump anything into one chat: links, addresses, photos, screenshots, voice notes, half-finished thoughts. Each one becomes a smart card, so a link looks like a link and an address looks like a place. Quietly, Dumpster files it into a Pile (Places, Watch Later, Reads, Shopping, To-dos and more) without asking you to name a folder or pick a tag.</p>
+          <p>When you need something back, you Dig. Ask in plain language, like "that address mom sent", and Scraps, the raccoon who lives in the app, comes back with the answer and the original. Now and then it will also nudge you with a "Remember this?" about something you saved and forgot. You can share to Dumpster from anywhere on your phone, too.</p>
+          <p>It is built on one idea: people won't organize, but they will dump. So Dumpster does the organizing.</p>
+          <p>Dumpster is coming soon to iOS and Android. It was designed by Range Of View Studios.</p>
+        </div>
+        <div class="btn-row"><button class="nb-btn sm" type="button" data-copy="bp-long">Copy long version</button></div>
+      </article>
+    </div>
+    <div class="cta"><a class="dl" href="boilerplate.txt" download>Both versions as .txt</a></div>
+  </div>
+</section>
+
+<!-- PROBLEM / FIX -->
+<section class="cream">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="no">03 / WHY IT EXISTS</span>
+      <h2>Texting yourself is a graveyard</h2>
+      <p>Everyone does it. Nobody can find anything afterwards. The usual fix asks for more effort than the problem is worth.</p>
+    </div>
+    <div class="grid pf">
+      <div class="nb-card" style="--fill:var(--paper)"><span class="lbl">The habit</span><h3>Text yourself</h3><p>Zero effort going in. Four hundred messages later, that link is gone and so is the plan you had for it.</p></div>
+      <div class="nb-card" style="--fill:var(--paper)"><span class="lbl">The "proper" fix</span><h3>Notion is homework</h3><p>Folders, tags, templates. It works for the person who loves setting it up, which is rarely the person who needed it.</p></div>
+      <div class="nb-card" style="--fill:var(--yellow)"><span class="lbl">The fix</span><h3>Dump now, find later</h3><p>Dumpster keeps the effortless part and does the filing for you. Zero effort in, organized out.</p></div>
+    </div>
+    <div class="story">
+      <div class="thread" aria-label="Example: mom texts an address, you text it to yourself, and it disappears">
+        <div class="msg"><span class="who">Mom</span>Dinner is at 42 Maple Court. Bring the good bread.</div>
+        <div class="msg me gone"><span class="who">You, to you</span>42 Maple Court</div>
+        <div class="note">...three weeks and 400 messages later</div>
+        <div class="msg me"><span class="who">You</span>what was that address mom sent</div>
+      </div>
+      <div>
+        <h3 class="t-h2" style="font:800 24px/28px var(--font-display);font-stretch:110%;margin-bottom:12px">The address mom sent</h3>
+        <p>Mom texts you an address. You forward it to yourself so you will not lose it. Three weeks later it is somewhere under a pile of screenshots, and you are scrolling with your thumb and a bad feeling.</p>
+        <p style="margin-top:12px">In Dumpster, that address lands as a place card, gets filed in Places, and comes back when you type "that address mom sent".</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="no">04 / KEY FEATURES</span>
+      <h2>Six things worth knowing</h2>
+    </div>
+    <div class="grid g3">
+      <article class="nb-card feat" style="--fill:var(--cream)"><span class="nb-icon-tile pile-todos" style="--tile:var(--mint)"><img src="assets/brand/icons/dump.svg" alt=""></span><h3>One thread for everything</h3><p>Links, addresses, photos, screenshots, voice notes and half-thoughts all go in the same place. No folders to pick, no app to choose.</p></article>
+      <article class="nb-card feat" style="--fill:var(--cream)"><span class="nb-icon-tile" style="--tile:var(--butter)"><img src="assets/brand/icons/ideas.svg" alt=""></span><h3>Smart cards</h3><p>A link shows up as a preview, an address as a place with a map button, a to-do as a checkbox. What you dump looks like what it is.</p></article>
+      <article class="nb-card feat" style="--fill:var(--cream)"><span class="nb-icon-tile" style="--tile:var(--pink)"><img src="assets/brand/icons/piles.svg" alt=""></span><h3>Auto Piles</h3><p>Everything is quietly filed into Places, Watch Later, Reads, Shopping, People, To-dos and Ideas. Wrong pile? One tap moves it.</p></article>
+      <article class="nb-card feat" style="--fill:var(--cream)"><span class="nb-icon-tile" style="--tile:var(--violet)"><img src="assets/brand/icons/dig.svg" alt=""></span><h3>Dig in plain language</h3><p>Ask the way you would ask a friend: "that ramen place Jay sent". Scraps answers and shows you the original.</p></article>
+      <article class="nb-card feat" style="--fill:var(--cream)"><span class="nb-icon-tile" style="--tile:var(--orange)"><img src="assets/brand/icons/bell.svg" alt=""></span><h3>Remember this?</h3><p>Once a day, a card from the past: the video you never watched, the idea you almost had. Useful, and never naggy.</p></article>
+      <article class="nb-card feat" style="--fill:var(--cream)"><span class="nb-icon-tile" style="--tile:var(--sky)"><img src="assets/brand/icons/share.svg" alt=""></span><h3>Share from anywhere</h3><p>Dumpster sits in your phone's share sheet. See something in any app, tap share, and it is tossed in the right Pile.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- SCRAPS -->
+<section class="cream" id="scraps">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="no">05 / MEET SCRAPS</span>
+      <h2>Meet Scraps</h2>
+    </div>
+    <div class="bio">
+      <blockquote>A trash panda with a good memory and no opinions about your mess.</blockquote>
+      <p style="max-width:44ch">Scraps lives in the app, sorting what you dump and digging it back up when you ask. Friendly, a little scruffy, always on your side.</p>
+    </div>
+    <div class="grid g5 poses">
+      <figure class="nb-card pose" style="--fill:var(--cream)"><div class="pic on-y"><img src="assets/brand/mascot-peek.svg" alt="Scraps peeking over a bin rim"></div><div class="txt"><h4>Peeking</h4><a class="dl" href="assets/brand/png/mascot-peek.png" download>PNG</a></div></figure>
+      <figure class="nb-card pose" style="--fill:var(--cream)"><div class="pic on-y"><img src="assets/brand/mascot-dig.svg" alt="Scraps digging"></div><div class="txt"><h4>Digging</h4><a class="dl" href="assets/brand/png/mascot-dig.png" download>PNG</a></div></figure>
+      <figure class="nb-card pose" style="--fill:var(--cream)"><div class="pic on-y"><img src="assets/brand/mascot-hold.svg" alt="Scraps holding an item"></div><div class="txt"><h4>Holding</h4><a class="dl" href="assets/brand/png/mascot-hold.png" download>PNG</a></div></figure>
+      <figure class="nb-card pose" style="--fill:var(--cream)"><div class="pic on-y"><img src="assets/brand/mascot-sleep.svg" alt="Scraps sleeping"></div><div class="txt"><h4>Sleeping</h4><a class="dl" href="assets/brand/png/mascot-sleep.png" download>PNG</a></div></figure>
+      <figure class="nb-card pose" style="--fill:var(--cream)"><div class="pic on-y"><img src="assets/brand/mascot-wave.svg" alt="Scraps waving"></div><div class="txt"><h4>Waving</h4><a class="dl" href="assets/brand/png/mascot-wave.png" download>PNG</a></div></figure>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENSHOTS + MOCKUPS -->
+<section id="screens">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="no">06 / SCREENS</span>
+      <h2>See it</h2>
+      <p>App screenshots, then composed mockups. Everything is free to use with the Dumpster credit.</p>
+    </div>
+
+    <h3 class="sub">App screenshots</h3>
+    <div class="grid sh-grid" id="shots"></div>
+
+    <h3 class="sub">Mockups</h3>
+    <div class="grid mk-grid" id="mocks"></div>
+  </div>
+</section>
+
+<!-- BRAND ASSETS -->
+<section class="cream" id="brand">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="no">07 / BRAND ASSETS</span>
+      <h2>Logos, colors, type</h2>
+      <p>SVG for print and web, PNG with a transparent background for everything else.</p>
+    </div>
+
+    <h3 class="sub">Logo and wordmark</h3>
+    <div class="grid g3">
+      <figure class="nb-card asset" style="--fill:var(--cream)"><div class="stage on-c"><img src="assets/brand/logo-icon.svg" alt="Dumpster app icon" width="120" height="120"></div><div class="txt"><h4>App icon</h4><div class="links"><a class="dl" href="assets/brand/logo-icon.svg" download>SVG</a><a class="dl" href="assets/brand/png/logo-icon.png" download>PNG 1024</a></div></div></figure>
+      <figure class="nb-card asset" style="--fill:var(--cream)"><div class="stage on-c"><img src="assets/brand/lockup.svg" alt="Dumpster lockup" width="260"></div><div class="txt"><h4>Lockup (icon + wordmark)</h4><div class="links"><a class="dl" href="assets/brand/lockup.svg" download>SVG</a><a class="dl" href="assets/brand/png/lockup.png" download>PNG 2000</a></div></div></figure>
+      <figure class="nb-card asset" style="--fill:var(--cream)"><div class="stage on-y"><img src="assets/brand/wordmark.svg" alt="Dumpster wordmark, full colour" width="260"></div><div class="txt"><h4>Wordmark, full colour</h4><div class="links"><a class="dl" href="assets/brand/wordmark.svg" download>SVG</a><a class="dl" href="assets/brand/png/wordmark.png" download>PNG 2000</a></div></div></figure>
+      <figure class="nb-card asset" style="--fill:var(--cream)"><div class="stage on-c"><img src="assets/brand/wordmark-ink.svg" alt="Dumpster wordmark, ink" width="260"></div><div class="txt"><h4>Wordmark, ink (for light backgrounds)</h4><div class="links"><a class="dl" href="assets/brand/wordmark-ink.svg" download>SVG</a><a class="dl" href="assets/brand/png/wordmark-ink.png" download>PNG 2000</a></div></div></figure>
+      <figure class="nb-card asset" style="--fill:var(--cream)"><div class="stage on-i"><img src="assets/brand/wordmark-light.svg" alt="Dumpster wordmark, light" width="260"></div><div class="txt"><h4>Wordmark, light (for dark backgrounds)</h4><div class="links"><a class="dl" href="assets/brand/wordmark-light.svg" download>SVG</a><a class="dl" href="assets/brand/png/wordmark-light.png" download>PNG 2000</a></div></div></figure>
+      <figure class="nb-card asset" style="--fill:var(--cream)"><div class="stage on-y"><img src="assets/brand/mascot-peek.svg" alt="Scraps" width="120" height="120"></div><div class="txt"><h4>Scraps, all five poses</h4><div class="links"><a class="dl" href="#scraps">See poses</a></div></div></figure>
+    </div>
+
+    <h3 class="sub">Colors</h3>
+    <div class="grid swatches">
+      <div class="nb-card sw" style="--fill:var(--cream)"><div class="chip" style="background:#FFD23F"></div><div class="txt"><b>Hazard Yellow</b><span class="hex">#FFD23F</span></div></div>
+      <div class="nb-card sw" style="--fill:var(--cream)"><div class="chip" style="background:#FFF8EC"></div><div class="txt"><b>Cream</b><span class="hex">#FFF8EC</span></div></div>
+      <div class="nb-card sw" style="--fill:var(--cream)"><div class="chip" style="background:#111111"></div><div class="txt"><b>Ink</b><span class="hex">#111111</span></div></div>
+      <div class="nb-card sw" style="--fill:var(--cream)"><div class="chip" style="background:#FF5C8A"></div><div class="txt"><b>Pink / Places</b><span class="hex">#FF5C8A</span></div></div>
+      <div class="nb-card sw" style="--fill:var(--cream)"><div class="chip" style="background:#7B61FF"></div><div class="txt"><b>Violet / Watch Later</b><span class="hex">#7B61FF</span></div></div>
+      <div class="nb-card sw" style="--fill:var(--cream)"><div class="chip" style="background:#A3E635"></div><div class="txt"><b>Lime / Reads</b><span class="hex">#A3E635</span></div></div>
+      <div class="nb-card sw" style="--fill:var(--cream)"><div class="chip" style="background:#3EC1F3"></div><div class="txt"><b>Sky / Shopping</b><span class="hex">#3EC1F3</span></div></div>
+      <div class="nb-card sw" style="--fill:var(--cream)"><div class="chip" style="background:#FF8A3D"></div><div class="txt"><b>Orange / People</b><span class="hex">#FF8A3D</span></div></div>
+      <div class="nb-card sw" style="--fill:var(--cream)"><div class="chip" style="background:#4ADE9B"></div><div class="txt"><b>Mint / To-dos</b><span class="hex">#4ADE9B</span></div></div>
+      <div class="nb-card sw" style="--fill:var(--cream)"><div class="chip" style="background:#FFE58F"></div><div class="txt"><b>Butter / Ideas</b><span class="hex">#FFE58F</span></div></div>
+      <div class="nb-card sw" style="--fill:var(--cream)"><div class="chip" style="background:#BDBDBD"></div><div class="txt"><b>Stone / Unsorted</b><span class="hex">#BDBDBD</span></div></div>
+    </div>
+
+    <h3 class="sub">Fonts</h3>
+    <div class="grid g3 fonts">
+      <div class="nb-card" style="--fill:var(--paper)"><div class="aa" style="font:900 56px/1.05 var(--font-display);font-stretch:120%">Aa</div><b>Archivo</b><small>Display and headings, 800-900, expanded</small></div>
+      <div class="nb-card" style="--fill:var(--paper)"><div class="aa" style="font:500 56px/1.05 var(--font-body)">Aa</div><b>DM Sans</b><small>Body text, 400 / 500 / 700</small></div>
+      <div class="nb-card" style="--fill:var(--paper)"><div class="aa" style="font:600 52px/1.1 var(--font-mono)">Aa</div><b>JetBrains Mono</b><small>Meta, counts, timestamps</small></div>
+    </div>
+    <p class="cap" style="margin-top:16px">All three are free on Google Fonts. <a class="dl" style="margin-left:8px" href="assets/tokens.css" download>tokens.css</a></p>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="no">08 / FROM THE STUDIO</span>
+      <h2>A word from the founder</h2>
+    </div>
+    <figure class="nb-card nb-card--lg quote" style="--fill:var(--cream)">
+      <q>We kept texting ourselves things and losing them. Nobody wanted another system to maintain. So we built the opposite: you dump, and the app does the tidying. Scraps does the digging, and we get to keep the fun part.</q>
+      <figcaption class="by">[Founder name], founder <span class="tbd">Placeholder: draft quote, edit before use</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ANGLES -->
+<section class="cream" id="angles">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="no">09 / PRESS ANGLES</span>
+      <h2>Three ways to tell it</h2>
+      <p>Starting points, not scripts. Change them to fit your story.</p>
+    </div>
+    <div class="grid g3">
+      <article class="nb-card angle" style="--fill:var(--yellow)"><span class="n">ANGLE 01 / THE HABIT</span><h3>"The notes app that is just a thread with yourself, finally gets organized"</h3><p>Plenty of people text themselves as a notebook. Dumpster keeps the habit and fixes what makes it fall apart.</p></article>
+      <article class="nb-card angle" style="--fill:var(--pink)"><span class="n">ANGLE 02 / ANTI-PRODUCTIVITY</span><h3>"A productivity app for people who refuse to be productive"</h3><p>No folders, no tags, no setup weekend. The pitch is zero effort in, and the AI does the sorting.</p></article>
+      <article class="nb-card angle" style="--fill:var(--mint)"><span class="n">ANGLE 03 / THE DESIGN</span><h3>"Neo-brutalism meets a raccoon: the loud, friendly look of a calm app"</h3><p>Thick borders, hard shadows and a trash-panda mascot, in service of a quiet idea. A design-forward take on utilities.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- GUIDELINES -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="no">10 / USAGE</span>
+      <h2>Using our assets</h2>
+      <p>Short and friendly. If you are unsure, ask the press contact.</p>
+    </div>
+    <div class="guide-grid">
+      <div>
+        <div class="rule"><span class="tag do">Do</span><span>Use the supplied files as they are, on yellow, cream or white (ink wordmark) or on dark (light wordmark).</span></div>
+        <div class="rule"><span class="tag do">Do</span><span>Keep clear space around the logo at least equal to the height of the bin lid, as shown.</span></div>
+        <div class="rule"><span class="tag do">Do</span><span>Credit "Dumpster, designed by Range Of View Studios" where you can.</span></div>
+        <div class="rule"><span class="tag dont">Don't</span><span>Recolor the logo or wordmark, or swap the fonts.</span></div>
+        <div class="rule"><span class="tag dont">Don't</span><span>Stretch, squash, rotate or crop Scraps. Scale her evenly.</span></div>
+        <div class="rule"><span class="tag dont">Don't</span><span>Add effects: no blur, glows, gradients or soft shadows.</span></div>
+      </div>
+      <div>
+        <div class="clear"><img src="assets/brand/logo-icon.svg" alt="Logo icon with clear-space markers"><i class="t">x</i><i class="l">x</i><i class="r">x</i><i class="b">x</i></div>
+        <p class="cap">Clear space: x on every side.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/brand/wordmark-light.svg" alt="Dumpster">
+    <p>Dumpster is designed by Range Of View Studios. Press contact: [placeholder]. Pre-launch details are subject to change.</p>
+  </div>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var DL='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>';
+  var shots=[
+    ['02-dump','The Dump'],['03-piles','Piles'],['04-pile-detail','Pile detail'],['05-dig','Dig'],
+    ['05b-dig-ramen','Dig results'],['06-item-sheet','Item sheet'],['07-share','Share sheet'],['01-onboarding','Onboarding']
+  ];
+  var mocks=[
+    ['01-hero','Hero','02-dump'],['02-trio','Trio','03-piles'],['03-dump-flow','Dump flow','09-flow-send'],
+    ['04-piles','Piles','03-piles'],['05-dig','Dig','05b-dig-ramen'],['06-icon-homescreen','Icon on home screen','01-onboarding'],
+    ['07-share','Share','07-share'],['08-ink','Ink','06-item-sheet'],['09-social-square','Social square','02-dump'],['10-story','Story','04b-pile-places']
+  ];
+  var s=document.getElementById('shots'),m=document.getElementById('mocks'),h='';
+  shots.forEach(function(x){var f='assets/screenshots/'+x[0]+'.png';
+    h+='<figure class="nb-card shot" style="--fill:var(--cream)"><div class="pic"><img loading="lazy" src="'+f+'" alt="Dumpster screenshot: '+x[1]+'"></div><div class="txt"><span>'+x[1]+'</span><a class="dl" href="'+f+'" download>'+DL+'PNG</a></div></figure>';});
+  s.innerHTML=h;h='';
+  mocks.forEach(function(x){var f='../showcase/exports/'+x[0]+'.png',fb='assets/screenshots/'+x[2]+'.png';
+    h+='<figure class="nb-card shot" style="--fill:var(--cream)"><div class="pic"><span class="fb-tag">Preview, mockup coming</span><img loading="lazy" src="'+f+'" alt="Dumpster mockup: '+x[1]+'" data-fb="'+fb+'"></div><div class="txt"><span>'+x[0]+'</span><a class="dl" href="'+f+'" download>'+DL+'PNG</a></div></figure>';});
+  m.innerHTML=h;
+  m.querySelectorAll('img').forEach(function(img){
+    img.addEventListener('error',function(){
+      var fig=img.closest('.shot');fig.classList.add('fb');
+      var a=fig.querySelector('a.dl');a.setAttribute('href',img.dataset.fb);
+      img.src=img.dataset.fb;img.removeAttribute('data-fb');img.onerror=null;
+    },{once:true});
+  });
+
+  var t=document.getElementById('toast'),tt;
+  function toast(msg){t.textContent=msg;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},2200);}
+  function copy(text){
+    if(navigator.clipboard&&window.isSecureContext){return navigator.clipboard.writeText(text);}
+    return new Promise(function(res,rej){
+      var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+      document.body.appendChild(ta);ta.select();
+      try{document.execCommand('copy')?res():rej();}catch(e){rej(e);}ta.remove();
+    });
+  }
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var el=document.getElementById(b.dataset.copy);
+      var text=Array.prototype.map.call(el.querySelectorAll('p'),function(p){return p.textContent.trim()}).join('\n\n');
+      copy(text).then(function(){toast('Copied to clipboard')},function(){toast('Copy failed. Select the text instead.')});
+    });
+  });
+})();
+</script>
+</body>
+</html>

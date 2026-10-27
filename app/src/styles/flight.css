@@ -1,0 +1,21 @@
+/* The signature send. Positions only; the motion lives in src/lib/sendFlight.ts. */
+.flight { position: absolute; inset: 0; z-index: 40; pointer-events: none; overflow: hidden; color: var(--bone); }
+/* Own void backdrop with soft light so the mark never sits on top of cards. Fades in fast, back out as the card lands. */
+.flight__backdrop {
+  position: absolute; inset: 0; opacity: 0; animation: flight-backdrop 1250ms ease-out forwards;
+  background: radial-gradient(circle at 50% 62%, var(--light-a), transparent 58%), color-mix(in srgb, var(--void) 93%, transparent);
+}
+@keyframes flight-backdrop { 0% { opacity: 0; } 12% { opacity: 1; } 68% { opacity: 1; } 100% { opacity: 0; } }
+.flight__box { position: absolute; left: 50%; width: 96px; height: 96px; margin-left: -48px; }
+.flight--thread .flight__box { bottom: var(--mark-bottom, 120px); }
+.flight--demo .flight__box { bottom: 36px; }
+.flight__mark { width: 100%; height: 100%; opacity: 0; }
+.flight--demo .flight__mark { opacity: 1; }
+.flight__glint { position: absolute; right: -14px; top: -8px; opacity: 0; color: var(--bone); }
+.flight__bubble {
+  position: absolute; margin: 0; max-width: 72%; padding: 12px 16px; opacity: 0;
+  border-radius: 16px 16px 4px 16px; background: var(--sent); color: #fff;
+  font: 400 15px/20px var(--font-body); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.flight--thread .flight__bubble { right: var(--s4); bottom: var(--bubble-bottom, 12px); }
+.flight--demo .flight__bubble { top: 8px; left: 50%; translate: -50% 0; }

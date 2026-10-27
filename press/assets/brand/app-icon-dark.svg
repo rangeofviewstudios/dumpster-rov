@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Dumpster app icon">
+<defs>
+<clipPath id="r"><rect width="1024" height="1024" rx="228"/></clipPath>
+<radialGradient id="g" cx="50%" cy="6%" r="78%"><stop offset="0" stop-color="#DEE4E9" stop-opacity=".16"/><stop offset="1" stop-color="#DEE4E9" stop-opacity="0"/></radialGradient>
+<radialGradient id="g2" cx="82%" cy="92%" r="55%"><stop offset="0" stop-color="#DEE4E9" stop-opacity=".05"/><stop offset="1" stop-color="#DEE4E9" stop-opacity="0"/></radialGradient>
+<filter id="n" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0"/></filter>
+</defs>
+<g clip-path="url(#r)">
+<rect width="1024" height="1024" fill="#070707"/>
+<rect width="1024" height="1024" fill="url(#g)"/>
+<rect width="1024" height="1024" fill="url(#g2)"/>
+<rect width="1024" height="1024" filter="url(#n)" opacity=".07"/>
+<rect x=".5" y=".5" width="1023" height="1023" rx="227.5" fill="none" stroke="#EEEEEC" stroke-opacity=".14"/>
+</g>
+<g transform="translate(172.80 178.80) scale(10.6)" fill="none" stroke="#EEEEEC" stroke-width="1.05" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="11" width="53" height="6" rx="1.8"/><path d="M9.5 17V45.5H51L54.5 17Z"/><path d="M9.5 26H53.3"/><rect x="16" y="32" width="22" height="5" rx="1.4"/><path d="M15 45.5v2M45 45.5v2"/><circle cx="15" cy="50" r="2.6"/><circle cx="45" cy="50" r="2.6"/></g>
+</svg>

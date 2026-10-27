@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dumpster Press Kit</title>
+<meta name="description" content="Press kit for Dumpster: facts, boilerplate, screenshots, mockups and brand assets.">
+<link rel="icon" href="assets/brand/mark-bone.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Geist:wght@300;400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--void:#070707;--ink:#0E0E0F;--graphite:#17181A;--smoke:#24262A;--ash:#8B8F94;--bone:#EEEEEC;--paper:#F4F1EC;--line:rgba(238,238,236,.12);--line-strong:rgba(238,238,236,.24);--dim:rgba(238,238,236,.58);--sent:#2B5CFF;--glow:rgba(222,228,233,.06);--grain-o:.07;--pill-fg:#070707;
+--display:"Space Grotesk",system-ui,sans-serif;--body:"Geist",system-ui,sans-serif;--mono:"Geist Mono",ui-monospace,monospace;
+--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+[data-theme=light]{--void:#F4F1EC;--ink:#ECE8E1;--graphite:#E4DFD7;--smoke:#D9D4CB;--bone:#0E0E0F;--ash:#6B6F74;--line:rgba(14,14,15,.12);--line-strong:rgba(14,14,15,.24);--dim:rgba(14,14,15,.62);--glow:rgba(14,14,15,.025);--grain-o:.04;--pill-fg:#F4F1EC}
+*{box-sizing:border-box}
+html{background:var(--void);scroll-behavior:smooth}
+body{margin:0;color:var(--bone);font:300 16px/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden;
+background:radial-gradient(circle at 54% 8%,var(--glow),transparent 42%),radial-gradient(circle at 15% 55%,var(--glow),transparent 40%),radial-gradient(circle at 85% 85%,var(--glow),transparent 45%),var(--void)}
+body::after{content:"";position:fixed;inset:0;background-image:var(--grain);opacity:var(--grain-o);pointer-events:none;mix-blend-mode:overlay;z-index:50}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,p,ul,ol,figure,dl,dd,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+:focus-visible{outline:1px solid var(--bone);outline-offset:3px}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px}
+.wide{max-width:1040px;margin:0 auto;padding:0 16px}
+.label{font:400 11.5px/1.4 var(--display);letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+header.top{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:20px 16px;z-index:5}
+.toggle{border:1px solid var(--line-strong);border-radius:999px;padding:0 14px;min-height:44px;display:inline-flex;align-items:center;font:400 11px/1 var(--display);letter-spacing:.28em;text-transform:uppercase;color:var(--dim);transition:color .3s,border-color .3s}
+.toggle:hover{color:var(--bone);border-color:var(--bone)}
+.pill{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;border-radius:999px;background:var(--bone);color:var(--pill-fg);text-decoration:none;font:500 12px/1 var(--display);letter-spacing:.24em;text-transform:uppercase;transition:opacity .3s}
+.pill:hover{opacity:.82}
+.ghost{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid var(--line-strong);border-radius:999px;font:400 11px/1 var(--display);letter-spacing:.26em;text-transform:uppercase;color:var(--bone);text-decoration:none;transition:border-color .3s}
+.ghost:hover{border-color:var(--bone)}
+.hero{min-height:min(100vh,900px);display:grid;place-items:center;text-align:center;padding:96px 0 64px}
+.hero .lock img{margin:0 auto;width:min(300px,70vw)}
+.hero h1{font:300 clamp(44px,9vw,96px)/.98 var(--display);letter-spacing:-.03em;margin:56px 0 24px}
+.hero h1 em{font-style:normal;color:var(--ash)}
+.hero p.pitch{max-width:460px;margin:0 auto;color:var(--dim)}
+.hero .cta{margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:22px}
+.light-only{display:none}[data-theme=light] .light-only{display:block}[data-theme=light] .dark-only{display:none}
+section{padding:112px 0;border-top:1px solid var(--line)}
+.head{margin-bottom:48px}
+.head .label{display:block;margin-bottom:20px}
+.head h2{font:300 clamp(30px,5vw,48px)/1.08 var(--display);letter-spacing:-.025em}
+.head p{margin-top:16px;color:var(--dim);max-width:520px}
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.row dt,.row .k{font:400 11.5px/1.5 var(--display);letter-spacing:.24em;text-transform:uppercase;color:var(--dim)}
+.row .v b{font:500 17px/1.4 var(--display);display:block}
+.row .v span{color:var(--dim);display:block;font-size:15px;margin-top:2px}
+.tbd{display:inline-block;margin-left:8px;padding:2px 9px;border:1px solid var(--line-strong);border-radius:999px;font:400 10px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);vertical-align:2px}
+@media(max-width:620px){.row{grid-template-columns:1fr;gap:4px}}
+.bp{padding:28px 0;border-bottom:1px solid var(--line)}
+.bp:first-of-type{border-top:1px solid var(--line)}
+.bp-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:12px;flex-wrap:wrap}
+.bp p{margin-top:14px;max-width:62ch}.bp p:first-child{margin-top:0}
+.thread{display:flex;flex-direction:column;gap:10px;margin:0 0 48px;max-width:440px}
+.bub{max-width:84%;align-self:flex-start;padding:10px 14px;font-size:15px;line-height:1.45;border-radius:16px 16px 16px 4px;background:var(--graphite);border:1px solid var(--line);color:var(--bone)}
+.bub .w{display:block;font:400 10px/1 var(--display);letter-spacing:.26em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+.bub.me{align-self:flex-end;border-radius:16px 16px 4px 16px;background:var(--sent);border-color:transparent;color:#fff}
+.bub.me .w{color:rgba(255,255,255,.75)}
+.gap{align-self:center;font:400 11px/1 var(--mono);letter-spacing:.14em;color:var(--dim);padding:6px 0;text-transform:uppercase}
+.prose p{color:var(--dim);margin-top:16px;max-width:56ch}.prose p:first-child{margin-top:0}.prose strong{color:var(--bone);font-weight:400}
+.loop{display:flex;justify-content:center;padding:56px 0;margin-bottom:32px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.loop img{width:150px;height:auto}
+.steps{counter-reset:s}
+.steps li{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);color:var(--dim)}
+.steps li::before{counter-increment:s;content:"0" counter(s);font:400 12px/1.9 var(--mono);color:var(--ash)}
+.steps b{color:var(--bone);font-weight:400}
+.sentword{color:#fff;background:var(--sent);padding:1px 8px;border-radius:6px}
+.gal{display:grid;gap:28px 16px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.gal.m{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+figure>a{display:block}
+figure img{width:100%;height:auto;border:1px solid var(--line);border-radius:10px;background:var(--ink)}
+figcaption,.meta{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px;font:400 11px/1.4 var(--display);letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+figcaption a,.dl a{color:var(--bone);text-decoration:none;font-family:var(--mono);letter-spacing:.1em;border-bottom:1px solid var(--line-strong)}
+.dl{display:flex;gap:16px}
+.sub{margin:56px 0 24px}.sub:first-of-type{margin-top:0}
+.assets{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:28px 16px}
+.tile{height:180px;border:1px solid var(--line);border-radius:10px;display:grid;place-items:center;padding:24px;overflow:hidden}
+.tile.dark{background:#070707}.tile.paper{background:#F4F1EC;border-color:rgba(14,14,15,.12)}
+.tile img{height:auto;max-height:130px;object-fit:contain}
+.sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:12px}
+.sw div{font:400 11px/1.5 var(--mono);color:var(--dim)}
+.sw i{display:block;height:64px;border:1px solid var(--line-strong);border-radius:4px;margin-bottom:8px}
+.sw b{display:block;color:var(--bone);font:400 10.5px/1.5 var(--display);letter-spacing:.2em;text-transform:uppercase}
+.sentrule{display:grid;grid-template-columns:96px 1fr;gap:20px;align-items:center;padding:24px 0;border-top:1px solid var(--line);margin-top:28px}
+.sentrule i{height:64px;border-radius:4px;background:var(--sent);display:block}
+.sentrule p{color:var(--dim)}.sentrule b{color:var(--bone);font-weight:400}
+.font{display:grid;grid-template-columns:96px 1fr;gap:20px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--line)}
+.font:first-child{border-top:1px solid var(--line)}
+.font .aa{font-size:40px;line-height:1}
+.font p{color:var(--dim);font-size:15px}.font b{color:var(--bone);font-weight:400}
+blockquote{font:300 clamp(24px,4vw,34px)/1.3 var(--display);letter-spacing:-.02em}
+.by{margin-top:24px;color:var(--dim);font:400 13px/1.8 var(--mono)}
+.do{display:grid;grid-template-columns:40px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);color:var(--dim)}
+.do:first-child{border-top:1px solid var(--line)}
+.do::before{content:"\00d7";font:300 22px/1.2 var(--display);color:var(--ash)}
+.do b{color:var(--bone);font-weight:400}
+footer{border-top:1px solid var(--line);padding:72px 0 64px;text-align:center}
+footer img{width:44px;margin:0 auto 24px}
+footer p{color:var(--dim);font-size:14px}
+#toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,16px);opacity:0;pointer-events:none;background:var(--bone);color:var(--pill-fg);padding:12px 22px;border-radius:999px;font:500 11px/1 var(--display);letter-spacing:.24em;text-transform:uppercase;transition:opacity .3s,transform .3s;z-index:60}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:620px){section{padding:80px 0}.sentrule,.font{grid-template-columns:1fr;gap:12px}.hero h1{margin-top:44px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <span class="label">Press kit</span>
+  <button class="toggle" id="theme" type="button" aria-label="Switch between dark and paper theme">Paper</button>
+</header>
+
+<main>
+<div class="hero">
+  <div class="wrap">
+    <div class="lock">
+      <img class="dark-only" src="assets/brand/lockup-stacked.svg" alt="Dumpster">
+      <img class="light-only" src="assets/brand/lockup-stacked-ink.svg" alt="Dumpster">
+    </div>
+    <h1>Dump it. <em>Find it.</em></h1>
+    <p class="pitch">A chat app that replaces texting yourself. Dump anything into one thread. Dumpster files it, and finds it when you ask.</p>
+    <div class="cta">
+      <a class="pill" href="dumpster-press-kit.zip" download>Download press kit (zip)</a>
+      <span class="label">Coming soon to iOS &amp; Android</span>
+    </div>
+  </div>
+</div>
+
+<section id="facts"><div class="wrap">
+  <div class="head"><span class="label">01 · Fact sheet</span><h2>The short list</h2></div>
+  <dl class="rows">
+    <div class="row"><dt>Name</dt><dd>Dumpster</dd></div>
+    <div class="row"><dt>Tagline</dt><dd>Dump it. Find it.</dd></div>
+    <div class="row"><dt>What it is</dt><dd>A chat app that replaces texting yourself. Dump anything into one thread; Dumpster files it into Piles and lets you Dig it back up in plain language.</dd></div>
+    <div class="row"><dt>Category</dt><dd>Productivity / Utilities</dd></div>
+    <div class="row"><dt>Platforms</dt><dd>iOS and Android (pre-launch)</dd></div>
+    <div class="row"><dt>Launch</dt><dd>2026 <span class="tbd">TBD</span></dd></div>
+    <div class="row"><dt>Price</dt><dd>Not announced <span class="tbd">TBD</span></dd></div>
+    <div class="row"><dt>Website</dt><dd>dumpster.app <span class="tbd">TBD</span></dd></div>
+    <div class="row"><dt>Press contact</dt><dd>Name, email <span class="tbd">TBD</span></dd></div>
+    <div class="row"><dt>Made by</dt><dd>Range Of View Studios</dd></div>
+  </dl>
+</div></section>
+
+<section id="boilerplate"><div class="wrap">
+  <div class="head"><span class="label">02 · Boilerplate</span><h2>Words you can use</h2><p>Lift them as they are, or trim to fit.</p></div>
+  <div class="bp">
+    <div class="bp-h"><span class="label">Short · about 50 words</span><button class="ghost copy" type="button" data-target="bp-short">Copy</button></div>
+    <div id="bp-short"><p>Dumpster is a chat app that replaces texting yourself. Dump links, addresses, photos, voice notes and half-thoughts into one thread. It files them into Piles, and you Dig them back up in plain language. No folders, no tags. Zero effort in, organized out. Coming soon to iOS and Android.</p></div>
+  </div>
+  <div class="bp">
+    <div class="bp-h"><span class="label">Long · about 200 words</span><button class="ghost copy" type="button" data-target="bp-long">Copy</button></div>
+    <div id="bp-long">
+      <p>Most of us already keep a thread with ourselves. A link, an address, a screenshot we meant to read. It works for about a day, then it becomes a place nothing comes back from.</p>
+      <p>Dumpster keeps the thread and fixes the rest. You dump anything into one chat: links, addresses, photos, screenshots, voice notes, half-finished thoughts. Each one becomes a card that looks like what it is, a link as a link, an address as a place. Then Dumpster files it into a Pile (Places, Watch Later, Reads, Shopping, To-dos and more) without asking you to name a folder or pick a tag.</p>
+      <p>Sending is the one moment of ceremony. Every message you send drops into the dumpster: the lid lifts, the message falls in, the lid shuts, and the word FILED appears. It takes about a second and it is the only animation in the app that hurries.</p>
+      <p>When you need something back, you Dig. Ask in plain language, "that address mom sent", and Dumpster answers with the original. You can also share to it from anywhere on your phone.</p>
+      <p>The idea is simple. People won't organize, but they will dump. So Dumpster does the organizing.</p>
+      <p>Dumpster is coming soon to iOS and Android. It is designed by Range Of View Studios.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="story"><div class="wrap">
+  <div class="head"><span class="label">03 · The problem, the fix</span><h2>Mom texts you an address</h2></div>
+  <div class="thread" role="img" aria-label="Mom texts an address, you text it to yourself, three weeks later you ask where it went">
+    <div class="bub"><span class="w">Mom</span>Dinner is at 42 Maple Court. Bring the good bread.</div>
+    <div class="bub me"><span class="w">You, to you</span>42 Maple Court</div>
+    <div class="gap">three weeks later</div>
+    <div class="bub me"><span class="w">You</span>what was that address mom sent</div>
+  </div>
+  <div class="prose">
+    <p><strong>The problem.</strong> You forward the address to yourself so you won't lose it. Weeks on, it's under a pile of screenshots and you're scrolling with your thumb and a bad feeling. The usual fix, a notes app with folders, asks for more effort than the problem is worth.</p>
+    <p><strong>The fix.</strong> In Dumpster the address lands as a place card, gets filed in Places, and comes back when you type "that address mom sent". Nobody organized anything. People won't. They'll only dump, so that's all it asks.</p>
+  </div>
+</div></section>
+
+<section id="send"><div class="wrap">
+  <div class="head"><span class="label">04 · The send</span><h2>Everything you send is filed</h2><p>The one flourish in an otherwise quiet app.</p></div>
+  <div class="loop"><img src="assets/brand/mark-animated.svg" alt="The Dumpster mark: the lid lifts, a blue message drops in, the lid shuts, a small glint"></div>
+  <ol class="steps">
+    <li><span><b>The lid lifts.</b> The send button is the dumpster, so there is nowhere else to look.</span></li>
+    <li><span><b>The message drops in.</b> It shrinks and falls. This is the only quick, physical motion in the app.</span></li>
+    <li><span><b>The lid shuts.</b> A small four-point glint, then FILED → PLACES fades in under the message.</span></li>
+  </ol>
+  <div class="prose" style="margin-top:28px"><p><span class="sentword">Blue</span>&nbsp; is the only color in the app, and it only ever marks what you sent. With reduced motion on, the flight becomes a fade.</p></div>
+</div></section>
+
+<section id="features"><div class="wrap">
+  <div class="head"><span class="label">05 · Key features</span><h2>Six things it does</h2></div>
+  <ul class="rows">
+    <li class="row"><span class="k">01 · Thread</span><span class="v"><b>One thread for everything</b><span>Links, addresses, photos, voice notes, half-thoughts. One place to put them.</span></span></li>
+    <li class="row"><span class="k">02 · Cards</span><span class="v"><b>Smart cards</b><span>A link looks like a link. An address looks like a place. A to-do gets a checkbox.</span></span></li>
+    <li class="row"><span class="k">03 · Piles</span><span class="v"><b>Auto Piles</b><span>Filed as you send. No folders to name, no tags to pick. Move one with a tap if we guessed wrong.</span></span></li>
+    <li class="row"><span class="k">04 · Dig</span><span class="v"><b>Dig in plain language</b><span>Ask the way you'd ask a friend. Get the answer and the original.</span></span></li>
+    <li class="row"><span class="k">05 · Send</span><span class="v"><b>The send</b><span>Every message drops into the dumpster and is filed. About a second.</span></span></li>
+    <li class="row"><span class="k">06 · Share</span><span class="v"><b>Share from anywhere</b><span>Use the share sheet in any app. It lands in the thread.</span></span></li>
+  </ul>
+</div></section>
+
+<section id="screens"><div class="wide">
+  <div class="head"><span class="label">06 · Screens</span><h2>See it</h2><p>Free to use with a Dumpster credit. Click any image to download.</p></div>
+  <h3 class="label sub">App screenshots</h3>
+  <div class="gal">
+    <figure><a href="assets/screenshots/01-onboarding.png" download><img loading="lazy" src="assets/screenshots/01-onboarding.png" alt="Onboarding 1" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Onboarding 1</span><a href="assets/screenshots/01-onboarding.png" download>PNG</a></figcaption></figure>
+    <figure><a href="assets/screenshots/01b-onboarding-2.png" download><img loading="lazy" src="assets/screenshots/01b-onboarding-2.png" alt="Onboarding 2" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Onboarding 2</span><a href="assets/screenshots/01b-onboarding-2.png" download>PNG</a></figcaption></figure>
+    <figure><a href="assets/screenshots/01c-onboarding-3.png" download><img loading="lazy" src="assets/screenshots/01c-onboarding-3.png" alt="Onboarding 3" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Onboarding 3</span><a href="assets/screenshots/01c-onboarding-3.png" download>PNG</a></figcaption></figure>
+    <figure><a href="assets/screenshots/02-dump.png" download><img loading="lazy" src="assets/screenshots/02-dump.png" alt="Dump" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Dump</span><a href="assets/screenshots/02-dump.png" download>PNG</a></figcaption></figure>
+    <figure><a href="assets/screenshots/03-piles.png" download><img loading="lazy" src="assets/screenshots/03-piles.png" alt="Piles" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Piles</span><a href="assets/screenshots/03-piles.png" download>PNG</a></figcaption></figure>
+    <figure><a href="assets/screenshots/04-pile-detail.png" download><img loading="lazy" src="assets/screenshots/04-pile-detail.png" alt="Pile detail" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Pile detail</span><a href="assets/screenshots/04-pile-detail.png" download>PNG</a></figcaption></figure>
+    <figure><a href="assets/screenshots/04b-pile-places.png" download><img loading="lazy" src="assets/screenshots/04b-pile-places.png" alt="Places pile" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Places pile</span><a href="assets/screenshots/04b-pile-places.png" download>PNG</a></figcaption></figure>
+    <figure><a href="assets/screenshots/05-dig.png" download><img loading="lazy" src="assets/screenshots/05-dig.png" alt="Dig" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Dig</span><a href="assets/screenshots/05-dig.png" download>PNG</a></figcaption></figure>
+    <figure><a href="assets/screenshots/05b-dig-ramen.png" download><img loading="lazy" src="assets/screenshots/05b-dig-ramen.png" alt="Dig, an answer" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Dig, an answer</span><a href="assets/screenshots/05b-dig-ramen.png" download>PNG</a></figcaption></figure>
+    <figure><a href="assets/screenshots/05c-dig-empty.png" download><img loading="lazy" src="assets/screenshots/05c-dig-empty.png" alt="Dig, nothing found" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Dig, nothing found</span><a href="assets/screenshots/05c-dig-empty.png" download>PNG</a></figcaption></figure>
+    <figure><a href="assets/screenshots/05d-dig-idle.png" download><img loading="lazy" src="assets/screenshots/05d-dig-idle.png" alt="Dig, idle" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Dig, idle</span><a href="assets/screenshots/05d-dig-idle.png" download>PNG</a></figcaption></figure>
+    <figure><a href="assets/screenshots/06-item-sheet.png" download><img loading="lazy" src="assets/screenshots/06-item-sheet.png" alt="Item sheet" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Item sheet</span><a href="assets/screenshots/06-item-sheet.png" download>PNG</a></figcaption></figure>
+    <figure><a href="assets/screenshots/06b-settings.png" download><img loading="lazy" src="assets/screenshots/06b-settings.png" alt="Settings" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Settings</span><a href="assets/screenshots/06b-settings.png" download>PNG</a></figcaption></figure>
+    <figure><a href="assets/screenshots/06c-picker.png" download><img loading="lazy" src="assets/screenshots/06c-picker.png" alt="Pile picker" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Pile picker</span><a href="assets/screenshots/06c-picker.png" download>PNG</a></figcaption></figure>
+    <figure><a href="assets/screenshots/07-share.png" download><img loading="lazy" src="assets/screenshots/07-share.png" alt="Share" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Share</span><a href="assets/screenshots/07-share.png" download>PNG</a></figcaption></figure>
+    <figure><a href="assets/screenshots/07b-share-compose.png" download><img loading="lazy" src="assets/screenshots/07b-share-compose.png" alt="Share, compose" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Share, compose</span><a href="assets/screenshots/07b-share-compose.png" download>PNG</a></figcaption></figure>
+    <figure><a href="assets/screenshots/08-desktop.png" download><img loading="lazy" src="assets/screenshots/08-desktop.png" alt="Desktop" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Desktop</span><a href="assets/screenshots/08-desktop.png" download>PNG</a></figcaption></figure>
+    <figure><a href="assets/screenshots/09-flow-send.png" download><img loading="lazy" src="assets/screenshots/09-flow-send.png" alt="The send" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>The send</span><a href="assets/screenshots/09-flow-send.png" download>PNG</a></figcaption></figure>
+    <figure><a href="assets/screenshots/09b-flow-filed.png" download><img loading="lazy" src="assets/screenshots/09b-flow-filed.png" alt="Filed" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Filed</span><a href="assets/screenshots/09b-flow-filed.png" download>PNG</a></figcaption></figure>
+    <figure><a href="assets/screenshots/10-paper-dump.png" download><img loading="lazy" src="assets/screenshots/10-paper-dump.png" alt="Paper mode" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Paper mode</span><a href="assets/screenshots/10-paper-dump.png" download>PNG</a></figcaption></figure>
+  </div>
+  <h3 class="label sub">Mockups</h3>
+  <div class="gal m">
+    <figure><a href="../showcase/exports/01-hero.png" download><img loading="lazy" src="../showcase/exports/01-hero.png" alt="Hero" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Hero</span><a href="../showcase/exports/01-hero.png" download>PNG</a></figcaption></figure>
+    <figure><a href="../showcase/exports/02-trio.png" download><img loading="lazy" src="../showcase/exports/02-trio.png" alt="Trio" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Trio</span><a href="../showcase/exports/02-trio.png" download>PNG</a></figcaption></figure>
+    <figure><a href="../showcase/exports/03-dump-flow.png" download><img loading="lazy" src="../showcase/exports/03-dump-flow.png" alt="Dump flow" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Dump flow</span><a href="../showcase/exports/03-dump-flow.png" download>PNG</a></figcaption></figure>
+    <figure><a href="../showcase/exports/04-piles.png" download><img loading="lazy" src="../showcase/exports/04-piles.png" alt="Piles" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Piles</span><a href="../showcase/exports/04-piles.png" download>PNG</a></figcaption></figure>
+    <figure><a href="../showcase/exports/05-dig.png" download><img loading="lazy" src="../showcase/exports/05-dig.png" alt="Dig" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Dig</span><a href="../showcase/exports/05-dig.png" download>PNG</a></figcaption></figure>
+    <figure><a href="../showcase/exports/06-icon-homescreen.png" download><img loading="lazy" src="../showcase/exports/06-icon-homescreen.png" alt="Icon on a home screen" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Icon on a home screen</span><a href="../showcase/exports/06-icon-homescreen.png" download>PNG</a></figcaption></figure>
+    <figure><a href="../showcase/exports/07-share.png" download><img loading="lazy" src="../showcase/exports/07-share.png" alt="Share" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Share</span><a href="../showcase/exports/07-share.png" download>PNG</a></figcaption></figure>
+    <figure><a href="../showcase/exports/08-paper.png" download><img loading="lazy" src="../showcase/exports/08-paper.png" alt="Paper mode" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Paper mode</span><a href="../showcase/exports/08-paper.png" download>PNG</a></figcaption></figure>
+    <figure><a href="../showcase/exports/09-social-square.png" download><img loading="lazy" src="../showcase/exports/09-social-square.png" alt="Social, square" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Social, square</span><a href="../showcase/exports/09-social-square.png" download>PNG</a></figcaption></figure>
+    <figure><a href="../showcase/exports/10-story.png" download><img loading="lazy" src="../showcase/exports/10-story.png" alt="Story" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Story</span><a href="../showcase/exports/10-story.png" download>PNG</a></figcaption></figure>
+    <figure><a href="../showcase/exports/11-mark-motion.png" download><img loading="lazy" src="../showcase/exports/11-mark-motion.png" alt="Mark in motion" onerror="this.onerror=null;this.src='assets/screenshots/02-dump.png'"></a><figcaption><span>Mark in motion</span><a href="../showcase/exports/11-mark-motion.png" download>PNG</a></figcaption></figure>
+  </div>
+</div></section>
+
+<section id="brand"><div class="wide">
+  <div class="head"><span class="label">07 · Brand assets</span><h2>Mark, type, color</h2><p>SVG for print and web. PNG with a transparent background for everything else: marks at 1024, lockups and wordmarks at 2000 wide, app icons at 1024.</p></div>
+  <ul class="assets">
+    <li><div class="tile dark"><img src="assets/brand/mark-bone.svg" alt="Mark, bone" style="width:96px"></div><div class="meta"><span>Mark, bone</span><span class="dl"><a href="assets/brand/mark-bone.svg" download>SVG</a><a href="assets/brand/png/mark-bone-1024.png" download>PNG</a></span></div></li>
+    <li><div class="tile paper"><img src="assets/brand/mark-ink.svg" alt="Mark, ink" style="width:96px"></div><div class="meta"><span>Mark, ink</span><span class="dl"><a href="assets/brand/mark-ink.svg" download>SVG</a><a href="assets/brand/png/mark-ink-1024.png" download>PNG</a></span></div></li>
+    <li><div class="tile dark"><img src="assets/brand/wordmark.svg" alt="Wordmark, bone" style="width:240px"></div><div class="meta"><span>Wordmark, bone</span><span class="dl"><a href="assets/brand/wordmark.svg" download>SVG</a><a href="assets/brand/png/wordmark-2000.png" download>PNG</a></span></div></li>
+    <li><div class="tile paper"><img src="assets/brand/wordmark-ink.svg" alt="Wordmark, ink" style="width:240px"></div><div class="meta"><span>Wordmark, ink</span><span class="dl"><a href="assets/brand/wordmark-ink.svg" download>SVG</a><a href="assets/brand/png/wordmark-ink-2000.png" download>PNG</a></span></div></li>
+    <li><div class="tile dark"><img src="assets/brand/lockup-horizontal.svg" alt="Lockup horizontal, bone" style="width:260px"></div><div class="meta"><span>Lockup horizontal, bone</span><span class="dl"><a href="assets/brand/lockup-horizontal.svg" download>SVG</a><a href="assets/brand/png/lockup-horizontal-2000.png" download>PNG</a></span></div></li>
+    <li><div class="tile paper"><img src="assets/brand/lockup-horizontal-ink.svg" alt="Lockup horizontal, ink" style="width:260px"></div><div class="meta"><span>Lockup horizontal, ink</span><span class="dl"><a href="assets/brand/lockup-horizontal-ink.svg" download>SVG</a><a href="assets/brand/png/lockup-horizontal-ink-2000.png" download>PNG</a></span></div></li>
+    <li><div class="tile dark"><img src="assets/brand/lockup-stacked.svg" alt="Lockup stacked, bone" style="width:170px"></div><div class="meta"><span>Lockup stacked, bone</span><span class="dl"><a href="assets/brand/lockup-stacked.svg" download>SVG</a><a href="assets/brand/png/lockup-stacked-2000.png" download>PNG</a></span></div></li>
+    <li><div class="tile paper"><img src="assets/brand/lockup-stacked-ink.svg" alt="Lockup stacked, ink" style="width:170px"></div><div class="meta"><span>Lockup stacked, ink</span><span class="dl"><a href="assets/brand/lockup-stacked-ink.svg" download>SVG</a><a href="assets/brand/png/lockup-stacked-ink-2000.png" download>PNG</a></span></div></li>
+    <li><div class="tile dark"><img src="assets/brand/app-icon-dark.svg" alt="App icon, dark" style="width:110px"></div><div class="meta"><span>App icon, dark</span><span class="dl"><a href="assets/brand/app-icon-dark.svg" download>SVG</a><a href="assets/brand/png/app-icon-dark-1024.png" download>PNG</a></span></div></li>
+    <li><div class="tile paper"><img src="assets/brand/app-icon-paper.svg" alt="App icon, paper" style="width:110px"></div><div class="meta"><span>App icon, paper</span><span class="dl"><a href="assets/brand/app-icon-paper.svg" download>SVG</a><a href="assets/brand/png/app-icon-paper-1024.png" download>PNG</a></span></div></li>
+  </ul>
+
+  <h3 class="label sub">Color</h3>
+  <div class="sw">
+    <div><i style="background:#070707"></i><b>Void</b>#070707</div>
+    <div><i style="background:#0E0E0F"></i><b>Ink</b>#0E0E0F</div>
+    <div><i style="background:#17181A"></i><b>Graphite</b>#17181A</div>
+    <div><i style="background:#24262A"></i><b>Smoke</b>#24262A</div>
+    <div><i style="background:#8B8F94"></i><b>Ash</b>#8B8F94</div>
+    <div><i style="background:#EEEEEC"></i><b>Bone</b>#EEEEEC</div>
+    <div><i style="background:#F4F1EC"></i><b>Paper</b>#F4F1EC</div>
+  </div>
+  <div class="sentrule"><i></i><p><b>Sent blue #2B5CFF.</b> The one color. Blue only on what you send: message bubbles and the send flight. Never a button, a link, a highlight or a logo.</p></div>
+
+  <h3 class="label sub">Fonts</h3>
+  <div>
+    <div class="font"><span class="aa" style="font-family:var(--display);font-weight:300">Aa</span><p><b>Space Grotesk</b> · Display and labels, 300 to 500. Labels are uppercase and tracked wide.</p></div>
+    <div class="font"><span class="aa" style="font-family:var(--body);font-weight:300">Aa</span><p><b>Geist</b> · Text and interface, 300 to 500.</p></div>
+    <div class="font"><span class="aa" style="font-family:var(--mono)">Aa</span><p><b>Geist Mono</b> · Counts, timestamps, sources.</p></div>
+  </div>
+  <p style="margin-top:24px;display:flex;gap:16px;flex-wrap:wrap;align-items:center"><span class="label">All free on Google Fonts</span><a class="ghost" href="assets/tokens.css" download>tokens.css</a></p>
+</div></section>
+
+<section id="quote"><div class="wrap">
+  <div class="head"><span class="label">08 · From the studio</span><h2>A word from the founder</h2></div>
+  <blockquote>“We kept texting ourselves things and losing them. Nobody wanted another system to maintain, so we built the opposite. You dump. It does the tidying.”</blockquote>
+  <p class="by">[Founder name], founder <span class="tbd">TBD</span> <span class="tbd">Draft quote, edit before use</span></p>
+</div></section>
+
+<section id="angles"><div class="wrap">
+  <div class="head"><span class="label">09 · Press angles</span><h2>Three ways to tell it</h2><p>Starting points, not scripts.</p></div>
+  <ul class="rows">
+    <li class="row"><span class="k">01 · The habit</span><span class="v"><b>The thread you text yourself, finally sorted</b><span>Plenty of people use a chat with themselves as a notebook. Dumpster keeps the habit and fixes the part that falls apart.</span></span></li>
+    <li class="row"><span class="k">02 · No homework</span><span class="v"><b>A system for people who won't build a system</b><span>No folders, no tags, no setup weekend. Zero effort in, and the sorting is done for you.</span></span></li>
+    <li class="row"><span class="k">03 · The design</span><span class="v"><b>A calm app with one joke and one color</b><span>Near-black, hairlines, a fine-line dumpster, and a single blue reserved for what you send. A design-led take on a utility.</span></span></li>
+  </ul>
+</div></section>
+
+<section id="usage"><div class="wrap">
+  <div class="head"><span class="label">10 · Usage</span><h2>Please don't</h2></div>
+  <div>
+    <div class="do"><span><b>Recolor the mark.</b> Bone on dark, ink on light. Use the files as supplied.</span></div>
+    <div class="do"><span><b>Use blue for anything but sent messages.</b> It is the one color and it means "you sent this".</span></div>
+    <div class="do"><span><b>Crowd it.</b> Keep clear space around the mark of at least the height of its lid.</span></div>
+    <div class="do"><span><b>Put it on busy photos.</b> Use a quiet area or a flat background.</span></div>
+  </div>
+</div></section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img class="dark-only" src="assets/brand/mark-bone.svg" alt=""><img class="light-only" src="assets/brand/mark-ink.svg" alt="">
+    <p>Designed by Range Of View Studios.</p>
+    <p class="label" style="margin-top:12px">Press contact · [name, email] <span class="tbd">TBD</span></p>
+  </div>
+</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var root=document.documentElement,btn=document.getElementById('theme'),t=document.getElementById('toast'),tm;
+  function set(m){root.setAttribute('data-theme',m);btn.textContent=m==='dark'?'Paper':'Dark'}
+  try{var s=localStorage.getItem('dpk-theme');if(s)set(s)}catch(e){}
+  btn.addEventListener('click',function(){var m=root.getAttribute('data-theme')==='dark'?'light':'dark';set(m);try{localStorage.setItem('dpk-theme',m)}catch(e){}});
+  function toast(msg){t.textContent=msg;t.classList.add('on');clearTimeout(tm);tm=setTimeout(function(){t.classList.remove('on')},1800)}
+  function fallback(txt){var a=document.createElement('textarea');a.value=txt;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();var ok=false;try{ok=document.execCommand('copy')}catch(e){}a.remove();return ok}
+  document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.target);
+    var txt=Array.prototype.map.call(el.querySelectorAll('p'),function(p){return p.textContent.trim()}).join('\n\n');
+    var done=function(ok){toast(ok?'Copied':'Copy failed')};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(function(){done(true)},function(){done(fallback(txt))})}else done(fallback(txt));
+  })});
+})();
+</script>
+</body>
+</html>

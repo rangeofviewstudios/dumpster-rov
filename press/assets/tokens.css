@@ -1,0 +1,296 @@
+/* ==========================================================================
+   DUMPSTER  /  tokens.css  /  v2 "after dark"
+   Range Of View Studios. Source of truth: PLAN.md section 3 + brand/index.html
+   Mirrors tokens.json. Import this file, do not copy it.
+
+   USAGE
+     <link rel="stylesheet" href="brand/assets/tokens.css">
+     <body class="bg-void">                      dark, lit, grained (default)
+     <html data-theme="paper">                   light mode, flips every token below
+
+   TOKENS (custom properties)
+     Neutrals    --void --ink --graphite --smoke --ash --bone --paper
+     The one hue --sent --sent-press --sent-text   (blue = things YOU send, nothing else)
+     Lines       --line --line-strong --dim
+     Semantic    --danger
+     Radii       --r-xs --r-sm --r-md --r-lg --r-pill --r-bubble
+     Space (4pt) --s1 --s2 --s3 --s4 --s5 --s6 --s8 --s10 --s12 --s16
+     Type        --font-display --font-body --font-mono
+     Motion      --ease-out --ease-drop --dur-fade --dur-slow
+     Light       --light-a --light-b --light-c --grain --grain-opacity
+     Mark        --mark-sw-200 --mark-sw-64 --mark-sw-32 --mark-sw-24 --mark-sw-16
+
+   CLASSES
+     Surfaces    .bg-void  .bg-void--still  .bg-ink  .bg-graphite  .bg-paper  .grain
+     Type        .t-display .t-h1 .t-h2 .t-h3 .t-body .t-small .t-meta .label .dim
+     Lists       .hairline-list  .row  .row-name  .row-count  .list-heading
+     Buttons     .btn  .btn-ghost  .btn-send  .btn-icon  (all 44px min touch target)
+     Chat        .bubble-sent  .filed (+ <b> for the pile name)
+     Cards       .card  .card-map  .card-body  .card-title  .card-meta  .card-todo  .card-voice
+     Inputs      .field  (dig / composer hairline field)
+     Nav         .tabbar (+ .is-active on the current tab)
+     Mark        .mk  (inline svg using the mark; set --sw, or use the .mk-16/24/32/64/200 helpers)
+     Helpers     .sr-only  .wrap  .hairline
+
+   RULES (short): blue only on what you send. 1px hairlines instead of boxes. No shadows,
+   no thick borders, no gradients as fills, no emoji, nothing bouncy.
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Geist:wght@300;400;500&family=Geist+Mono:wght@400&display=swap");
+
+/* ---------- Tokens: dark (default) ---------- */
+:root, [data-theme="dark"] {
+  /* Neutrals */
+  --void: #070707;        /* base background */
+  --ink: #0E0E0F;         /* surfaces */
+  --graphite: #17181A;    /* raised surfaces, sheets */
+  --smoke: #24262A;       /* pressed / hover */
+  --ash: #8B8F94;         /* secondary text, icons */
+  --bone: #EEEEEC;        /* primary text */
+  --paper: #F4F1EC;       /* light mode bg, print (constant in both themes) */
+
+  /* The one color */
+  --sent: #2B5CFF;        /* outgoing messages only. White text = 5.1:1 */
+  --sent-press: #2149D6;
+  --sent-text: #FFFFFF;
+
+  /* Lines & opacity */
+  --line: rgba(238, 238, 236, .12);
+  --line-strong: rgba(238, 238, 236, .24);
+  --dim: rgba(238, 238, 236, .52);   /* body copy on dark; 14px+ only */
+
+  /* Semantic (sparingly) */
+  --danger: #E5484D;
+
+  /* Radii */
+  --r-xs: 4px; --r-sm: 10px; --r-md: 16px; --r-lg: 24px; --r-pill: 999px;
+  --r-bubble: 16px 16px 4px 16px;
+
+  /* Spacing (4pt) */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px; --s6: 24px; --s8: 32px; --s10: 40px; --s12: 48px; --s16: 64px;
+
+  /* Type */
+  --font-display: "Space Grotesk", system-ui, sans-serif;  /* headings 300-500, labels */
+  --font-body: "Geist", system-ui, sans-serif;             /* text + UI, 300-500 */
+  --font-mono: "Geist Mono", ui-monospace, monospace;      /* timestamps, counts, sources */
+
+  /* Motion */
+  --ease-out: cubic-bezier(.2, .8, .2, 1);
+  --ease-drop: cubic-bezier(.55, 0, .8, .3);
+  --dur-fade: 300ms;
+  --dur-slow: 600ms;
+
+  /* Light + grain (the background recipe) */
+  --light-a: rgba(222, 228, 233, .06);
+  --light-b: rgba(176, 183, 189, .035);
+  --light-c: rgba(204, 210, 214, .03);
+  --grain-opacity: .07;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+  /* Mark stroke weights, in 64-grid units, per rendered size (see brand guidelines) */
+  --mark-sw-200: .64;  /* 2px   */
+  --mark-sw-64: 1.8;   /* 1.8px */
+  --mark-sw-32: 3;     /* 1.5px */
+  --mark-sw-24: 4;     /* 1.5px, use mark-small */
+  --mark-sw-16: 5;     /* 1.25px, use mark-small */
+
+  color-scheme: dark;
+}
+
+/* ---------- Tokens: paper (light) ---------- */
+[data-theme="paper"] {
+  --void: #F4F1EC;
+  --ink: #ECE8E1;
+  --graphite: #E4DFD7;
+  --smoke: #D9D3C9;
+  --ash: #6B6F74;
+  --bone: #0E0E0F;
+  --line: rgba(14, 14, 15, .12);
+  --line-strong: rgba(14, 14, 15, .24);
+  --dim: rgba(14, 14, 15, .56);
+  /* --sent stays exactly the same */
+  --light-a: rgba(255, 255, 255, .55);
+  --light-b: rgba(255, 255, 255, .3);
+  --light-c: rgba(255, 255, 255, .25);
+  --grain-opacity: .06;
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  color-scheme: light;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--void); }
+body {
+  margin: 0;
+  color: var(--bone);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img, svg { max-width: 100%; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: var(--s4); padding-right: var(--s4); }
+.hairline { height: 1px; background: var(--line); border: 0; margin: 0; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- Surfaces: light + grain ---------- */
+/* .bg-void: near-black, never flat. Three faint radial lights + a grain overlay (::after).
+   Put it on <body> (grain becomes fixed) or on any positioned block. Children sit above the grain. */
+.bg-void, .bg-ink, .bg-graphite {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 54% 12%, var(--light-a), transparent 42%),
+    radial-gradient(circle at 18% 60%, var(--light-b), transparent 40%),
+    radial-gradient(circle at 82% 82%, var(--light-c), transparent 45%),
+    var(--void);
+}
+.bg-ink { background-color: var(--ink); }
+.bg-graphite { background-color: var(--graphite); }
+.bg-void::after, .bg-ink::after, .bg-graphite::after, .grain::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: var(--grain);
+  opacity: var(--grain-opacity);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+}
+body.bg-void::after { position: fixed; }
+.grain { position: relative; }
+/* Slow ambient drift of the light layers (15-20s). Opt out with .bg-void--still */
+@keyframes dk-drift { 0%, 100% { background-position: 0 0, 0 0, 0 0, 0 0; } 50% { background-position: -3% 2%, 2% -2%, -2% -3%, 0 0; } }
+.bg-void:not(.bg-void--still):not(body) { background-size: 120% 120%, 120% 120%, 120% 120%, auto; animation: dk-drift 18s ease-in-out infinite; }
+.bg-paper { background: var(--paper); color: var(--ink); }
+
+/* ---------- Type ---------- */
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 400; margin: 0; letter-spacing: -.02em; }
+p { margin: 0; }
+.t-display { font-family: var(--font-display); font-weight: 300; font-size: clamp(44px, 8vw, 64px); line-height: 1; letter-spacing: -.03em; }
+.t-h1 { font-family: var(--font-display); font-weight: 400; font-size: 40px; line-height: 44px; letter-spacing: -.02em; }
+.t-h2 { font-family: var(--font-display); font-weight: 400; font-size: 28px; line-height: 32px; letter-spacing: -.02em; }
+.t-h3 { font-family: var(--font-display); font-weight: 500; font-size: 18px; line-height: 24px; letter-spacing: -.01em; }
+.t-body { font-family: var(--font-body); font-weight: 300; font-size: 16px; line-height: 24px; }
+.t-small { font-family: var(--font-body); font-weight: 300; font-size: 14px; line-height: 20px; }
+.t-meta { font-family: var(--font-mono); font-weight: 400; font-size: 12px; line-height: 16px; color: var(--dim); }
+.label { font-family: var(--font-display); font-weight: 400; font-size: 11.5px; line-height: 1.4; letter-spacing: .32em; text-transform: uppercase; color: var(--dim); }
+.dim { color: var(--dim); }
+
+/* ---------- Hairline list (Piles, settings, anything list-shaped) ---------- */
+.hairline-list { border-top: 1px solid var(--line); }
+.hairline-list .row {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--s4);
+  min-height: 44px; padding: var(--s3) 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-display); font-size: 16px; color: var(--bone);
+  text-decoration: none; background: none; width: 100%; border-left: 0; border-right: 0; border-top: 0; text-align: left;
+  transition: background var(--dur-fade) var(--ease-out);
+}
+a.row:hover, button.row:hover { background: var(--smoke); }
+.row-name { color: var(--bone); }
+.row-count { font-family: var(--font-mono); font-size: 13px; color: var(--dim); }
+.list-heading { font-family: var(--font-display); font-weight: 500; font-size: 18px; margin: var(--s8) 0 var(--s3); color: var(--bone); }
+
+/* ---------- Buttons ---------- */
+.btn, .btn-ghost {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--s2);
+  min-height: 44px; padding: 0 var(--s6); border-radius: var(--r-pill);
+  font-family: var(--font-display); font-weight: 500; font-size: 14px; letter-spacing: .02em;
+  cursor: pointer; text-decoration: none; white-space: nowrap;
+  transition: background var(--dur-fade) var(--ease-out), border-color var(--dur-fade) var(--ease-out), opacity var(--dur-fade) var(--ease-out);
+}
+.btn { background: var(--bone); color: var(--void); border: 1px solid var(--bone); }
+.btn:hover { opacity: .88; }
+.btn:active { opacity: .76; }
+.btn-ghost { background: transparent; color: var(--bone); border: 1px solid var(--line-strong); }
+.btn-ghost:hover { background: var(--smoke); border-color: var(--line-strong); }
+.btn-send, .btn-icon {
+  width: 44px; height: 44px; border-radius: 50%; display: inline-grid; place-items: center; flex: none; cursor: pointer; padding: 0;
+  transition: opacity var(--dur-fade) var(--ease-out), background var(--dur-fade) var(--ease-out);
+}
+.btn-send { background: var(--bone); color: var(--void); border: 0; }
+.btn-send:hover { opacity: .88; }
+.btn-icon { background: transparent; color: var(--bone); border: 1px solid var(--line-strong); }
+.btn-icon:hover { background: var(--smoke); }
+.btn[disabled], .btn-ghost[disabled], .btn-send[disabled] { opacity: .4; cursor: not-allowed; }
+
+/* ---------- Chat ---------- */
+/* Blue only on what you send. White text on --sent is 5.1:1. */
+.bubble-sent {
+  display: block; width: fit-content; max-width: 84%; margin-left: auto;
+  padding: 12px 14px; border-radius: var(--r-bubble);
+  background: var(--sent); color: var(--sent-text);
+  font-family: var(--font-body); font-weight: 400; font-size: 14.5px; line-height: 1.4;
+}
+/* "FILED -> PLACES . FROM MOM" : <div class="filed">Filed <b>→ Places</b> · from Mom</div> */
+.filed {
+  display: flex; justify-content: flex-end; gap: .9em; margin: var(--s2) 0 var(--s5);
+  font-family: var(--font-display); font-size: 10.5px; letter-spacing: .24em; text-transform: uppercase; color: var(--dim);
+}
+.filed b, .filed i { font-style: normal; font-weight: 400; color: var(--bone); }
+
+/* ---------- Cards (anything Dumpster renders) ---------- */
+.card {
+  display: block; max-width: 84%; margin-left: auto; overflow: hidden;
+  background: var(--ink); color: var(--bone);
+  border: 1px solid var(--line-strong); border-radius: var(--r-sm);
+}
+.card-body { padding: var(--s3) var(--s4); font-size: 14px; line-height: 1.45; }
+.card-title { display: block; font-family: var(--font-body); font-weight: 400; color: var(--bone); }
+.card-meta { display: block; margin-top: 2px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .02em; color: var(--dim); }
+/* Map: hairline grid with a glowing bone pin */
+.card-map {
+  position: relative; height: 92px;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 21px, var(--line) 21px 22px),
+    repeating-linear-gradient(0deg, transparent 0 21px, var(--line) 21px 22px),
+    var(--ink);
+}
+.card-map::after {
+  content: ""; position: absolute; left: 54%; top: 38%; width: 9px; height: 9px; border-radius: 50%;
+  background: var(--bone); box-shadow: 0 0 0 6px var(--line), 0 0 22px var(--dim);
+}
+.card-todo { display: flex; align-items: center; gap: var(--s3); }
+.card-todo::before { content: ""; flex: none; width: 16px; height: 16px; border: 1px solid var(--line-strong); border-radius: 50%; }
+.card-todo.is-done::before { background: var(--bone); border-color: var(--bone); }
+.card-voice { display: flex; align-items: center; gap: var(--s3); }
+.card-voice .bars { display: flex; align-items: center; gap: 2px; height: 20px; flex: 1; }
+.card-voice .bars i { display: block; width: 2px; background: var(--ash); border-radius: 2px; }
+
+/* ---------- Inputs / nav ---------- */
+.field {
+  display: flex; align-items: center; gap: var(--s3); min-height: 44px; padding: 0 var(--s4);
+  border: 1px solid var(--line-strong); border-radius: var(--r-pill); background: transparent;
+  color: var(--bone); font-family: var(--font-body); font-size: 14px; font-weight: 300; width: 100%;
+}
+.field::placeholder, .field input::placeholder { color: var(--dim); }
+.field input { flex: 1; min-width: 0; background: none; border: 0; outline: 0; color: inherit; font: inherit; }
+.tabbar {
+  display: flex; justify-content: space-around; padding: var(--s3) 0; border-top: 1px solid var(--line);
+  font-family: var(--font-display); font-size: 10.5px; letter-spacing: .28em; text-transform: uppercase; color: var(--dim);
+}
+.tabbar > * { min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; color: inherit; text-decoration: none; background: none; border: 0; cursor: pointer; font: inherit; letter-spacing: inherit; text-transform: inherit; }
+.tabbar .is-active { color: var(--bone); }
+
+/* ---------- Mark ---------- */
+/* <svg class="mk mk-64" viewBox="0 0 64 64"><use href="#dk-mark"/></svg>   (symbol you define from assets/mark.svg) */
+.mk { stroke-width: var(--sw, 2); fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; color: inherit; }
+.mk-200 { width: 200px; height: 200px; --sw: var(--mark-sw-200); }
+.mk-64 { width: 64px; height: 64px; --sw: var(--mark-sw-64); }
+.mk-32 { width: 32px; height: 32px; --sw: var(--mark-sw-32); }
+.mk-24 { width: 24px; height: 24px; --sw: var(--mark-sw-24); }
+.mk-16 { width: 16px; height: 16px; --sw: var(--mark-sw-16); }
+/* lid hinge for the send animation: <g id="lid" class="mk-lid"> */
+.mk-lid { transform-box: fill-box; transform-origin: 0% 100%; }
+
+/* ---------- Focus ---------- */
+:focus { outline: none; }
+:focus-visible { outline: 1px solid var(--bone); outline-offset: 3px; }
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+  .bg-void { animation: none !important; }
+}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -16 64 80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" style="color:#EEEEEC" role="img" aria-label="Dumpster, lid opening"><style>
+#lid{transform-box:fill-box;transform-origin:0% 100%;animation:lid 4.4s infinite}
+@keyframes lid{0%,8%{transform:rotate(0)}20%,50%{transform:rotate(-30deg)}62%{transform:rotate(3deg)}68%,100%{transform:rotate(0)}}
+#chip{fill:#2B5CFF;stroke:none;opacity:0;transform-box:fill-box;transform-origin:center;animation:chip 4.4s infinite}
+@keyframes chip{0%,12%{opacity:0;transform:translateY(-12px) scale(1)}22%{opacity:1;transform:translateY(-6px) scale(1)}48%{opacity:1;transform:translateY(14px) scale(.35)}52%,100%{opacity:0;transform:translateY(16px) scale(.1)}}
+#glint{fill:currentColor;stroke:none;opacity:0;transform-box:fill-box;transform-origin:center;animation:glint 4.4s infinite}
+@keyframes glint{0%,66%{opacity:0;transform:scale(.3) rotate(0)}76%{opacity:1;transform:scale(1) rotate(45deg)}94%,100%{opacity:0;transform:scale(.6) rotate(90deg)}}
+@media (prefers-reduced-motion:reduce){#lid,#chip,#glint{animation:none}}
+</style>
+<rect id="chip" x="28" y="0" width="9" height="5.5" rx="1.6"/>
+<g transform="translate(53 4.5) scale(.17) translate(-24 -24)"><path id="glint" d="M24 2C25 15 29 19 46 24C29 29 25 33 24 46C23 33 19 29 2 24C19 19 23 15 24 2Z"/></g><g id="lid"><rect x="5.5" y="11" width="53" height="6" rx="1.8"/></g><g id="body"><path d="M9.5 17V45.5H51L54.5 17Z"/><path d="M9.5 26H53.3"/><rect x="16" y="32" width="22" height="5" rx="1.4"/><path d="M15 45.5v2M45 45.5v2"/><circle cx="15" cy="50" r="2.6"/><circle cx="45" cy="50" r="2.6"/></g></svg>

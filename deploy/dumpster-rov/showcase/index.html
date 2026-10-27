@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dumpster Showcase</title>
+<meta name="description" content="Dumpster UI showcase scenes, v2 direction.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&family=Geist:wght@300;400&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--void:#070707;--bone:#EEEEEC;--line:rgba(238,238,236,.12);--line-strong:rgba(238,238,236,.24);--dim:rgba(238,238,236,.52);
+--display:"Space Grotesk",system-ui,sans-serif;--body:"Geist",system-ui,sans-serif;--mono:"Geist Mono",ui-monospace,monospace;
+--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--void)}
+body{min-height:100vh;color:var(--bone);font-family:var(--body);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;
+background:radial-gradient(circle at 54% 8%,rgba(222,228,233,.06),transparent 42%),radial-gradient(circle at 16% 70%,rgba(176,183,189,.035),transparent 40%),var(--void)}
+body::after{content:"";position:fixed;inset:0;background-image:var(--grain);opacity:.06;mix-blend-mode:overlay;pointer-events:none}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.label{font-family:var(--display);font-weight:500;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+.label b{font-weight:500;color:var(--bone)}
+.mono{font-family:var(--mono);font-size:12px;color:var(--dim)}
+header{padding:56px 0 64px;border-bottom:1px solid var(--line)}
+header nav{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:96px}
+header nav a{color:inherit;text-decoration:none}
+h1{font-family:var(--display);font-weight:300;font-size:clamp(44px,8vw,104px);line-height:1;letter-spacing:-.035em}
+h1 span{opacity:.5}
+header p{margin-top:28px;max-width:520px;color:var(--dim);font-size:17px}
+main{padding:56px 0 96px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:56px 32px}
+.card{display:block;color:inherit;text-decoration:none}
+.card .frame{display:block;border:1px solid var(--line);background:#0B0B0C;overflow:hidden;transition:border-color .4s}
+.card:hover .frame,.card:focus-visible .frame{border-color:var(--line-strong)}
+.card:focus-visible{outline:1px solid var(--bone);outline-offset:6px}
+.card img{display:block;width:100%;height:auto}
+.card .meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:16px 0 0;border-top:0}
+.card .meta .name{font-family:var(--display);font-weight:400;font-size:20px;letter-spacing:-.01em}
+.card .meta .name i{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--dim);margin-right:12px}
+.card.tall{grid-row:span 1}
+.portrait .frame{max-width:420px}
+.card.sq .frame{max-width:640px}
+footer{border-top:1px solid var(--line);padding:32px 0 56px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media (max-width:760px){.grid{grid-template-columns:1fr;gap:40px}header nav{margin-bottom:56px}.card.sq .frame,.portrait .frame{max-width:none}}
+</style></head>
+<body>
+<div class="wrap">
+<header>
+  <nav><span class="label">Dumpster&nbsp;&nbsp;/&nbsp;&nbsp;Showcase</span><span class="label"><a href="../">Hub</a></span></nav>
+  <h1>Dump it.<br><span>Find it.</span></h1>
+  <p>Eleven scenes in the after-dark direction. Select a scene to open the full-size PNG.</p>
+</header>
+<main>
+<div class="grid" id="grid"></div>
+</main>
+<footer><span class="label">Range Of View Studios</span><span class="mono">1920 x 1080 at 2x unless noted</span></footer>
+</div>
+<script>
+const S=[
+['01','Hero','01-hero','1920 x 1080'],
+['02','Trio','02-trio','1920 x 1080'],
+['03','Dump flow','03-dump-flow','1920 x 1080'],
+['04','Piles','04-piles','1920 x 1080'],
+['05','Dig','05-dig','1920 x 1080'],
+['06','Icon and construction','06-icon-homescreen','1080 x 1080','sq'],
+['07','Share sheet','07-share','1920 x 1080'],
+['08','Paper mode','08-paper','1920 x 1080'],
+['09','Social square','09-social-square','1080 x 1080','sq'],
+['10','Story','10-story','1080 x 1920','portrait'],
+['11','Mark motion','11-mark-motion','1920 x 1080']];
+const g=document.getElementById('grid');
+g.innerHTML=S.map(([n,t,f,d,c])=>`<a class="card ${c||''}" href="exports/${f}.png"><span class="frame"><img loading="lazy" src="exports/${f}.png" alt="${t}"></span><span class="meta"><span class="name"><i>${n}</i>${t}</span><span class="mono">${d}</span></span></a>`).join('');
+</script>
+</body></html>

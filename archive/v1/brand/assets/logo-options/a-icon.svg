@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="none"><title>Dumpster logo option A: Chat Bin, app icon</title><rect x="12" y="12" width="1000" height="1000" rx="232" fill="#FFD23F" stroke="#111111" stroke-width="24"/><g transform="translate(182.0 182.0) scale(6.6)"><rect x="22" y="90" width="14" height="8" rx="3" fill="#3E3E3E" stroke="#111111" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/><rect x="64" y="90" width="14" height="8" rx="3" fill="#3E3E3E" stroke="#111111" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M16 52V86Q16 92 22 92H78Q84 92 84 86V52Z" fill="#4ADE9B" stroke="#111111" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M37 63V80M50 63V80M63 63V80" stroke="#111111" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+<rect x="9" y="45" width="82" height="12" rx="4" fill="#3E3E3E" stroke="#111111" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M27 3H73Q86 3 86 15V22Q86 34 73 34H58L50 42L42 34H27Q14 34 14 22V15Q14 3 27 3Z" fill="#FF5C8A" stroke="#111111" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="35" cy="18.5" r="4.4" fill="#111111"/><circle cx="50" cy="18.5" r="4.4" fill="#111111"/><circle cx="65" cy="18.5" r="4.4" fill="#111111"/></g></svg>

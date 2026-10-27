@@ -1,0 +1,23 @@
+DUMPSTER - BOILERPLATE
+Dump it. Find it.
+
+SHORT VERSION (about 50 words)
+------------------------------
+Dumpster is a chat app that replaces texting yourself. Dump links, addresses, photos, voice notes and half-thoughts into one thread. It files them into Piles, and you Dig them back up in plain language. No folders, no tags. Zero effort in, organized out. Coming soon to iOS and Android.
+
+LONG VERSION (about 200 words)
+------------------------------
+Most of us already keep a thread with ourselves. A link, an address, a screenshot we meant to read. It works for about a day, then it becomes a place nothing comes back from.
+
+Dumpster keeps the thread and fixes the rest. You dump anything into one chat: links, addresses, photos, screenshots, voice notes, half-finished thoughts. Each one becomes a card that looks like what it is, a link as a link, an address as a place. Then Dumpster files it into a Pile (Places, Watch Later, Reads, Shopping, To-dos and more) without asking you to name a folder or pick a tag.
+
+Sending is the one moment of ceremony. Every message you send drops into the dumpster: the lid lifts, the message falls in, the lid shuts, and the word FILED appears. It takes about a second and it is the only animation in the app that hurries.
+
+When you need something back, you Dig. Ask in plain language, "that address mom sent", and Dumpster answers with the original. You can also share to it from anywhere on your phone.
+
+The idea is simple. People won't organize, but they will dump. So Dumpster does the organizing.
+
+Dumpster is coming soon to iOS and Android. It is designed by Range Of View Studios.
+
+Press contact: [PLACEHOLDER - add name and email]
+Website: [PLACEHOLDER - dumpster.app is not confirmed]

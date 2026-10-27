@@ -1,0 +1,168 @@
+/* ==========================================================================
+   DUMPSTER — Design tokens + neo-brutal utilities
+   Range Of View Studios · source of truth: ../../PLAN.md
+   Import:  @import url("brand/assets/tokens.css");   (or <link rel="stylesheet">)
+   Rules:  no blur shadows, no gradients, 2.5px ink borders, hard offset shadows.
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap");
+
+:root {
+  /* ---- Base ---- */
+  --yellow: #FFD23F;      /* hazard yellow — app chrome, hero bg */
+  --cream: #FFF8EC;       /* surfaces, cards */
+  --paper: #FFFFFF;
+  --ink: #111111;         /* borders, text, shadows */
+  --ink-2: #4A4A4A;       /* secondary text */
+  --ink-3: #8A8A8A;       /* meta / timestamps (decorative only on cream: 3.3:1) */
+
+  /* ---- Pile accents (each pile owns one) ---- */
+  --pink: #FF5C8A;        /* Places */
+  --violet: #7B61FF;      /* Watch Later */
+  --lime: #A3E635;        /* Reads */
+  --sky: #3EC1F3;         /* Shopping */
+  --orange: #FF8A3D;      /* People */
+  --mint: #4ADE9B;        /* To-dos */
+  --butter: #FFE58F;      /* Ideas */
+  --stone: #BDBDBD;       /* Unsorted */
+
+  /* ---- Semantic ---- */
+  --success: #4ADE9B;
+  --danger: #FF4D4D;
+
+  /* ---- Brutalist system ---- */
+  --border: 2.5px solid var(--ink);
+  --border-thick: 3px solid var(--ink);
+  --shadow-sm: 2px 2px 0 var(--ink);
+  --shadow: 4px 4px 0 var(--ink);
+  --shadow-lg: 6px 6px 0 var(--ink);
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* ---- Spacing (4pt) ---- */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 20px;
+  --s6: 24px; --s8: 32px; --s10: 40px;
+
+  /* ---- Type ---- */
+  --font-display: "Archivo", system-ui, sans-serif;          /* 800–900, wdth 110–125 */
+  --font-body: "DM Sans", system-ui, sans-serif;             /* 400/500/700 */
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;    /* timestamps, counts, meta */
+
+  /* ---- Motion ---- */
+  --ease-snap: cubic-bezier(.34, 1.56, .64, 1);  /* slight overshoot */
+  --dur: 140ms;                                    /* 120–180ms */
+
+  /* ---- Component helpers (override per element) ---- */
+  --tab: var(--yellow);   /* .nb-folder tab colour */
+  --tile: var(--yellow);  /* .nb-icon-tile fill */
+  --fill: var(--cream);   /* .nb-card / .nb-btn / .nb-chip fill */
+}
+
+/* Type scale (size / line-height): Display 40/44 · H1 32/36 · H2 24/28 · H3 18/22 · Body 16/24 · Small 14/20 · Meta 12/16 */
+.t-display { font: 900 40px/44px var(--font-display); font-stretch: 120%; letter-spacing: -.01em; }
+.t-h1      { font: 800 32px/36px var(--font-display); font-stretch: 115%; }
+.t-h2      { font: 800 24px/28px var(--font-display); font-stretch: 110%; }
+.t-h3      { font: 800 18px/22px var(--font-display); font-stretch: 110%; }
+.t-body    { font: 400 16px/24px var(--font-body); }
+.t-small   { font: 500 14px/20px var(--font-body); }
+.t-meta    { font: 400 12px/16px var(--font-mono); letter-spacing: .02em; }
+
+/* Global focus: thick ink outline, never removed */
+:where(a, button, input, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* ---------- .nb-card — cream surface, ink border, hard shadow ---------- */
+.nb-card {
+  background: var(--fill);
+  color: var(--ink);
+  border: var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--s4);
+}
+.nb-card--lg { border: var(--border-thick); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
+
+/* ---------- .nb-btn — pressable. Rests at --shadow, squishes on :active ---------- */
+.nb-btn {
+  --fill: var(--yellow);
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--s2);
+  min-height: 44px; padding: 0 var(--s5);
+  font: 800 16px/1 var(--font-display); font-stretch: 110%;
+  color: var(--ink); background: var(--fill);
+  border: var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  cursor: pointer; text-decoration: none; -webkit-tap-highlight-color: transparent;
+  transition: transform var(--dur) var(--ease-snap), box-shadow var(--dur) var(--ease-snap);
+}
+.nb-btn:hover  { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--ink); }
+.nb-btn:active { transform: translate(3px, 3px);   box-shadow: var(--shadow-sm); }   /* press squish */
+.nb-btn--cream { --fill: var(--cream); }
+.nb-btn--ink   { --fill: var(--ink); color: var(--cream); box-shadow: 4px 4px 0 var(--pink); }
+.nb-btn--sq    { width: 48px; min-height: 48px; padding: 0; border-radius: var(--radius-sm); }  /* the yellow "+" */
+.nb-btn[disabled] { opacity: .45; pointer-events: none; }
+
+/* ---------- .nb-chip — pill with ink border ---------- */
+.nb-chip {
+  --fill: var(--cream);
+  display: inline-flex; align-items: center; gap: 6px;
+  min-height: 32px; padding: 0 var(--s3);
+  font: 500 14px/1 var(--font-body); color: var(--ink);
+  background: var(--fill); border: var(--border); border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+button.nb-chip, a.nb-chip { cursor: pointer; text-decoration: none; transition: transform var(--dur) var(--ease-snap), box-shadow var(--dur) var(--ease-snap); }
+button.nb-chip:active, a.nb-chip:active { transform: translate(2px, 2px); }
+.nb-chip--shadow { box-shadow: var(--shadow-sm); }
+.nb-chip--mono { font: 400 12px/1 var(--font-mono); }
+
+/* ---------- .nb-folder — folder-tab card. Set --tab to the pile colour ----------
+   <div class="nb-folder" style="--tab: var(--pink)"><div class="nb-folder__body">…</div></div>
+   The tab sticks up behind the card; the card overlaps it. */
+.nb-folder { position: relative; padding-top: 22px; }
+.nb-folder::before {              /* the tab */
+  content: ""; position: absolute; top: 0; left: 14px;
+  width: 44%; max-width: 120px; height: 34px;
+  background: var(--tab);
+  border: var(--border); border-bottom: 0;
+  border-radius: 12px 12px 0 0;
+}
+.nb-folder__body {
+  position: relative;               /* paints over the tab */
+  background: var(--fill, var(--cream));
+  border: var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--s4);
+}
+.nb-folder--filled .nb-folder__body { background: var(--tab); }  /* whole card in pile colour */
+
+/* ---------- .nb-icon-tile — coloured square tile with ink border ----------
+   Put a 24px stroke SVG (stroke="currentColor") inside. Size via --size. */
+.nb-icon-tile {
+  --size: 44px;
+  display: inline-grid; place-items: center; flex: none;
+  width: var(--size); height: var(--size);
+  background: var(--tile); color: var(--ink);
+  border: var(--border); border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+.nb-icon-tile svg { width: 24px; height: 24px; }
+
+/* ---------- Pile colour helpers: add to any element to set --tab/--tile together ---------- */
+.pile-places   { --tab: var(--pink);   --tile: var(--pink); }
+.pile-watch    { --tab: var(--violet); --tile: var(--violet); }
+.pile-reads    { --tab: var(--lime);   --tile: var(--lime); }
+.pile-shopping { --tab: var(--sky);    --tile: var(--sky); }
+.pile-people   { --tab: var(--orange); --tile: var(--orange); }
+.pile-todos    { --tab: var(--mint);   --tile: var(--mint); }
+.pile-ideas    { --tab: var(--butter); --tile: var(--butter); }
+.pile-unsorted { --tab: var(--stone);  --tile: var(--stone); }
+
+@media (prefers-reduced-motion: reduce) {
+  .nb-btn, .nb-chip { transition: none; }
+}
+
+/* Changelog: 2026-10-20 — v1.0 initial token set from PLAN.md section 3 */
